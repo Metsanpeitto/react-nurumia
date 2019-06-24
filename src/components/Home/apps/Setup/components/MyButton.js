@@ -1,0 +1,58 @@
+import React from "react";
+import { Button } from "@material-ui/core";
+import firebase from "firebase";
+import { maxWidth } from "@material-ui/system";
+
+class MyButton extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      color: "green",
+      name: "Name",
+      isToggleOn: true
+    };
+    this.handleClick = this.handleClick.bind(this);
+    this.updateButton = this.updateButton.bind(this);
+  }
+
+  updateButton = (thisChild, thisValue) => {
+    console.log("Update button state");
+    firebase
+      .database()
+      .ref("/control/control_state")
+      .child(thisChild)
+      .set(thisValue);
+  };
+
+  handleClick(event) {
+    this.setState(prevState => ({
+      isToggleOn: !prevState.isToggleOn,
+      text: this.props.text,
+      color: "black"
+    }));
+
+    this.updateButton(this.props.child, this.state.isToggleOn ? "0" : "1");
+  }
+
+  render() {
+    return (
+      <Button
+        onClick={this.handleClick}
+        variant="contained"
+        style={{
+          backgroundColor: "white",
+          minWidth: "text",
+          margin: 5,
+          padding: 14,
+          color: this.state.isToggleOn ? "green" : "black"
+        }}
+        className=""
+      >
+        {this.props.text}
+        {this.state.isToggleOn ? "ON" : "OFF"}
+      </Button>
+    );
+  }
+}
+
+export default MyButton;
