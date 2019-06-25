@@ -176,7 +176,7 @@ class ButtonPanel extends React.Component {
     return (
       <Container
         className="setup-button-card is-card-dark  "
-        style={{ padding: 5 }}
+        style={{ padding: 10, margin: 5 }}
       >
         <h3
           className="is-dark-text-light text-small"

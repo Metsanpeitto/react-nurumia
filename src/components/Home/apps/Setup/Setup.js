@@ -29,11 +29,12 @@ class Setup extends React.Component {
         <Grid
           className="setup-main-grid"
           container
+          direction="row"
+          justify="center"
+          alignItems="center"
           style={{
             paddingTop: 2,
-            paddingLeft: 2,
-
-            margin: 4
+            paddingLeft: 10
           }}
           spacing={10}
         >
@@ -43,7 +44,6 @@ class Setup extends React.Component {
             style={{
               paddingTop: 2,
               paddingLeft: 2,
-
               margin: 4
             }}
             xs={7}
@@ -53,27 +53,6 @@ class Setup extends React.Component {
           >
             <Container>
               <SetupGrid />
-            </Container>
-          </Grid>
-          <Grid
-            className="setup-time"
-            item
-            style={{
-              paddingTop: 2,
-              paddingLeft: 2,
-
-              margin: 4
-            }}
-            xs={3}
-            sm={3}
-            lg={3}
-            xl={3}
-          >
-            <Container
-              className="buttons-container"
-              style={{ paddingTop: 20, paddingLeft: 1 }}
-            >
-              <ButtonPanel />
             </Container>
           </Grid>
         </Grid>

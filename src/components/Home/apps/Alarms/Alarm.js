@@ -14,9 +14,9 @@ const Table = ({ alarms }) => {
       className="is-light-text mb-20 padding: 6em"
       style={{ paddingTop: 100, paddingLeft: 10 }}
     >
-      Record of the Last Alarms
       <Container className="card grid-card is-card-dark">
         <Container className="is-dark-text-light letter-spacing text-small">
+          <h1> Record of the Last Alarms</h1>
           <MDBTable>
             <MDBTableHead color="primary-color" textWhite>
               <tr>

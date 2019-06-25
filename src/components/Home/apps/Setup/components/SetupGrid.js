@@ -7,6 +7,7 @@ import { Button } from "@material-ui/core";
 import firebase from "firebase";
 import Firebase from "../../../../Firebase/firebase";
 import jsonToSendSetup from "./jsonToSendSetup";
+import ButtonPanel from "./ButtonPanel";
 
 // Todo :
 //         -End Validation
@@ -24,7 +25,7 @@ class SetupGrid extends React.Component {
     this.handleClick = this.handleClick.bind(this);
     this.parseValues = this.parseValues.bind(this);
   }
-
+  h;
   jsonSetup = jsonToSendSetup;
 
   handleClick() {
@@ -71,15 +72,7 @@ class SetupGrid extends React.Component {
           container
           style={{ paddingTop: 20, paddingLeft: 2, width: 1200, margin: 4 }}
         >
-          <Grid
-            className="setup-time"
-            container
-            item
-            xs={3}
-            sm={3}
-            lg={3}
-            xl={3}
-          >
+          <Grid className="setup-time" item xs={3} sm={3} lg={3} xl={3}>
             <Container className="is-light-text mb-4 padding: 4em;">
               <Container className="card grid-card is-card-dark">
                 <Container className="card-heading">
@@ -111,15 +104,7 @@ class SetupGrid extends React.Component {
               </Container>
             </Container>
           </Grid>
-          <Grid
-            className="setup-water"
-            container
-            item
-            xs={3}
-            sm={3}
-            lg={3}
-            xl={3}
-          >
+          <Grid className="setup-water" item xs={3} sm={3} lg={3} xl={3}>
             <Container className="is-light-text mb-4 padding: 4em;">
               <Container className="card grid-card is-card-dark">
                 <Container className="card-heading">
@@ -150,15 +135,7 @@ class SetupGrid extends React.Component {
               </Container>
             </Container>
           </Grid>
-          <Grid
-            className="setup-temp"
-            container
-            item
-            xs={3}
-            sm={3}
-            lg={3}
-            xl={3}
-          >
+          <Grid className="setup-temp" item xs={3} sm={3} lg={3} xl={3}>
             <Container className="is-light-text mb-4 padding: 4em;">
               <Container className="card grid-card is-card-dark">
                 <Container className="card-heading">
@@ -189,12 +166,16 @@ class SetupGrid extends React.Component {
               </Container>
             </Container>
           </Grid>
+          <Grid className="setup-buttons" item xs={3} sm={3} lg={3} xl={3}>
+            <ButtonPanel />
+          </Grid>
         </Grid>
         <Button
           onClick={this.handleClick}
           variant="contained"
           style={{
-            backgroundColor: "white"
+            backgroundColor: "white",
+            marginLeft: 7
           }}
           className=""
         >

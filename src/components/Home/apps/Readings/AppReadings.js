@@ -74,8 +74,9 @@ class AppReadings extends Component {
           container
           spacing={10}
           width={100 % +300}
-          margin={1}
+          marginLeft={10}
           alignContent={"center"}
+          style={{ marginLeft: 40, marginTop: 1 }}
         >
           <Grid item xs={8} sm={8} lg={8} xl={8} className="readings-grid-temp">
             <Container className="chart-grid-card is-card-dark is-dark-text-light letter-spacing text-small">

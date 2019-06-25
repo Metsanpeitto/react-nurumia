@@ -42,8 +42,8 @@ class MyButton extends React.Component {
         style={{
           backgroundColor: "white",
           minWidth: "text",
-          margin: 5,
-          padding: 14,
+          margin: 2,
+          paddingTop: 10,
           color: this.state.isToggleOn ? "green" : "black"
         }}
         className=""

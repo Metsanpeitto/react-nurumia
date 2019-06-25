@@ -5,7 +5,7 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import NavBar from "./Navbar";
-import Setup from "../apps/Setup/Setup";
+import Setup from "../apps/Setup/components/SetupGrid";
 import AppReadings from "../apps/Readings/AppReadings";
 import Alarm from "../apps/Alarms/Alarm";
 import "../style.css";
