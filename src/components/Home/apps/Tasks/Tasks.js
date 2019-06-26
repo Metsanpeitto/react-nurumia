@@ -31,6 +31,18 @@ class Tasks extends React.Component {
       });
   };
 
+  onSelectEvent(pEvent) {
+    const r = window.confirm("Would you like to remove this event?");
+    if (r === true) {
+      this.setState((prevState, props) => {
+        const events = [...prevState.events];
+        const idx = events.indexOf(pEvent);
+        events.splice(idx, 1);
+        return { events };
+      });
+    }
+  }
+
   render() {
     //const { localizer } = this.props;
 
@@ -48,7 +60,7 @@ class Tasks extends React.Component {
             defaultDate={new Date(2019, 6, 26)}
             defaultView={Views.WEEK}
             localizer={localizer}
-            onSelectEvent={event => alert(event.title)}
+            onSelectEvent={event => this.onSelectEvent(event)}
             onSelectSlot={this.handleSelect}
           />
         </Container>
