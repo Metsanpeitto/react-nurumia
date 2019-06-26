@@ -1,24 +1,57 @@
 import React from "react";
-import { Calendar, momentLocalizer } from "react-big-calendar";
+import { Calendar, momentLocalizer, Views } from "react-big-calendar";
 import events from "./events";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
+import { Container } from "../../components/styled-components";
 
 const localizer = momentLocalizer(moment);
 
+const propTypes = {};
+
 class Tasks extends React.Component {
-  state = { culture: "fr" };
+  constructor(...args) {
+    super(...args);
+
+    this.state = { events };
+  }
+
+  handleSelect = ({ start, end }) => {
+    const title = window.prompt("New Event name");
+    if (title)
+      this.setState({
+        events: [
+          ...this.state.events,
+          {
+            start,
+            end,
+            title
+          }
+        ]
+      });
+  };
 
   render() {
+    //const { localizer } = this.props;
+
     return (
       <div>
-        <Calendar
-          style={{ height: 700 }}
-          events={events}
-          culture={this.state.culture}
-          defaultDate={new Date(2019, 6, 26)}
-          localizer={localizer}
-        />
+        <Container
+          className="is-card-dark is-dark-text-light letter-spacing text-small"
+          style={{ height: 523 }}
+        >
+          <Calendar
+            selectable
+            style={{ height: 480, marginTop: 10 }}
+            events={this.state.events}
+            culture={this.state.culture}
+            defaultDate={new Date(2019, 6, 26)}
+            defaultView={Views.WEEK}
+            localizer={localizer}
+            onSelectEvent={event => alert(event.title)}
+            onSelectSlot={this.handleSelect}
+          />
+        </Container>
       </div>
     );
   }
