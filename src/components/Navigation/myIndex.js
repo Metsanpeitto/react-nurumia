@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import SignOutButton from "../SignOut";
 import * as ROUTES from "../../constants/routes";
+import SVG from "react-inlinesvg";
+import "./Logo.png";
 
 import { AuthUserContext } from "../Session";
 
@@ -20,7 +22,7 @@ const NavigationAuth = () => (
     <Grid container spacing={10}>
       <Grid className="button-lamp-grid" item xs={2} sm={2} lg={2} xl={2}>
         <Container className="navbar-brand   h1 mb-0 text-large font-medium">
-          GreenHouse Controller
+          <img src="../Logo.png" />
         </Container>
       </Grid>
       <Grid className="button-lamp-grid" item xs={2} sm={2} lg={2} xl={2}>

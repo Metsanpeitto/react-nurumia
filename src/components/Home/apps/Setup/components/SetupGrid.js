@@ -5,7 +5,6 @@ import ValidField from "./TextField1";
 import defaultInputs from "./defaultInputs";
 import { Button } from "@material-ui/core";
 import firebase from "firebase";
-import Firebase from "../../../../Firebase/firebase";
 import jsonToSendSetup from "./jsonToSendSetup";
 import ButtonPanel from "./ButtonPanel";
 

@@ -9,6 +9,7 @@ import Setup from "../apps/Setup/components/SetupGrid";
 import AppReadings from "../apps/Readings/AppReadings";
 import Alarm from "../apps/Alarms/Alarm";
 import Tasks from "../apps/Tasks/Tasks";
+import Chat from "../apps/Chat/App/Chat";
 import "../style.css";
 
 function TabContainer(props) {
@@ -82,7 +83,11 @@ class ScrollableTabsButtonAuto extends React.Component {
             <Tasks />
           </TabContainer>
         )}
-        {value === 4 && <TabContainer>Item Five</TabContainer>}
+        {value === 4 && (
+          <TabContainer>
+            <Chat />
+          </TabContainer>
+        )}
       </div>
     );
   }
