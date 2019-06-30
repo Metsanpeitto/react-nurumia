@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import SignOutButton from "../SignOut";
 import * as ROUTES from "../../constants/routes";
-import SVG from "react-inlinesvg";
 import "./Logo.png";
 
 import { AuthUserContext } from "../Session";
@@ -22,39 +21,54 @@ const NavigationAuth = () => (
     <Grid container spacing={10}>
       <Grid className="button-lamp-grid" item xs={2} sm={2} lg={2} xl={2}>
         <Container className="navbar-brand   h1 mb-0 text-large font-medium">
-          <img src="../Logo.png" />
+          <img alt="" src={require("./Logo.png")} />{" "}
         </Container>
       </Grid>
       <Grid className="button-lamp-grid" item xs={2} sm={2} lg={2} xl={2}>
-        <Container className="navbar-brand   h1 mb-0 text-small font-medium">
+        <Container
+          className="navbar-brand   h1 mb-8 text-small font-medium"
+          style={{ paddingTop: 20 }}
+        >
           <li>
             <Link to={ROUTES.LANDING}>Landing</Link>
           </li>
         </Container>
       </Grid>
       <Grid className="button-lamp-grid" item xs={2} sm={2} lg={2} xl={2}>
-        <Container className="navbar-brand   h1 mb-0 text-small font-medium">
+        <Container
+          className="navbar-brand   h1 mb-0 text-small font-medium"
+          style={{ paddingTop: 20 }}
+        >
           <li>
             <Link to={ROUTES.HOME}>Home</Link>
           </li>{" "}
         </Container>
       </Grid>
       <Grid className="button-lamp-grid" item xs={2} sm={2} lg={2} xl={2}>
-        <Container className="navbar-brand   h1 mb-0 text-small font-medium">
+        <Container
+          className="navbar-brand   h1 mb-0 text-small font-medium"
+          style={{ paddingTop: 20 }}
+        >
           <li>
             <Link to={ROUTES.ACCOUNT}>Account</Link>
           </li>{" "}
         </Container>
       </Grid>
       <Grid className="button-lamp-grid" item xs={2} sm={2} lg={2} xl={2}>
-        <Container className="navbar-brand   h1 mb-0 text-small font-medium">
+        <Container
+          className="navbar-brand   h1 mb-0 text-small font-medium"
+          style={{ paddingTop: 20 }}
+        >
           <li>
             <Link to={ROUTES.ADMIN}>Admin</Link>
           </li>
         </Container>
       </Grid>
       <Grid className="button-lamp-grid" item xs={2} sm={2} lg={2} xl={2}>
-        <Container className="navbar-brand   h1 mb-0 text-small font-medium">
+        <Container
+          className="navbar-brand   h1 mb-0 text-small font-medium"
+          style={{ paddingTop: 20 }}
+        >
           <li>
             <SignOutButton />
           </li>
@@ -69,7 +83,7 @@ const NavigationNonAuth = () => (
     <Grid container spacing={10}>
       <Grid className="button-lamp-grid" item xs={2} sm={2} lg={2} xl={2}>
         <Container className="navbar-brand   h1 mb-0 text-large font-medium">
-          GreenHouse Controller
+          <img alt="" src={require("./Logo.png")} />{" "}
         </Container>
       </Grid>
       <Grid className="button-lamp-grid" item xs={2} sm={2} lg={2} xl={2}>

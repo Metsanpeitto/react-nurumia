@@ -3,8 +3,6 @@ import { MDBTable, MDBTableBody, MDBTableHead } from "mdbreact";
 import { Container } from "../../components/styled-components";
 import "../../style.css";
 import firebase from "firebase";
-import Firebase from "../../../Firebase/firebase";
-import config from "../../config";
 
 const Table = ({ alarms }) => {
   console.log(alarms);

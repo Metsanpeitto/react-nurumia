@@ -2,7 +2,6 @@ import React from "react";
 import { Container } from "../../components/styled-components";
 import "../../style.css";
 import SetupGrid from "./components/SetupGrid";
-import ButtonPanel from "./components/ButtonPanel";
 import stateSetup from "./components/stateSetup";
 import Grid from "@material-ui/core/Grid";
 

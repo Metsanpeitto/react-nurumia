@@ -24,8 +24,10 @@ export default class Form extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.user) {
-      this.setState({ userName: nextProps.user.displayName });
+      let shortName = nextProps.user.email.split("@")[0];
+      this.setState({ userName: shortName });
     }
+    console.log(nextProps);
   }
 
   handleChange(event) {

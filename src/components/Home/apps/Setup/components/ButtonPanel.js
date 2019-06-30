@@ -1,7 +1,6 @@
 import React from "react";
 import { Container } from "../../../components/styled-components";
 import { withStyles } from "@material-ui/core/styles";
-import Grid from "@material-ui/core/Grid";
 import MyButton from "./MyButton";
 import stateSetup from "./stateSetup";
 import { getData } from "./../../getData";

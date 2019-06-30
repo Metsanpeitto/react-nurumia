@@ -2,7 +2,7 @@ import React from "react";
 import { Calendar, momentLocalizer, Views } from "react-big-calendar";
 import events from "./events";
 import moment from "moment";
-import "react-big-calendar/lib/css/react-big-calendar.css";
+import "./react-big-calendar.css";
 import { Container } from "../../components/styled-components";
 import firebase from "firebase";
 

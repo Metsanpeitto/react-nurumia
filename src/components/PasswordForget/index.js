@@ -1,12 +1,15 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-
 import { withFirebase } from "../Firebase";
 import * as ROUTES from "../../constants/routes";
+import { Button } from "@material-ui/core";
+import TextField from "@material-ui/core/TextField";
+import { Container } from "../styled-components";
+import { createMuiTheme } from "@material-ui/core/styles";
+import "../style.css";
 
 const PasswordForgetPage = () => (
   <div>
-    <h1>PasswordForget</h1>
     <PasswordForgetForm />
   </div>
 );
@@ -15,6 +18,31 @@ const INITIAL_STATE = {
   email: "",
   error: null
 };
+
+const styles = theme => ({
+  container: {},
+  textFieldInput: {},
+
+  input: {
+    color: theme.palette.common.white
+  }
+});
+
+const theme = createMuiTheme({
+  overrides: {
+    MuiInputLabel: {
+      // Name of the component ⚛️ / style sheet
+      root: {
+        // Name of the rule
+        color: "white",
+        "&$focused": {
+          // increase the specificity for the pseudo class
+          color: "green"
+        }
+      }
+    }
+  }
+});
 
 class PasswordForgetFormBase extends Component {
   constructor(props) {
@@ -47,18 +75,57 @@ class PasswordForgetFormBase extends Component {
 
     return (
       <form onSubmit={this.onSubmit}>
-        <input
-          name="email"
-          value={this.state.email}
-          onChange={this.onChange}
-          type="text"
-          placeholder="Email Address"
-        />
-        <button disabled={isInvalid} type="submit">
-          Reset My Password
-        </button>
+        <Container
+          className="is-light-text mb-4 card  is-card-dark"
+          style={{ padding: "4%", margin: "5%" }}
+        >
+          <Container className="is-dark-text-light letter-spacing text-small">
+            <h1>PasswordForget</h1>
+          </Container>
 
-        {error && <p>{error.message}</p>}
+          <TextField
+            name="email"
+            value={this.state.email}
+            onChange={this.onChange}
+            type="text"
+            placeholder="Email Address"
+            margin="normal"
+            variant="outlined"
+            style={{ width: "60%", marginLeft: "20%" }}
+            InputLabelProps={{
+              classes: {
+                root: theme.white,
+                focused: "white"
+              }
+            }}
+            InputProps={{
+              className: styles.input,
+              style: { color: "white" },
+              classes: {
+                className: styles.input,
+                root: styles.cssOutlinedInput,
+                focused: styles.cssFocused,
+                notchedOutline: styles.notchedOutline
+              },
+              inputMode: "email"
+            }}
+          />
+
+          <Button
+            disabled={isInvalid}
+            type="submit"
+            style={{
+              backgroundColor: "white",
+              color: "black",
+              width: "60%",
+              marginLeft: "20%"
+            }}
+          >
+            Reset My Password
+          </Button>
+
+          {error && <p>{error.message}</p>}
+        </Container>
       </form>
     );
   }

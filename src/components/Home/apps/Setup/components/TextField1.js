@@ -64,7 +64,6 @@ class ValidField extends React.Component {
   // ,tamp-max,temp-min,humi-max,humi-min
 
   render() {
-    const { classes } = this.props;
     return (
       <div>
         {" "}
@@ -96,11 +95,7 @@ class ValidField extends React.Component {
               inputMode: "numeric"
             }}
           />
-          <h6
-            className=".text-x-small"
-            style={{ color: "green" }}
-            style={{ color: "green" }}
-          >
+          <h6 className=".text-x-small" style={{ color: "green" }}>
             {this.state.comment}
           </h6>
         </ThemeProvider>

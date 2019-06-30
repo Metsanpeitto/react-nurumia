@@ -1,22 +1,3 @@
-/* font faces */
-@font-face {
-  font-family: "basefont-regular";
-  src: local("basefont-regular"),
-    url("./assets/fonts/circular/CircularStd-Book.otf") format("opentype");
-}
-
-@font-face {
-  font-family: "basefont-medium";
-  src: local("basefont-medium"),
-    url("./assets/fonts/circular/CircularStd-Medium.otf") format("opentype");
-}
-
-@font-face {
-  font-family: "basefont-bold";
-  src: local("basefont-bold"),
-    url("./assets/fonts/circular/CircularStd-Bold.otf") format("opentype");
-}
-
 /* typography styles */
 .is-dark-text {
   color: rgb(67, 68, 86);

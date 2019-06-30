@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./App.css";
 import Form from "../Form/Form.js";
 import firebase from "firebase";
-import firebaseConfig from "../../../config";
 
 //firebase.initializeApp(firebaseConfig);
 
@@ -18,8 +17,10 @@ class Chat extends Component {
   componentDidMount() {
     firebase.auth().onAuthStateChanged(user => {
       this.setState({ user });
+      console.log(user);
     });
   }
+
   handleSignIn() {
     const provider = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(provider);
