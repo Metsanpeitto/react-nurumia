@@ -1,5 +1,6 @@
 import React from "react";
 import { Container } from "../../../components/styled-components";
+import "../../../style.css";
 
 class Card extends React.Component {
   render() {

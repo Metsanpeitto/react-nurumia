@@ -6,6 +6,7 @@ import MY_STATE from "./components/stateReadings";
 import { getData } from "./../getData";
 import "bootstrap/dist/css/bootstrap.css";
 import Grid from "@material-ui/core/Grid";
+import "../../style.css";
 
 class AppReadings extends Component {
   constructor(props) {
@@ -73,23 +74,30 @@ class AppReadings extends Component {
           className="readings-grid"
           container
           spacing={10}
-          width={100 % +300}
           alignContent={"center"}
-          style={{ marginleft: 40, marginTop: 1 }}
         >
-          <Grid item xs={8} sm={8} lg={8} xl={8} className="readings-grid-temp">
+          <Grid
+            item
+            xs={10}
+            sm={10}
+            lg={8}
+            xl={8}
+            className="readings-grid-temp"
+          >
             <Container className="chart-grid-card is-card-dark is-dark-text-light letter-spacing text-small">
-              <h3
-                className="temperature-header-chart"
-                style={{ marginTop: "10%" }}
-              >
-                Temperature Readings
-              </h3>
+              <h3 className="temperature-header-chart">Temperature Readings</h3>
               <Chart dataLine={this.state.dataLineTemperature} />
             </Container>
           </Grid>
 
-          <Grid item xs={2} sm={2} lg={2} xl={2} className="readings-grid-temp">
+          <Grid
+            item
+            xs={10}
+            sm={10}
+            lg={3}
+            xl={3}
+            className="readings-grid-temp"
+          >
             <Container className="card grid-card is-card-dark is-dark-text-light letter-spacing text-small">
               <h3 className="temperature-header-readings">Last Readings</h3>
 

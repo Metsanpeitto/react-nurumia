@@ -1,9 +1,9 @@
 import React from "react";
 import { Container } from "../../components/styled-components";
-import "../../style.css";
 import SetupGrid from "./components/SetupGrid";
 import stateSetup from "./components/stateSetup";
 import Grid from "@material-ui/core/Grid";
+import "../../style.css";
 
 /// Build the SETUP APP functionality.
 //   THIS WILL ONLY WORKS FOR ADMINS !!!!
@@ -31,25 +31,9 @@ class Setup extends React.Component {
           direction="row"
           justify="center"
           alignItems="center"
-          style={{
-            paddingTop: 2,
-            paddingLeft: 10
-          }}
           spacing={10}
         >
-          <Grid
-            className="setup-time"
-            item
-            style={{
-              paddingTop: 2,
-              paddingLeft: 2,
-              margin: 4
-            }}
-            xs={7}
-            sm={7}
-            lg={7}
-            xl={7}
-          >
+          <Grid className="setup-time" item xs={7} sm={7} lg={7} xl={7}>
             <Container>
               <SetupGrid />
             </Container>

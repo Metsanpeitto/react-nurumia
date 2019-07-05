@@ -1,17 +1,29 @@
-.message {
-  position: relative;
-  padding: 10px 60px 10px 20px;
-  font-size: 12px;
-  color: rgba(0, 0, 0, 0.6);
-  background-color: rgba(0, 0, 0, 0.05);
-  text-align: left;
-  line-height: 1.7;
+.mymessage {
+  display: flex;
+  border-radius: 8px;
+  max-width: max-content;
+  padding: 10px;
+  margin: 4px;
+  list-style: none;
+  background: #1f73b7;
+  color: #fff;
+}
+.theirmessage {
+  display: flexbox;
+  border-radius: 8px;
+  max-width: fit-content;
+  padding: 10px;
+  margin: 4px;
+  margin-inline-end: inherit;
+  align-self: flex-start;
+  background: #f3f3f3;
+  color: #000;
 }
 .message:nth-child(even) {
   background-color: rgba(0, 0, 0, 0.025);
 }
 .message__author {
   font-weight: 600;
-  margin-right: 10px;
+  margin-right: 0px;
   color: rgba(0, 0, 0, 1);
 }

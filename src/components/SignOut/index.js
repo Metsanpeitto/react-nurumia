@@ -5,8 +5,9 @@ import { Button } from "@material-ui/core";
 const SignOutButton = ({ firebase }) => (
   <Button
     type="button"
+    variant="contained"
     onClick={firebase.doSignOut}
-    style={{ backgroundColor: "gray" }}
+    style={{ backgroundColor: "white", border: 1 }}
   >
     Sign Out
   </Button>

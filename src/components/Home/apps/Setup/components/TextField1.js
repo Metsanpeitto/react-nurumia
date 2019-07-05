@@ -5,6 +5,7 @@ import { withStyles } from "@material-ui/core/styles";
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
 import validate from "./validate";
+import "../../../style.css";
 
 const theme = createMuiTheme({
   overrides: {
@@ -71,12 +72,12 @@ class ValidField extends React.Component {
           <TextField
             id={this.state.id}
             label={this.state.label}
-            className="textField"
+            className="setup-textField"
             value={this.state.value}
             onChange={this.handleValueChange.bind(this)}
             margin="normal"
             variant="outlined"
-            style={{ color: "gray" }}
+            style={{ color: "gray", marginLeft: "12%" }}
             InputLabelProps={{
               classes: {
                 root: theme.white,

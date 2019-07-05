@@ -52,6 +52,7 @@ class ScrollableTabsButtonAuto extends React.Component {
           indicatorColor="primary"
           textColor="inherit"
           backgroundcolor="transparent"
+          centered
           className="is-light-text"
         >
           <Tab label="Home" />

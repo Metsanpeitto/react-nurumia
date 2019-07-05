@@ -13,7 +13,8 @@ export default class Form extends Component {
     this.state = {
       userName: "Sebastian",
       message: "",
-      list: []
+      list: [],
+      myName: props.user
     };
     this.messageRef = firebase
       .database()
@@ -66,7 +67,11 @@ export default class Form extends Component {
             <div className="form">
               <div className="form__message">
                 {this.state.list.map((item, index) => (
-                  <Message key={index} message={item} />
+                  <Message
+                    key={index}
+                    message={item}
+                    userName={this.state.userName}
+                  />
                 ))}
               </div>
               <div className="form__row">

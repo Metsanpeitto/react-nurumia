@@ -1,13 +1,19 @@
 import React, { Component } from "react";
+import { Container } from "../../../components/styled-components";
+
 import "./Message.css";
 
 export default class Message extends Component {
   render() {
-    return (
-      <div className="message">
-        <span className="message_author">{this.props.message.userName}:</span>
-        {this.props.message.message}
-      </div>
-    );
+    if (this.props.userName === this.props.message.userName) {
+      return <div className="mymessage">{this.props.message.message}</div>;
+    } else {
+      return (
+        <div className="theirmessage">
+          <span className="message_author">{this.props.message.userName}:</span>
+          {this.props.message.message}
+        </div>
+      );
+    }
   }
 }

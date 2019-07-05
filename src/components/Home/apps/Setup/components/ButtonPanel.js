@@ -5,6 +5,7 @@ import MyButton from "./MyButton";
 import stateSetup from "./stateSetup";
 import { getData } from "./../../getData";
 import firebase from "firebase";
+import "../../../style.css";
 
 const styles = theme => ({
   button: {
@@ -173,13 +174,10 @@ class ButtonPanel extends React.Component {
 
   render() {
     return (
-      <Container
-        className="setup-button-card is-card-dark  "
-        style={{ padding: 10, margin: 5 }}
-      >
+      <Container className="setup-button-card is-card-dark  ">
         <h3
           className="is-dark-text-light text-small"
-          style={{ paddingLeft: 5 }}
+          style={{ textAlign: "center" }}
         >
           Actual State of the Actuators
         </h3>

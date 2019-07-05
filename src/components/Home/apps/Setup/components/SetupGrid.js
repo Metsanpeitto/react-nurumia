@@ -66,15 +66,11 @@ class SetupGrid extends React.Component {
     console.log(this.state.inputs.daysinflo.value);
     return (
       <div key={Math.random()}>
-        <Grid
-          className="setup-main-grid"
-          container
-          style={{ paddingTop: 20, paddingLeft: 2, width: 1200, margin: 4 }}
-        >
-          <Grid className="setup-time" item xs={3} sm={3} lg={3} xl={3}>
+        <Grid className="setup-main-grid" container spacing={10}>
+          <Grid className="setup-time" item xs={10} sm={10} lg={3} xl={3}>
             <Container className="is-light-text mb-4 padding: 4em;">
               <Container className="card grid-card is-card-dark">
-                <Container className="card-heading">
+                <Container className="setup-card-heading">
                   <Container className="is-dark-text-light letter-spacing text-small">
                     Time Parameters
                   </Container>
@@ -103,10 +99,10 @@ class SetupGrid extends React.Component {
               </Container>
             </Container>
           </Grid>
-          <Grid className="setup-water" item xs={3} sm={3} lg={3} xl={3}>
+          <Grid className="setup-water" item xs={10} sm={10} lg={3} xl={3}>
             <Container className="is-light-text mb-4 padding: 4em;">
               <Container className="card grid-card is-card-dark">
-                <Container className="card-heading">
+                <Container className="setup-card-heading">
                   <Container className="is-dark-text-light letter-spacing text-small">
                     Water Parameters
                   </Container>
@@ -134,10 +130,10 @@ class SetupGrid extends React.Component {
               </Container>
             </Container>
           </Grid>
-          <Grid className="setup-temp" item xs={3} sm={3} lg={3} xl={3}>
+          <Grid className="setup-temp" item xs={10} sm={10} lg={3} xl={3}>
             <Container className="is-light-text mb-4 padding: 4em;">
               <Container className="card grid-card is-card-dark">
-                <Container className="card-heading">
+                <Container className="setup-card-heading">
                   <Container className="is-dark-text-light letter-spacing text-small">
                     Air Parameters
                   </Container>
@@ -165,7 +161,7 @@ class SetupGrid extends React.Component {
               </Container>
             </Container>
           </Grid>
-          <Grid className="setup-buttons" item xs={3} sm={3} lg={3} xl={3}>
+          <Grid className="setup-buttons" item xs={10} sm={10} lg={3} xl={3}>
             <ButtonPanel />
           </Grid>
         </Grid>
@@ -176,7 +172,7 @@ class SetupGrid extends React.Component {
             backgroundColor: "white",
             marginLeft: 7
           }}
-          className=""
+          className="setup-submit-button"
         >
           {this.state.isToggleOn ? "Submit" : "Submitted"}
         </Button>

@@ -2,6 +2,7 @@ import React from "react";
 import stateReadings from "./stateReadings";
 import { Container } from "../../../components/styled-components";
 import Card from "./Card";
+import "../../../style.css";
 
 class ReadingsGrid extends React.Component {
   constructor(props) {
@@ -12,10 +13,7 @@ class ReadingsGrid extends React.Component {
   render() {
     return (
       <div key={Math.random()}>
-        <Container
-          className="card temp-grid-card is-card-dark is-light-text mb-9 padding: 4em"
-          style={{ padding: "2%" }}
-        >
+        <Container className="card temp-grid-card is-card-dark is-light-text mb-9 padding: 4em">
           <Card
             headerValue="Air Temperature"
             actualValue={this.state.readings.temp}
