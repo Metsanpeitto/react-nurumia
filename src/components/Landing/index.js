@@ -1,9 +1,15 @@
 import React from "react";
+import ReactDOM from "react-dom";
+import "./styles.css";
+import { App } from "./App";
+import { BrowserRouter as Router } from "react-router-dom";
+import { ProductProvider } from "./Context";
 
 const Landing = () => (
-  <div>
-    <h1>Landing</h1>
-  </div>
+  <ProductProvider>
+    <Router>
+      <App />
+    </Router>
+  </ProductProvider>
 );
-
 export default Landing;

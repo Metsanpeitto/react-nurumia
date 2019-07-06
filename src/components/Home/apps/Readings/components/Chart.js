@@ -43,7 +43,7 @@ class Chart extends React.Component {
     return (
       <div key={Math.random()}>
         <MDBContainer className="20">
-          <div className="w-100 p-3">
+          <div className="w-100 ">
             <Line
               key="Line"
               data={this.state.dataLine}

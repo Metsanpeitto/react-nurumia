@@ -79,8 +79,11 @@ class PasswordForgetFormBase extends Component {
           className="is-light-text mb-4 card  is-card-dark"
           style={{ padding: "4%", margin: "5%" }}
         >
-          <Container className="is-dark-text-light letter-spacing text-small">
-            <h1>PasswordForget</h1>
+          <Container
+            className="is-dark-text-light letter-spacing text-large"
+            style={{ textAlign: "center" }}
+          >
+            I Forgot my Password
           </Container>
 
           <TextField

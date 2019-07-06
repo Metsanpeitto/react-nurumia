@@ -16,16 +16,15 @@ const MyNavigation = () => (
     </AuthUserContext.Consumer>
   </div>
 );
-
 const NavigationAuth = () => (
   <Nav className="navbar  navbar-expand-lg fixed-top is-white is-dark-text ">
-    <Grid container spacing={10}>
-      <Grid className="button-lamp-grid" item xs={2} sm={2} lg={2} xl={2}>
+    <Grid container spacing={10} style={{ height: "65px", paddingLeft: "2%" }}>
+      <Grid item style={{ padding: "inherit" }} xs={2} sm={2} lg={2} xl={2}>
         <Container className="navbar-brand   h1 mb-0 text-large font-medium">
           <img alt="" src={require("./Logo.png")} />{" "}
         </Container>
       </Grid>
-      <Grid className="button-lamp-grid" item xs={2} sm={2} lg={2} xl={2}>
+      <Grid item style={{ padding: "inherit" }} xs={2} sm={2} lg={2} xl={2}>
         <Container
           className="navbar-brand   h1 mb-8 text-small font-medium"
           style={{ paddingTop: 20 }}
@@ -35,7 +34,7 @@ const NavigationAuth = () => (
           </Link>
         </Container>
       </Grid>
-      <Grid className="button-lamp-grid" item xs={2} sm={2} lg={2} xl={2}>
+      <Grid item style={{ padding: "inherit" }} xs={2} sm={2} lg={2} xl={2}>
         <Container
           className="navbar-brand   h1 mb-0 text-small font-medium"
           style={{ paddingTop: 20 }}
@@ -45,7 +44,7 @@ const NavigationAuth = () => (
           </Link>
         </Container>
       </Grid>
-      <Grid className="button-lamp-grid" item xs={2} sm={2} lg={2} xl={2}>
+      <Grid item style={{ padding: "inherit" }} xs={2} sm={2} lg={2} xl={2}>
         <Container
           className="navbar-brand   h1 mb-0 text-small font-medium"
           style={{ paddingTop: 20 }}
@@ -55,7 +54,7 @@ const NavigationAuth = () => (
           </Link>
         </Container>
       </Grid>
-      <Grid className="button-lamp-grid" item xs={2} sm={2} lg={2} xl={2}>
+      <Grid item style={{ padding: "inherit" }} xs={2} sm={2} lg={2} xl={2}>
         <Container
           className="navbar-brand   h1 mb-0 text-small font-medium"
           style={{ paddingTop: 20 }}
@@ -65,10 +64,10 @@ const NavigationAuth = () => (
           </Link>
         </Container>
       </Grid>
-      <Grid className="button-lamp-grid" item xs={2} sm={2} lg={2} xl={2}>
+      <Grid item style={{ padding: "inherit" }} xs={2} sm={2} lg={2} xl={2}>
         <Container
           className="navbar-brand   h1 mb-0 text-small font-medium"
-          style={{ paddingTop: "10%" }}
+          style={{ paddingTop: "7%" }}
         >
           <SignOutButton />
         </Container>
@@ -79,28 +78,19 @@ const NavigationAuth = () => (
 
 const NavigationNonAuth = () => (
   <Nav className="navbar  navbar-expand-lg fixed-top is-white is-dark-text ">
-    <Grid container spacing={10}>
-      <Grid
-        className="button-lamp-grid"
-        item
-        xs={2}
-        sm={2}
-        lg={2}
-        xl={2}
-        style={{ padding: "4%", paddingLeft: "4%" }}
-      >
+    <Grid className="navbar-noauth-grid" container spacing={10}>
+      <Grid item xs={2} sm={2} lg={2} xl={2}>
         <Container className="navbar-brand   h1 mb-0 text-large font-medium">
           <img alt="" src={require("./Logo.png")} />{" "}
         </Container>
       </Grid>
       <Grid
-        className="button-lamp-grid"
+        className="nav-noauth-grid-landing"
         item
         xs={2}
         sm={2}
         lg={4}
         xl={4}
-        style={{ margin: "1%", padding: "5%" }}
       >
         <Container className="navbar-brand   h1 mb-0 text-small font-medium">
           <Link to={ROUTES.LANDING} className="link-noau" style={{ mar: 90 }}>
@@ -108,15 +98,7 @@ const NavigationNonAuth = () => (
           </Link>
         </Container>
       </Grid>
-      <Grid
-        className="button-lamp-grid"
-        item
-        xs={2}
-        sm={2}
-        lg={4}
-        xl={4}
-        style={{ margin: "1%", padding: "5%" }}
-      >
+      <Grid className="nav-noauth-grid-signin" item xs={2} sm={2} lg={4} xl={4}>
         <Container className="navbar-brand   h1 mb-0 text-small font-medium">
           <Link to={ROUTES.SIGN_IN} className="link-noau">
             Sign In

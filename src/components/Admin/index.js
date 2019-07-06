@@ -2,6 +2,11 @@ import React, { Component } from "react";
 
 import { withFirebase } from "../Firebase";
 
+import { Container } from "../styled-components";
+import { createMuiTheme } from "@material-ui/core/styles";
+
+import "../style.css";
+
 class AdminPage extends Component {
   constructor(props) {
     super(props);
@@ -39,32 +44,47 @@ class AdminPage extends Component {
 
     return (
       <div>
-        <h1>Admin</h1>
-
-        {loading && <div>Loading ... </div>}
-
-        <UserList users={users} />
+        <Container
+          className="is-dark-text-light mb-4 card  is-card-dark text-large"
+          style={{ padding: "1%", margin: "5%", textAlign: "center" }}
+        >
+          Admin
+          {loading && (
+            <div className="is-light-text" style={{ textAlign: "center" }}>
+              Loading ...{" "}
+            </div>
+          )}
+          <UserList users={users} />
+        </Container>
       </div>
     );
   }
 }
 
 const UserList = ({ users }) => (
-  <ul>
-    {users.map(user => (
-      <li key={user.uid}>
-        <span>
-          <strong>ID:</strong> {user.uid}
-        </span>
-        <span>
-          <strong>E-mail:</strong> {user.email}
-        </span>
-        <span>
-          <strong>Username:</strong> {user.username}
-        </span>
-      </li>
-    ))}
-  </ul>
+  <Container
+    className="is-light-text mb-4 card  is-card-dark"
+    style={{ padding: "1%", width: "max-content", alignSelf: "center" }}
+  >
+    <Container className="is-light-text letter-spacing text-small">
+      {users.map(user => (
+        <li key={user.uid}>
+          <span>
+            <strong className="is-dark-text-light">ID:</strong> {user.uid}
+          </span>
+          <hr />
+          <span>
+            <strong className="is-dark-text-light">E-mail:</strong> {user.email}
+          </span>
+          <hr />
+          <span>
+            <strong className="is-dark-text-light">Username:</strong>{" "}
+            {user.username}
+          </span>
+        </li>
+      ))}
+    </Container>
+  </Container>
 );
 
 export default withFirebase(AdminPage);

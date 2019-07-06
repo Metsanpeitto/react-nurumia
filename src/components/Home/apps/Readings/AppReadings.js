@@ -69,24 +69,22 @@ class AppReadings extends Component {
   render() {
     return (
       <div className="readings-canvas">
-        <Grid
-          key="3"
-          className="readings-grid"
-          container
-          spacing={10}
-          alignContent={"center"}
-        >
+        <Grid key="3" container spacing={10} style={{ padding: "2%" }}>
           <Grid
             item
             xs={10}
             sm={10}
             lg={8}
             xl={8}
-            className="readings-grid-temp"
+            className="readings-grid-chart"
           >
             <Container className="chart-grid-card is-card-dark is-dark-text-light letter-spacing text-small">
-              <h3 className="temperature-header-chart">Temperature Readings</h3>
-              <Chart dataLine={this.state.dataLineTemperature} />
+              <h3 className="text-large " style={{ textAlign: "center" }}>
+                Temperature Readings
+              </h3>
+              <div style={{ padding: "4%", paddingTop: "8%" }}>
+                <Chart dataLine={this.state.dataLineTemperature} />
+              </div>
             </Container>
           </Grid>
 
@@ -96,10 +94,12 @@ class AppReadings extends Component {
             sm={10}
             lg={3}
             xl={3}
-            className="readings-grid-temp"
+            className="readings-grid-readings"
           >
             <Container className="card grid-card is-card-dark is-dark-text-light letter-spacing text-small">
-              <h3 className="temperature-header-readings">Last Readings</h3>
+              <h3 className="text-large " style={{ textAlign: "center" }}>
+                Last Readings
+              </h3>
 
               <ReadingsGrid />
             </Container>

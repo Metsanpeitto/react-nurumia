@@ -10,7 +10,10 @@ const Table = ({ alarms }) => {
   return (
     <Container className="card alarm-card  is-card-dark">
       <Container className="is-dark-text-light letter-spacing text-small">
-        <h1 className="alarm-header"> Record of the Last Alarms</h1>
+        <h1 className="text-large" style={{ textAlign: "center" }}>
+          {" "}
+          Record of the Last Alarms
+        </h1>
         <MDBTable>
           <MDBTableHead color="primary-color" textWhite>
             <tr>

@@ -2,6 +2,37 @@ import React, { Component } from "react";
 
 import { withFirebase } from "../Firebase";
 
+import { Button } from "@material-ui/core";
+import TextField from "@material-ui/core/TextField";
+import { Container } from "../styled-components";
+import { createMuiTheme } from "@material-ui/core/styles";
+
+import "../style.css";
+
+const theme = createMuiTheme({
+  overrides: {
+    MuiInputLabel: {
+      // Name of the component ⚛️ / style sheet
+      root: {
+        // Name of the rule
+        color: "white",
+        "&$focused": {
+          // increase the specificity for the pseudo class
+          color: "green"
+        }
+      }
+    }
+  }
+});
+const styles = theme => ({
+  container: {},
+  textFieldInput: {},
+
+  input: {
+    color: theme.palette.common.white
+  }
+});
+
 const INITIAL_STATE = {
   passwordOne: "",
   passwordTwo: "",
@@ -41,25 +72,87 @@ class PasswordChangeForm extends Component {
 
     return (
       <form onSubmit={this.onSubmit}>
-        <input
-          name="passwordOne"
-          value={passwordOne}
-          onChange={this.onChange}
-          type="password"
-          placeholder="New Password"
-        />
-        <input
-          name="passwordTwo"
-          value={passwordTwo}
-          onChange={this.onChange}
-          type="password"
-          placeholder="Confirm New Password"
-        />
-        <button disabled={isInvalid} type="submit">
-          Reset My Password
-        </button>
+        <Container
+          className="is-light-text mb-4 card  is-card-dark"
+          style={{ padding: "4%", margin: "5%" }}
+        >
+          <Container
+            className="is-dark-text-light letter-spacing text-large"
+            style={{ textAlign: "center" }}
+          >
+            Change my Password
+          </Container>
+          <TextField
+            name="passwordOne"
+            value={passwordOne}
+            onChange={this.onChange}
+            type="password"
+            placeholder="New Password"
+            margin="normal"
+            variant="outlined"
+            style={{ width: "60%", marginLeft: "20%" }}
+            InputLabelProps={{
+              classes: {
+                root: theme.white,
+                focused: "white"
+              }
+            }}
+            InputProps={{
+              className: styles.input,
+              style: { color: "white" },
+              classes: {
+                className: styles.input,
+                root: styles.cssOutlinedInput,
+                focused: styles.cssFocused,
+                notchedOutline: styles.notchedOutline
+              },
+              inputMode: "text"
+            }}
+          />
 
-        {error && <p>{error.message}</p>}
+          <TextField
+            name="passwordTwo"
+            value={passwordTwo}
+            onChange={this.onChange}
+            type="password"
+            placeholder="Confirm New Password"
+            margin="normal"
+            variant="outlined"
+            style={{ width: "60%", marginLeft: "20%" }}
+            InputLabelProps={{
+              classes: {
+                root: theme.white,
+                focused: "white"
+              }
+            }}
+            InputProps={{
+              className: styles.input,
+              style: { color: "white" },
+              classes: {
+                className: styles.input,
+                root: styles.cssOutlinedInput,
+                focused: styles.cssFocused,
+                notchedOutline: styles.notchedOutline
+              },
+              inputMode: "text"
+            }}
+          />
+
+          <Button
+            disabled={isInvalid}
+            type="submit"
+            style={{
+              backgroundColor: "white",
+              color: "black",
+              width: "60%",
+              marginLeft: "20%"
+            }}
+          >
+            Change My Password
+          </Button>
+
+          {error && <p>{error.message}</p>}
+        </Container>
       </form>
     );
   }

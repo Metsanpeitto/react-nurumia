@@ -111,6 +111,22 @@ body {
     height: 65px;
   }
 
+  .nav-auth-grid {
+    padding: inherit;
+  }
+
+  .navbar-noauth-grid {
+    justify-content: space-between;
+  }
+
+  .nav-noauth-grid-landing {
+    align-self: center;
+  }
+
+  .nav-noauth-grid-signin {
+    align-self: center;
+  }
+
   .is-dark {
     background: rgb(19, 25, 36);
     height: 60px;
@@ -179,12 +195,12 @@ body {
 
   .chart {
     padding-top: 1%;
-    height: 50%;
+    height: 100%;
     width: 100%;
   }
 
   .readings-grid {
-    padding-left: 12%;
+    padding-left: 2%;
     padding-top: 5%;
   }
 

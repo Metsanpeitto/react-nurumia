@@ -84,6 +84,11 @@ export default class Form extends Component {
                   onKeyPress={this.handleKeyPress.bind(this)}
                 />
                 <Button
+                  style={{
+                    backgroundColor: "white",
+                    color: "black",
+                    borderColor: "grey"
+                  }}
                   className="form__button"
                   onClick={this.handleSend.bind(this)}
                 >

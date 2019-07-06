@@ -1,18 +1,23 @@
 import React from "react";
+
+import { withAuthentication } from "../../Session";
+
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
-import NavBar from "./Navbar";
 import Setup from "../apps/Setup/components/SetupGrid";
 import AppReadings from "../apps/Readings/AppReadings";
 import Alarm from "../apps/Alarms/Alarm";
 import Tasks from "../apps/Tasks/Tasks";
 import Chat from "../apps/Chat/App/Chat";
+
 import "../style.css";
 
 function TabContainer(props) {
+  console.log(withAuthentication);
+
   return <Typography component={"span"}>{props.children}</Typography>;
 }
 
@@ -42,10 +47,8 @@ class ScrollableTabsButtonAuto extends React.Component {
   render() {
     const { classes } = this.props;
     const { value } = this.state;
-
     return (
       <div key={Math.random()} className={classes.root}>
-        <NavBar />
         <Tabs
           value={value}
           onChange={this.handleChange}
@@ -55,7 +58,7 @@ class ScrollableTabsButtonAuto extends React.Component {
           centered
           className="is-light-text"
         >
-          <Tab label="Home" />
+          <Tab label="Readings" />
           <Tab label="Setup" />
           <Tab label="Alarms" />
           <Tab label="Tasks" />

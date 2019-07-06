@@ -176,7 +176,7 @@ class ButtonPanel extends React.Component {
     return (
       <Container className="setup-button-card is-card-dark  ">
         <h3
-          className="is-dark-text-light text-small"
+          className="is-dark-text-light text-large"
           style={{ textAlign: "center" }}
         >
           Actual State of the Actuators

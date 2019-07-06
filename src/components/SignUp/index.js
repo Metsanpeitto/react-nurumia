@@ -96,8 +96,11 @@ class SignUpFormBase extends Component {
           className="is-light-text mb-4 card  is-card-dark"
           style={{ padding: "4%", margin: "5%" }}
         >
-          <Container className="is-dark-text-light letter-spacing text-small">
-            <h1>SignUp</h1>
+          <Container
+            className="is-dark-text-light letter-spacing text-large"
+            style={{ textAlign: "center" }}
+          >
+            SignUp
           </Container>
 
           <TextField

@@ -2,6 +2,7 @@
   display: flex;
   flex-wrap: nowrap;
   flex-direction: column;
+
   width: 100%;
 }
 .form__row {
@@ -26,7 +27,7 @@
   background-color: #000;
   color: #fff;
   border: 0;
-  border-radius: 0 5px 5px 0;
+  border-radius: 1 5px 5px 0;
   outline: 0;
   cursor: pointer;
 }

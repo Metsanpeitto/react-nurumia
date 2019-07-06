@@ -71,7 +71,7 @@ class SetupGrid extends React.Component {
             <Container className="is-light-text mb-4 padding: 4em;">
               <Container className="card grid-card is-card-dark">
                 <Container className="setup-card-heading">
-                  <Container className="is-dark-text-light letter-spacing text-small">
+                  <Container className="is-dark-text-light letter-spacing text-large">
                     Time Parameters
                   </Container>
                 </Container>
@@ -103,7 +103,7 @@ class SetupGrid extends React.Component {
             <Container className="is-light-text mb-4 padding: 4em;">
               <Container className="card grid-card is-card-dark">
                 <Container className="setup-card-heading">
-                  <Container className="is-dark-text-light letter-spacing text-small">
+                  <Container className="is-dark-text-light letter-spacing text-large">
                     Water Parameters
                   </Container>
                 </Container>
@@ -134,7 +134,7 @@ class SetupGrid extends React.Component {
             <Container className="is-light-text mb-4 padding: 4em;">
               <Container className="card grid-card is-card-dark">
                 <Container className="setup-card-heading">
-                  <Container className="is-dark-text-light letter-spacing text-small">
+                  <Container className="is-dark-text-light letter-spacing text-large">
                     Air Parameters
                   </Container>
                 </Container>

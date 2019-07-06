@@ -5,6 +5,8 @@
   padding: 10px;
   margin: 4px;
   list-style: none;
+  margin-inline-start: auto;
+
   background: #1f73b7;
   color: #fff;
 }
@@ -14,8 +16,7 @@
   max-width: fit-content;
   padding: 10px;
   margin: 4px;
-  margin-inline-end: inherit;
-  align-self: flex-start;
+  margin-inline-end: auto;
   background: #f3f3f3;
   color: #000;
 }

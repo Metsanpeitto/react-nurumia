@@ -89,8 +89,11 @@ class SignInFormBase extends Component {
           className="is-light-text mb-4 card  is-card-dark"
           style={{ padding: "4%", margin: "5%" }}
         >
-          <Container className="is-dark-text-light letter-spacing text-small">
-            <h1>SignIn</h1>
+          <Container
+            className="is-dark-text-light letter-spacing text-large"
+            style={{ textAlign: "center" }}
+          >
+            SignIn
           </Container>
 
           <TextField
@@ -152,6 +155,7 @@ class SignInFormBase extends Component {
 
           <Button
             disabled={isInvalid}
+            className="submit-signin"
             type="submit"
             style={{
               backgroundColor: "white",

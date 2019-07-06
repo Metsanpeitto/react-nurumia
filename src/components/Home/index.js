@@ -10,13 +10,11 @@ import { withAuthorization } from "../Session";
 import App from "./components/App";
 import { BrowserRouter } from "react-router-dom/cjs/react-router-dom";
 
-const HomePage = () =>
-  ReactDOM.render(
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>,
-    document.getElementById("root")
-  );
+const HomePage = () => (
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+);
 const condition = authUser => !!authUser;
 
 export default withAuthorization(condition)(HomePage);
