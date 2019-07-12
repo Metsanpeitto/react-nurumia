@@ -16,7 +16,6 @@ class Groups extends Component {
   componentDidMount() {
     firebase.auth().onAuthStateChanged(user => {
       this.setState({ user });
-      console.log(user);
     });
   }
 

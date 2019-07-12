@@ -30,6 +30,35 @@ class Firebase {
 
   doPasswordUpdate = password => this.auth.currentUser.updatePassword(password);
 
+  // *** Merge Auth and DB User API *** //
+
+  onAuthUserListener = (next, fallback) =>
+    this.auth.onAuthStateChanged(authUser => {
+      if (authUser) {
+        this.user(authUser.uid)
+          .once("value")
+          .then(snapshot => {
+            const dbUser = snapshot.val();
+            // default empty roles
+            if (dbUser) {
+              if (!dbUser.roles) {
+                dbUser.roles = {};
+              }
+            }
+
+            // merge auth and db user
+            authUser = {
+              uid: authUser.uid,
+              email: authUser.email,
+              ...dbUser
+            };
+
+            next(authUser);
+          });
+      } else {
+        fallback();
+      }
+    });
   // USER API
   user = uid => this.db.ref(`users/${uid}`);
   users = () => this.db.ref(`users`);
@@ -37,23 +66,17 @@ class Firebase {
   //
 
   readAlarms = () => {
-    console.log("Read Alarms");
     this.db
       .ref("/alarms/timestamped_alarms")
       .once("value")
-      .then(snapshot => {
-        const data = snapshot.val();
-      });
+      .then(snapshot => {});
   };
 
   readControl = () => {
-    console.log("Read Control");
     this.db
       .ref("/control/timestamped_control")
       .once("value")
-      .then(snapshot => {
-        const data = snapshot.val();
-      });
+      .then(snapshot => {});
   };
 }
 export default Firebase;

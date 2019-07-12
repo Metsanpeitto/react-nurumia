@@ -24,6 +24,7 @@ class Tasks extends React.Component {
   keyStr = "key";
   authorStr = "author";
   receiver = "receiver";
+  date;
 
   handleSelect = ({ start, end, key, author }) => {
     author = "admin";
@@ -51,7 +52,6 @@ class Tasks extends React.Component {
           author: author,
           receiver: receiver
         };
-        console.log(event);
         this.updateCalendarEvents(event);
       }
     }
@@ -75,7 +75,6 @@ class Tasks extends React.Component {
   }
 
   readCalendarEvents = () => {
-    console.log("Read Calendar Events");
     firebase
       .database()
       .ref("/calendar/calendar_events")
@@ -89,11 +88,8 @@ class Tasks extends React.Component {
             let event = events[key];
             let startDate;
             let endDate;
-            console.log(key);
 
             if (event.start !== undefined) {
-              console.log(event.start);
-              console.log(event.end);
               startDate = new Date(event.start);
               endDate = new Date(event.end);
             }
@@ -102,22 +98,18 @@ class Tasks extends React.Component {
             event.start = startDate;
             event.end = endDate;
             myEvents = myEvents.concat(event);
-            console.log(myEvents);
+            return null;
           });
 
           if (myEvents !== undefined) {
             this.setState({ events: myEvents });
-            console.log(this.state.events);
           } else {
-            console.log("Error Parssing to state");
           }
         }
-        console.log(this.state);
       });
   };
 
   updateCalendarEvents = event => {
-    console.log("Update the setup state");
     firebase
       .database()
       .ref("/calendar/calendar_events/")
@@ -126,6 +118,8 @@ class Tasks extends React.Component {
 
   componentDidMount() {
     this.readCalendarEvents();
+    let newDate = new Date();
+    this.date = newDate.getDate();
   }
 
   render() {
@@ -142,8 +136,8 @@ class Tasks extends React.Component {
             style={{ height: 480, marginTop: 10 }}
             events={this.state.events}
             culture={this.state.culture}
-            defaultDate={new Date(2019, 6, 26)}
-            defaultView={Views.WEEK}
+            defaultDate={this.date}
+            defaultView={Views.MONTH}
             localizer={localizer}
             onSelectEvent={event => this.onSelectEvent(event)}
             onSelectSlot={this.handleSelect}

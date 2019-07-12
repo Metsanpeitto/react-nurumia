@@ -42,7 +42,8 @@ const styles = theme => ({
 class ValidField extends React.Component {
   constructor(props) {
     super(props);
-    this.handleClick = this.handleValueChange.bind(this);
+    this.handleChange = this.handleValueChange.bind(this);
+    this.handleFromParent = this.handleFromParent.bind(this);
 
     this.state = {
       id: this.props.id,
@@ -52,17 +53,33 @@ class ValidField extends React.Component {
     };
   }
 
+  myState = {
+    id: this.props.id,
+    label: this.props.label,
+    value: this.props.value,
+    comment: ""
+  };
+
+  handleFromParent = () => {
+    let data = { value: this.state.value, id: this.props.id };
+    this.props.handleFromParent(data);
+  };
+
   handleValueChange = event => {
     this.setState({
       value: event.target.value
     });
+    this.myState = this.state;
+    this.myState.value = event.target.value;
+
     if (event.target.value !== "" || event.target.value !== undefined) {
-      validate(this.state);
+      validate(this.myState);
+      this.value = event.target.value;
     }
   };
 
   //days-in-veg,days-in-flo-hour-on-veg-hour-on-flo,water-temp-max,water-temp-min,water-ph-max,water-ph-min
-  // ,tamp-max,temp-min,humi-max,humi-min
+  // ,tamp-max,temp-min,humi-max,humi-minthis.props.
 
   render() {
     return (
@@ -73,8 +90,9 @@ class ValidField extends React.Component {
             id={this.state.id}
             label={this.state.label}
             className="setup-textField"
-            value={this.state.value}
-            onChange={this.handleValueChange.bind(this)}
+            value={this.myState.value}
+            onChange={this.handleChange}
+            onBlur={this.handleFromParent}
             margin="normal"
             variant="outlined"
             style={{ color: "gray", marginLeft: "12%" }}

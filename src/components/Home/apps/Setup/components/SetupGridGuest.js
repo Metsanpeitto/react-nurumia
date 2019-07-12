@@ -4,9 +4,8 @@ import Grid from "@material-ui/core/Grid";
 import ValidField from "./TextField1";
 import defaultInputs from "./defaultInputs";
 import { Button } from "@material-ui/core";
-import firebase from "firebase";
 import jsonToSendSetup from "./jsonToSendSetup";
-import ButtonPanel from "./ButtonPanel";
+import ButtonPanel from "./ButtonPanelGuest";
 
 // Todo :
 //         -End Validation
@@ -14,7 +13,7 @@ import ButtonPanel from "./ButtonPanel";
 //         -Upload the buttons State and the Setup Values Form to firebase
 // ah,f,l,p,vi,vo,wh ---> /control/control_state
 
-class SetupGrid extends React.Component {
+class SetupGridGuest extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -37,13 +36,7 @@ class SetupGrid extends React.Component {
     this.updateSetup(this.jsonSetup);
   }
 
-  updateSetup = thisJson => {
-    console.log("Update the setup state");
-    firebase
-      .database()
-      .ref("/setup/setup_state")
-      .update(this.jsonSetup);
-  };
+  updateSetup = thisJson => {};
 
   parseValues() {
     //df,dv,ov,of,wi,wa,pi,pa,ai,aa,hi,ha,ai,aa,hi,ha
@@ -59,11 +52,9 @@ class SetupGrid extends React.Component {
     this.jsonSetup.ai = this.state.inputs.tempmin.value;
     this.jsonSetup.ha = this.state.inputs.humimax.value;
     this.jsonSetup.hi = this.state.inputs.humimin.value;
-    console.log(this.jsonSetup);
   }
 
   render() {
-    console.log(this.state.inputs.daysinflo.value);
     return (
       <div key={Math.random()}>
         <Grid className="setup-main-grid" container spacing={10}>
@@ -181,4 +172,4 @@ class SetupGrid extends React.Component {
   }
 }
 
-export default SetupGrid;
+export default SetupGridGuest;

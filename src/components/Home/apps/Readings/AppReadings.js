@@ -19,7 +19,6 @@ class AppReadings extends Component {
       "https://cors-anywhere.herokuapp.com/http://melandru.000webhostapp.com/WebAppChart.php"
     )
       .then(data => {
-        console.log("fetchJson");
         this.setState({ key: data.id, json: data });
         let len = this.state.json.length;
 
@@ -53,7 +52,7 @@ class AppReadings extends Component {
           }
         }
       })
-      .catch(console.log("Catched"));
+      .catch();
   };
 
   cleanData() {

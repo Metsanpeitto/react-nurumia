@@ -73,22 +73,6 @@
 
 /* Colors */
 
-.color-primary-0 {
-  color: #3f52b5;
-} /* Main Primary color */
-.color-primary-1 {
-  color: #8895dc;
-}
-.color-primary-2 {
-  color: #5e6ec7;
-}
-.color-primary-3 {
-  color: #2137aa;
-}
-.color-primary-4 {
-  color: #132584;
-}
-
 body {
   background: rgb(23, 32, 46) !important;
   font-family: "basefont-regular" !important;
@@ -98,7 +82,7 @@ body {
 /* Desktops and laptops ----------- */
 @media only screen and (min-width: 1024px) and (max-device-width: 1824px) {
   body {
-    padding: 50px;
+    padding: -50px;
   }
 
   .container-fluid {
@@ -283,9 +267,9 @@ body {
 }
 
 /* Desktops and laptops ----------- */
-@media only screen and (min-width: 1024px) and (max-device-width: 1824px) {
+@media only screen and (min-width: 481px) and (max-device-width: 1023px) {
   body {
-    padding: 50px;
+    padding: 0%;
   }
 
   .container-fluid {
@@ -462,7 +446,7 @@ body {
   /* navbar styles */
   .is-white {
     background: rgb(255, 255, 255);
-    height: 65px;
+    height: 130px;
   }
   .img {
     margin-left: 50%;

@@ -1,0 +1,227 @@
+import React from "react";
+import { Container } from "../../../components/styled-components";
+import { withStyles } from "@material-ui/core/styles";
+import MyButton from "./MyButtonGuest";
+import stateSetup from "./stateSetup";
+import { getData } from "../../getData";
+import firebase from "firebase/app";
+import "../../../style.css";
+
+const styles = theme => ({
+  button: {
+    margin: theme.spacing(1)
+  },
+  leftIcon: {
+    marginRight: 20
+  },
+  rightIcon: {
+    marginLeft: theme.spacing(1)
+  },
+  iconSmall: {
+    fontSize: 200
+  }
+});
+
+class ButtonPanel extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = stateSetup;
+    this.readSetupButtons = this.readSetupButtons.bind(this);
+  }
+
+  fetchJson = () => {
+    getData(
+      "https://cors-anywhere.herokuapp.com/http://melandru.000webhostapp.com/NurumiWebApi.php"
+    )
+      .then(data => {
+        if (data[0]) {
+          stateSetup.json = data;
+          this.setState({ stateSetup });
+          this.setButtonState();
+        }
+      })
+      .catch();
+  };
+
+  setButtonState = () => {
+    if (this.state.json[0]) {
+      this.setState({
+        pump: this.state.json[0].pump,
+        fan: this.state.json[0].fan,
+        valveIn: this.state.json[0].valveIn,
+        valveOut: this.state.json[0].valveOut,
+        wHeater: this.state.json[0].wHeater,
+        aHeater: this.state.json[0].aHeater,
+        lamp: this.state.json[0].lamp
+      });
+    }
+
+    this.state.aHeater === "0"
+      ? this.setState({
+          color1: stateSetup.black,
+          text1: stateSetup.textaHeater + " "
+        })
+      : this.setState({
+          color1: stateSetup.green,
+          text1: stateSetup.textaHeater + " "
+        });
+
+    this.state.wHeater === "0"
+      ? this.setState({
+          color2: stateSetup.black,
+          text2: stateSetup.textwHeater + " "
+        })
+      : this.setState({
+          color2: stateSetup.green,
+          text2: stateSetup.textwHeater + " "
+        });
+
+    this.state.pump === "0"
+      ? this.setState({
+          color3: stateSetup.black,
+          text3: stateSetup.textPump + " "
+        })
+      : this.setState({
+          color3: stateSetup.green,
+          text3: stateSetup.textPump + " "
+        });
+
+    this.state.valveIn === "0"
+      ? this.setState({
+          color4: stateSetup.black,
+          text4: stateSetup.textValveIn + " "
+        })
+      : this.setState({
+          color4: stateSetup.green,
+          text4: stateSetup.textValveIn + " "
+        });
+
+    this.state.valveOut === "0"
+      ? this.setState({
+          color5: stateSetup.black,
+          text5: stateSetup.textValveOut + " "
+        })
+      : this.setState({
+          color5: stateSetup.green,
+          text5: stateSetup.textValveOut + " "
+        });
+
+    this.state.lamp === "0"
+      ? this.setState({
+          color6: stateSetup.black,
+          text6: stateSetup.textLamp + " "
+        })
+      : this.setState({
+          color6: stateSetup.green,
+          text6: stateSetup.textLamp + " "
+        });
+
+    this.state.fan === "0"
+      ? this.setState({
+          color7: stateSetup.black,
+          text7: stateSetup.textFan + " "
+        })
+      : this.setState({
+          color7: stateSetup.green,
+          text7: stateSetup.textFan + " "
+        });
+  };
+
+  cleanData() {
+    stateSetup = [];
+  }
+
+  componentDidMount() {
+    this.fetchJson();
+    this.readSetupButtons();
+  }
+
+  handleChange = name => event => {
+    this.setState({
+      [name]: event.target.value
+    });
+  };
+
+  readSetupButtons = () => {
+    console.log("Read Setup Buttons");
+    firebase
+      .database()
+      .ref("/control/control_state")
+      .once("value")
+      .then(snapshot => {
+        const data = snapshot.val();
+        if (data !== undefined) {
+          this.setState({
+            pump: data.p,
+            fan: data.f,
+            valveIn: data.vi,
+            valveOut: data.vo,
+            wHeater: data.wh,
+            aHeater: data.ah,
+            lamp: data.l
+          });
+          console.log(this.state.pump);
+        }
+      });
+    this.setButtonState();
+  };
+
+  render() {
+    return (
+      <Container className="setup-button-card is-card-dark  ">
+        <h3
+          className="is-dark-text-light text-large"
+          style={{ textAlign: "center" }}
+        >
+          Actual State of the Actuators
+        </h3>
+        <Container className=" grid-card is-card-dark ">
+          <MyButton
+            color={this.state.color4}
+            text={this.state.text4}
+            className="button-valvein"
+            child="vi"
+          />
+
+          <MyButton
+            backgroundColor={this.state.backgroundColor2}
+            color={this.state.color2}
+            text={this.state.text2}
+            className="button-waterheater"
+            child="wh"
+          />
+
+          <MyButton
+            color={this.state.color3}
+            text={this.state.text3}
+            className="button-waterpump"
+            child="p"
+          />
+
+          <MyButton
+            color={this.state.color5}
+            text={this.state.text5}
+            className="button-valveout"
+            child="vo"
+          />
+
+          <MyButton
+            color={this.state.color6}
+            text={this.state.text6}
+            className="button-lamp"
+            child="l"
+          />
+
+          <MyButton
+            color={this.state.color7}
+            text={this.state.text7}
+            className="button-fan"
+            child="f"
+          />
+        </Container>
+      </Container>
+    );
+  }
+}
+
+export default withStyles(styles)(ButtonPanel);

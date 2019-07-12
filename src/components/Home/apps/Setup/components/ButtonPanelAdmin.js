@@ -1,10 +1,10 @@
 import React from "react";
 import { Container } from "../../../components/styled-components";
 import { withStyles } from "@material-ui/core/styles";
-import MyButton from "./MyButton";
+import MyButton from "./MyButtonAdmin";
 import stateSetup from "./stateSetup";
-import { getData } from "./../../getData";
-import firebase from "firebase";
+import { getData } from "../../getData";
+import firebase from "firebase/app";
 import "../../../style.css";
 
 const styles = theme => ({
@@ -34,23 +34,16 @@ class ButtonPanel extends React.Component {
       "https://cors-anywhere.herokuapp.com/http://melandru.000webhostapp.com/NurumiWebApi.php"
     )
       .then(data => {
-        console.log("fetchJson");
-        let json = data[0];
-        console.log(data[0]);
-        console.log(json);
-
         if (data[0]) {
           stateSetup.json = data;
           this.setState({ stateSetup });
-          console.log(this.state);
           this.setButtonState();
         }
       })
-      .catch(console.log("Catched"));
+      .catch();
   };
 
   setButtonState = () => {
-    console.log("Set Button State");
     if (this.state.json[0]) {
       this.setState({
         pump: this.state.json[0].pump,
@@ -150,7 +143,6 @@ class ButtonPanel extends React.Component {
   };
 
   readSetupButtons = () => {
-    console.log("Read Setup Buttons");
     firebase
       .database()
       .ref("/control/control_state")
@@ -167,9 +159,9 @@ class ButtonPanel extends React.Component {
             aHeater: data.ah,
             lamp: data.l
           });
-          console.log(this.state.pump);
         }
       });
+    this.setButtonState();
   };
 
   render() {

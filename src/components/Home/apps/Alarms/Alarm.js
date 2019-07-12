@@ -5,8 +5,6 @@ import "../../style.css";
 import firebase from "firebase";
 
 const Table = ({ alarms }) => {
-  console.log(alarms);
-
   return (
     <Container className="card alarm-card  is-card-dark">
       <Container className="is-dark-text-light letter-spacing text-small">
@@ -40,7 +38,6 @@ const Table = ({ alarms }) => {
               Object.keys(alarms).map(function(key) {
                 let alarm = alarms[key];
                 alarm.data = key;
-                console.log(alarm.alarm);
                 const alarmString = "Alarm";
                 const okString = "OK";
                 let ac, ad, ah, am, lf, lh, ll, ln, ma, mo, wh;
@@ -177,7 +174,6 @@ class Alarm extends React.Component {
   }
 
   readAlarms = () => {
-    console.log("Read Alarms");
     firebase
       .database()
       .ref("/alarms/timestamped_alarms")
@@ -188,7 +184,6 @@ class Alarm extends React.Component {
           this.setState({
             alarms: data
           });
-          console.log(this.state.alarms);
         }
       });
   };

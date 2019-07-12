@@ -52,11 +52,22 @@
   letter-spacing: 0.05rem;
 }
 
+@media only screen and (min-width: 1024px) and (max-device-width: 1824px) {
+  body {
+    background: rgb(23, 32, 46) !important;
+    font-family: "basefont-regular" !important;
+    color: rgb(255, 255, 255);
+    padding: 20%;
+    margin: 0%;
+  }
+}
+
 body {
   background: rgb(23, 32, 46) !important;
   font-family: "basefont-regular" !important;
   color: rgb(255, 255, 255);
-  padding: 50px;
+  padding: 0%;
+  margin: 0%;
 }
 
 .container-fluid {
@@ -294,4 +305,28 @@ body {
     text-decoration-color: aliceblue;
     color: primary;
   }
+}
+
+.iVBHjs {
+  border-bottom: 2px solid #3f52b5;
+  margin: 0%;
+  padding: 0%;
+  background-color: white;
+  font-family: monospace;
+}
+
+.color-primary-0 {
+  color: #3f52b5;
+} /* Main Primary color */
+.color-primary-1 {
+  color: #8895dc;
+}
+.color-primary-2 {
+  color: #5e6ec7;
+}
+.color-primary-3 {
+  color: #2137aa;
+}
+.color-primary-4 {
+  color: #132584;
 }

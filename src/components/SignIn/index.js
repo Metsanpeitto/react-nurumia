@@ -9,6 +9,8 @@ import { Button } from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
 import { Container } from "../styled-components";
 import { createMuiTheme } from "@material-ui/core/styles";
+import Checkbox from "@material-ui/core/Checkbox";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
 import "../style.css";
 
 const theme = createMuiTheme({
@@ -48,6 +50,7 @@ const SignInPage = () => (
 const INITIAL_STATE = {
   email: "",
   password: "",
+  checked: true,
   error: null
 };
 
@@ -56,6 +59,7 @@ class SignInFormBase extends Component {
     super(props);
 
     this.state = { ...INITIAL_STATE };
+    this.checkboxToggle = this.checkboxToggle.bind(this);
   }
 
   onSubmit = event => {
@@ -78,8 +82,19 @@ class SignInFormBase extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
+  checkboxToggle() {
+    // state is updated first
+
+    this.setState({ checked: !this.state.checked });
+    console.log("boxIsChecked: " + this.state.checked);
+    if (this.state.checked === true) {
+      console.log("Send once the solicitude");
+      this.setState({ email: "guest@nurumi.com", password: "password" });
+    }
+  }
+
   render() {
-    const { email, password, error } = this.state;
+    const { email, password, error, checked } = this.state;
 
     const isInvalid = password === "" || email === "";
 
@@ -95,6 +110,23 @@ class SignInFormBase extends Component {
           >
             SignIn
           </Container>
+
+          <FormControlLabel
+            label="Visit as guest."
+            style={{ marginLeft: "20%" }}
+            control={
+              <Checkbox
+                name="checked"
+                checked={!this.state.checked}
+                onClick={this.checkboxToggle}
+                value={checked}
+                color="primary"
+                inputProps={{
+                  "aria-label": "secondary checkbox"
+                }}
+              />
+            }
+          />
 
           <TextField
             name="email"

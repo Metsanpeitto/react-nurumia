@@ -1,13 +1,49 @@
 import React from "react";
-import { Container, Nav } from "./styled-components";
 import { Link } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import SignOutButton from "../SignOut";
 import * as ROUTES from "../../constants/routes";
+import ResponsiveMenu from "react-responsive-navbar";
+import styled from "styled-components";
+import { FaBars, FaTimes } from "react-icons/fa";
+
 import "./Logo.png";
 import "../style.css";
 
 import { AuthUserContext } from "../Session";
+
+const Menu = styled.div`
+  border-bottom: 2px solid #3f52b5;
+  margin: 0;
+  background-color: white;
+
+  ul {
+    padding: 0%;
+    margin: 0%;
+  }
+  li {
+    display: inline;
+    font-size: 1.125rem;
+    list-style-type: none;
+    margin: 5%;
+  }
+  a {
+    text-decoration: none;
+
+    font-size: 20px;
+    color: #3f52b5;
+    &:hover {
+      color: #8895dc;
+    }
+  }
+  @media (max-width: 500px) {
+    li {
+      padding: 10px 0;
+      display: block;
+      margin-left: 0;
+    }
+  }
+`;
 
 const MyNavigation = () => (
   <div>
@@ -17,96 +53,72 @@ const MyNavigation = () => (
   </div>
 );
 const NavigationAuth = () => (
-  <Nav className="navbar  navbar-expand-lg fixed-top is-white is-dark-text ">
-    <Grid container spacing={10} style={{ height: "65px", paddingLeft: "2%" }}>
-      <Grid item style={{ padding: "inherit" }} xs={2} sm={2} lg={2} xl={2}>
-        <Container className="navbar-brand   h1 mb-0 text-large font-medium">
-          <img alt="" src={require("./Logo.png")} />{" "}
-        </Container>
-      </Grid>
-      <Grid item style={{ padding: "inherit" }} xs={2} sm={2} lg={2} xl={2}>
-        <Container
-          className="navbar-brand   h1 mb-8 text-small font-medium"
-          style={{ paddingTop: 20 }}
-        >
-          <Link to={ROUTES.LANDING} className="link">
-            Landing
-          </Link>
-        </Container>
-      </Grid>
-      <Grid item style={{ padding: "inherit" }} xs={2} sm={2} lg={2} xl={2}>
-        <Container
-          className="navbar-brand   h1 mb-0 text-small font-medium"
-          style={{ paddingTop: 20 }}
-        >
-          <Link to={ROUTES.HOME} className="link">
-            Home
-          </Link>
-        </Container>
-      </Grid>
-      <Grid item style={{ padding: "inherit" }} xs={2} sm={2} lg={2} xl={2}>
-        <Container
-          className="navbar-brand   h1 mb-0 text-small font-medium"
-          style={{ paddingTop: 20 }}
-        >
-          <Link to={ROUTES.ACCOUNT} className="link">
-            Account
-          </Link>
-        </Container>
-      </Grid>
-      <Grid item style={{ padding: "inherit" }} xs={2} sm={2} lg={2} xl={2}>
-        <Container
-          className="navbar-brand   h1 mb-0 text-small font-medium"
-          style={{ paddingTop: 20 }}
-        >
-          <Link to={ROUTES.ADMIN} className="link">
-            Admin
-          </Link>
-        </Container>
-      </Grid>
-      <Grid item style={{ padding: "inherit" }} xs={2} sm={2} lg={2} xl={2}>
-        <Container
-          className="navbar-brand   h1 mb-0 text-small font-medium"
-          style={{ paddingTop: "7%" }}
-        >
-          <SignOutButton />
-        </Container>
-      </Grid>
-    </Grid>
-  </Nav>
+  <ResponsiveMenu
+    menuOpenButton={<FaBars size={30} color="#3f52b5" />}
+    menuCloseButton={<FaTimes size={30} color="#3f52b5" />}
+    changeMenuOn="500px"
+    largeMenuClassName="large-menu-classname"
+    smallMenuClassName="small-menu-classname"
+    style={{ textAlign: "left", width: "100%" }}
+    menu={
+      <div>
+        <Menu>
+          <ul>
+            <img
+              style={{ paddingLeft: "1%" }}
+              alt=""
+              src={require("./Logo.png")}
+            />
+            <li>
+              {" "}
+              <Link to={ROUTES.LANDING} className="link">
+                The Project
+              </Link>
+            </li>
+            <li>
+              {" "}
+              <Link to={ROUTES.HOME} className="link">
+                Home
+              </Link>
+            </li>
+            <li>
+              {" "}
+              <Link to={ROUTES.ACCOUNT} className="link">
+                Account
+              </Link>{" "}
+            </li>
+
+            <SignOutButton />
+          </ul>
+        </Menu>
+      </div>
+    }
+  />
 );
 
 const NavigationNonAuth = () => (
-  <Nav className="navbar  navbar-expand-lg fixed-top is-white is-dark-text ">
-    <Grid className="navbar-noauth-grid" container spacing={10}>
-      <Grid item xs={2} sm={2} lg={2} xl={2}>
-        <Container className="navbar-brand   h1 mb-0 text-large font-medium">
-          <img alt="" src={require("./Logo.png")} />{" "}
-        </Container>
-      </Grid>
-      <Grid
-        className="nav-noauth-grid-landing"
-        item
-        xs={2}
-        sm={2}
-        lg={4}
-        xl={4}
-      >
-        <Container className="navbar-brand   h1 mb-0 text-small font-medium">
-          <Link to={ROUTES.LANDING} className="link-noau" style={{ mar: 90 }}>
-            Landing
+  <ResponsiveMenu
+    className="responsive-menu"
+    menuOpenButton={<FaBars size={30} color="#3f52b5" />}
+    menuCloseButton={<FaTimes size={30} color="#3f52b5" />}
+    changeMenuOn="500px"
+    largeMenuClassName="large-menu-classname"
+    smallMenuClassName="small-menu-classname"
+    menu={
+      <Menu>
+        <img alt="" src={require("./Logo.png")} />
+        <ul>
+          <Link to={ROUTES.LANDING} className="link">
+            The Project
           </Link>
-        </Container>
-      </Grid>
-      <Grid className="nav-noauth-grid-signin" item xs={2} sm={2} lg={4} xl={4}>
-        <Container className="navbar-brand   h1 mb-0 text-small font-medium">
           <Link to={ROUTES.SIGN_IN} className="link-noau">
             Sign In
           </Link>
-        </Container>
-      </Grid>
-    </Grid>
-  </Nav>
+        </ul>
+        <SignOutButton />
+      </Menu>
+    }
+  />
 );
 
 export default MyNavigation;

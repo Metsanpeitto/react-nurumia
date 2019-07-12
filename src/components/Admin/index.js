@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import { withFirebase } from "../Firebase";
 
 import { Container } from "../styled-components";
-import { createMuiTheme } from "@material-ui/core/styles";
 
 import "../style.css";
 

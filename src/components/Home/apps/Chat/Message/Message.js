@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Container } from "../../../components/styled-components";
 
 import "./Message.css";
 

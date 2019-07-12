@@ -28,7 +28,6 @@ export default class Form extends Component {
       let shortName = nextProps.user.email.split("@")[0];
       this.setState({ userName: shortName });
     }
-    console.log(nextProps);
   }
 
   handleChange(event) {
