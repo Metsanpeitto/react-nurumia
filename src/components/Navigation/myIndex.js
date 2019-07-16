@@ -14,9 +14,11 @@ import { AuthUserContext } from "../Session";
 
 const Menu = styled.div`
   border-bottom: 2px solid #3f52b5;
-  margin: 0;
+  margin: 0%;
   background-color: white;
-
+  flex: 1;
+  text-align: -webkit-left;
+  width: 100%;
   ul {
     padding: 0%;
     margin: 0%;
@@ -59,35 +61,24 @@ const NavigationAuth = () => (
     changeMenuOn="500px"
     largeMenuClassName="large-menu-classname"
     smallMenuClassName="small-menu-classname"
-    style={{ textAlign: "left", width: "100%" }}
     menu={
       <div>
         <Menu>
-          <ul>
+          <ul class="flex justify-between">
             <img
-              style={{ paddingLeft: "1%" }}
+              style={{ paddingLeft: "1%", marginTop: "1%" }}
               alt=""
               src={require("./Logo.png")}
             />
-            <li>
-              {" "}
-              <Link to={ROUTES.LANDING} className="link">
-                The Project
-              </Link>
-            </li>
-            <li>
-              {" "}
-              <Link to={ROUTES.HOME} className="link">
-                Home
-              </Link>
-            </li>
-            <li>
-              {" "}
-              <Link to={ROUTES.ACCOUNT} className="link">
-                Account
-              </Link>{" "}
-            </li>
-
+            <Link to={ROUTES.LANDING} className="link">
+              The Project
+            </Link>
+            <Link to={ROUTES.HOME} className="link">
+              Home
+            </Link>
+            <Link to={ROUTES.ACCOUNT} className="link">
+              Account
+            </Link>
             <SignOutButton />
           </ul>
         </Menu>
@@ -106,16 +97,21 @@ const NavigationNonAuth = () => (
     smallMenuClassName="small-menu-classname"
     menu={
       <Menu>
-        <img alt="" src={require("./Logo.png")} />
-        <ul>
+        <ul class="flex justify-between">
+          <img
+            style={{ paddingLeft: "1%", marginTop: "1%" }}
+            alt=""
+            src={require("./Logo.png")}
+          />
+
           <Link to={ROUTES.LANDING} className="link">
             The Project
           </Link>
           <Link to={ROUTES.SIGN_IN} className="link-noau">
             Sign In
           </Link>
+          <SignOutButton />
         </ul>
-        <SignOutButton />
       </Menu>
     }
   />

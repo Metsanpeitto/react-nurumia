@@ -224,8 +224,8 @@ body {
 
   .setup-main-grid {
     align-content: center;
-    padding-top: 5%;
-    width: 1200;
+    width: 100%;
+    margin: 0%;
   }
 
   .setup-time {
@@ -395,8 +395,8 @@ body {
 
   .setup-main-grid {
     align-content: center;
-    padding-top: 5%;
-    width: 1200;
+    padding-top: 1%;
+    width: 100%;
   }
 
   .setup-time {
@@ -565,8 +565,8 @@ body {
 
   .setup-main-grid {
     align-content: center;
-    padding-top: 5%;
-    width: 1200;
+    width: 100%;
+    margin: 0%;
   }
 
   .setup-time {

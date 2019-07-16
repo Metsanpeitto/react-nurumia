@@ -8,7 +8,12 @@ const SignOutButton = ({ firebase }) => (
     type="button"
     variant="contained"
     onClick={firebase.doSignOut}
-    style={{ backgroundColor: "white", border: 1 }}
+    style={{
+      backgroundColor: "white",
+      border: 1,
+      maxHeight: "fit-content",
+      margin: "1%"
+    }}
   >
     Sign Out
   </Button>

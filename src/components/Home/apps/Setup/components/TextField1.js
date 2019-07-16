@@ -95,7 +95,7 @@ class ValidField extends React.Component {
             onBlur={this.handleFromParent}
             margin="normal"
             variant="outlined"
-            style={{ color: "gray", marginLeft: "12%" }}
+            style={{ color: "gray" }}
             InputLabelProps={{
               classes: {
                 root: theme.white,

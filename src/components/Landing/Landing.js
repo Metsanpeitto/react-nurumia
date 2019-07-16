@@ -2,7 +2,7 @@ import React from "react";
 import { Container } from "../styled-components";
 
 const LandingPage = () => (
-  <div>
+  <div style={{ textAlign: "center" }}>
     <Container
       className="is-light-text mb-4 card  is-card-dark"
       style={{ padding: "1%", margin: "5%" }}

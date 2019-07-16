@@ -119,7 +119,12 @@ class SetupGridAdmin extends React.Component {
     return (
       <div key={Math.random()}>
         <form className="Form" onSubmit={this.onFormSubmit}>
-          <Grid className="setup-main-grid" container spacing={10}>
+          <Grid
+            className="setup-main-grid"
+            container
+            style={{ width: "100%", margin: "0%" }}
+            spacing={10}
+          >
             <Grid className="setup-time" item xs={10} sm={10} lg={3} xl={3}>
               <Container className="is-light-text mb-4 padding: 4em;">
                 <Container className="card grid-card is-card-dark">
@@ -235,13 +240,14 @@ class SetupGridAdmin extends React.Component {
             variant="contained"
             style={{
               backgroundColor: "white",
-              marginLeft: 7
+              marginLeft: "3%"
             }}
             className="setup-submit-button"
           >
             {this.state.isToggleOn ? "Submit" : "Submitted"}
           </Button>
         </form>
+        Admin
       </div>
     );
   }

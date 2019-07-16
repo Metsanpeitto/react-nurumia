@@ -68,7 +68,12 @@ class AppReadings extends Component {
   render() {
     return (
       <div className="readings-canvas">
-        <Grid key="3" container spacing={10} style={{ padding: "2%" }}>
+        <Grid
+          key="3"
+          container
+          spacing={10}
+          style={{ width: "100%", margin: "1%" }}
+        >
           <Grid
             item
             xs={10}
@@ -78,7 +83,10 @@ class AppReadings extends Component {
             className="readings-grid-chart"
           >
             <Container className="chart-grid-card is-card-dark is-dark-text-light letter-spacing text-small">
-              <h3 className="text-large " style={{ textAlign: "center" }}>
+              <h3
+                className="text-large "
+                style={{ textAlign: "center", paddingTop: "2%" }}
+              >
                 Temperature Readings
               </h3>
               <div style={{ padding: "4%", paddingTop: "8%" }}>

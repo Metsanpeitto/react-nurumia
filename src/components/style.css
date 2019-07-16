@@ -315,6 +315,34 @@ body {
   font-family: monospace;
 }
 
+.fELhAM a {
+  display: flex;
+  justify-content: space-between;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-size: 20px;
+  margin-top: auto;
+  color: #3f52b5;
+}
+
+.jUCstG {
+  flex: 1;
+  justify-content: space-between;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-size: 20px;
+  margin-top: auto;
+  color: #3f52b5;
+}
+
+.flex {
+  display: flex;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
 .color-primary-0 {
   color: #3f52b5;
 } /* Main Primary color */

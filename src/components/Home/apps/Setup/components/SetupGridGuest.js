@@ -7,6 +7,8 @@ import { Button } from "@material-ui/core";
 import jsonToSendSetup from "./jsonToSendSetup";
 import ButtonPanel from "./ButtonPanelGuest";
 
+import "../../../style.css";
+
 // Todo :
 //         -End Validation
 //         -Let ready Submit ,for The form and for the buttons
@@ -57,13 +59,18 @@ class SetupGridGuest extends React.Component {
   render() {
     return (
       <div key={Math.random()}>
-        <Grid className="setup-main-grid" container spacing={10}>
+        <Grid
+          className="setup-main-grid"
+          container
+          spacing={10}
+          style={{ width: "100%", margin: "0%" }}
+        >
           <Grid className="setup-time" item xs={10} sm={10} lg={3} xl={3}>
-            <Container className="is-light-text mb-4 padding: 4em;">
+            <Container className="is-light-text ">
               <Container className="card grid-card is-card-dark">
                 <Container className="setup-card-heading">
                   <Container className="is-dark-text-light letter-spacing text-large">
-                    Time Parameters
+                    Lime Parameters
                   </Container>
                 </Container>
                 <ValidField
@@ -161,12 +168,13 @@ class SetupGridGuest extends React.Component {
           variant="contained"
           style={{
             backgroundColor: "white",
-            marginLeft: 7
+            marginLeft: "3%"
           }}
           className="setup-submit-button"
         >
           {this.state.isToggleOn ? "Submit" : "Submitted"}
         </Button>
+        admin
       </div>
     );
   }
