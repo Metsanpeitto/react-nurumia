@@ -1,13 +1,13 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
 import { MDBContainer } from "mdbreact";
+import "../../../style.css";
 
 const stateReadings = {
   promiseIsResolved: "false",
   dataLine: {
     labels: [],
-    datasets: [],
-    width: "50"
+    datasets: []
   }
 };
 
@@ -42,12 +42,13 @@ class Chart extends React.Component {
   render() {
     return (
       <div key={Math.random()}>
-        <MDBContainer className="20">
-          <div className="w-100 ">
+        <MDBContainer className="readings-chart-container">
+          <div className="w-10 " style={{ width: "700px", height: "350px" }}>
             <Line
               key="Line"
               data={this.state.dataLine}
-              options={{ responsive: true }}
+              options={{ responsive: true, maintainAspectRatio: false }}
+              className="readings-chart-line"
             />
           </div>
         </MDBContainer>

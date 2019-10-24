@@ -7,12 +7,14 @@ import { Button } from "@material-ui/core";
 import firebase from "firebase";
 import jsonToSendSetup from "./jsonToSendSetup";
 import ButtonPanel from "./ButtonPanelAdmin";
+import AuthUserContext from "../../../../Session/context";
 
 // Todo :
 //         -End Validation
 //         -Let ready Submit ,for The form and for the buttons
 //         -Upload the buttons State and the Setup Values Form to firebase
 // ah,f,l,p,vi,vo,wh ---> /control/control_state
+var authUser = null;
 
 class SetupGridAdmin extends React.Component {
   constructor(props) {
@@ -29,7 +31,7 @@ class SetupGridAdmin extends React.Component {
     this.inputs = defaultInputs;
   }
 
-  jsonSetup = jsonToSendSetup;
+  jsonSetup = jsonToSendSetup; // Initializes jsonSetup with same values
 
   handleData = data => {
     this.inputs[data.id].value = parseInt(data.value);
@@ -59,21 +61,21 @@ class SetupGridAdmin extends React.Component {
     this.parseValues();
   }
 
-  componentWillMount() {
+  componentDidMount(props) {
     this.downloadSetup();
   }
 
   updateSetup = thisJson => {
     firebase
       .database()
-      .ref("/setup/setup_state")
+      .ref(`/units/${this.authUser.unitname}/setup/setup_state`)
       .set(thisJson);
   };
 
   downloadSetup = () => {
     firebase
       .database()
-      .ref("/setup/setup_state")
+      .ref(`/units/${this.authUser.unitname}/setup/setup_state`)
       .once("value")
       .then(snapshot => {
         const data = snapshot.val();
@@ -118,18 +120,42 @@ class SetupGridAdmin extends React.Component {
   render() {
     return (
       <div key={Math.random()}>
+        <AuthUserContext.Consumer>
+          {authUser => {
+            if (authUser) {
+              this.authUser = authUser;
+            }
+          }}
+        </AuthUserContext.Consumer>
         <form className="Form" onSubmit={this.onFormSubmit}>
           <Grid
             className="setup-main-grid"
             container
-            style={{ width: "100%", margin: "0%" }}
+            style={{
+              width: "100%",
+              margin: "0%",
+              height: "fit-content",
+              padding: "0%"
+            }}
             spacing={10}
           >
-            <Grid className="setup-time" item xs={10} sm={10} lg={3} xl={3}>
-              <Container className="is-light-text mb-4 padding: 4em;">
+            <Grid
+              className="setup-time"
+              item
+              xs={10}
+              sm={10}
+              lg={3}
+              xl={3}
+              style={{
+                paddingTop: "1%",
+                paddingBottom: "0%",
+                height: "100%"
+              }}
+            >
+              <Container className="is-light-text mb-4 padding: 4em">
                 <Container className="card grid-card is-card-dark">
                   <Container className="setup-card-heading">
-                    <Container className="is-dark-text-light letter-spacing text-large">
+                    <Container className=" is-dark-text-light letter-spacing text-large">
                       Time Parameters
                     </Container>
                   </Container>
@@ -161,7 +187,20 @@ class SetupGridAdmin extends React.Component {
                 </Container>
               </Container>
             </Grid>
-            <Grid className="setup-water" item xs={10} sm={10} lg={3} xl={3}>
+
+            <Grid
+              className="setup-water"
+              item
+              xs={10}
+              sm={10}
+              lg={3}
+              xl={3}
+              style={{
+                paddingTop: "1%",
+                paddingBottom: "0%",
+                height: "100%"
+              }}
+            >
               <Container className="is-light-text mb-4 padding: 4em;">
                 <Container className="card grid-card is-card-dark">
                   <Container className="setup-card-heading">
@@ -196,7 +235,19 @@ class SetupGridAdmin extends React.Component {
                 </Container>
               </Container>
             </Grid>
-            <Grid className="setup-temp" item xs={10} sm={10} lg={3} xl={3}>
+            <Grid
+              className="setup-temp"
+              item
+              xs={10}
+              sm={10}
+              lg={3}
+              xl={3}
+              style={{
+                paddingTop: "1%",
+                paddingBottom: "0%",
+                height: "100%"
+              }}
+            >
               <Container className="is-light-text mb-4 padding: 4em;">
                 <Container className="card grid-card is-card-dark">
                   <Container className="setup-card-heading">
@@ -231,8 +282,20 @@ class SetupGridAdmin extends React.Component {
                 </Container>
               </Container>
             </Grid>
-            <Grid className="setup-buttons" item xs={10} sm={10} lg={3} xl={3}>
-              <ButtonPanel />
+            <Grid
+              className="setup-buttons-grid"
+              item
+              xs={10}
+              sm={10}
+              lg={3}
+              xl={3}
+              style={{
+                paddingTop: "1%",
+                paddingBottom: "0%",
+                height: "100%"
+              }}
+            >
+              <ButtonPanel {...this.authUser} />
             </Grid>
           </Grid>
           <Button
@@ -240,14 +303,15 @@ class SetupGridAdmin extends React.Component {
             variant="contained"
             style={{
               backgroundColor: "white",
-              marginLeft: "3%"
+              marginLeft: "30.5%",
+              paddingLeft: "5%",
+              paddingRight: "5%"
             }}
             className="setup-submit-button"
           >
             {this.state.isToggleOn ? "Submit" : "Submitted"}
           </Button>
         </form>
-        Admin
       </div>
     );
   }

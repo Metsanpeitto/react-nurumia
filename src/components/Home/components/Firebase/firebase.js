@@ -31,27 +31,10 @@ class Firebase {
   doPasswordUpdate = password => this.auth.currentUser.updatePassword(password);
 
   // USER API
-  user = uid => this.db.ref(`users/${uid}`);
-  users = () => this.db.ref(`users`);
-
-  // Implement here all the firebase actions required by every component in the app
-
-  readAlarms = () => {
-    console.log("Read Alarms");
-    firebase
-      .database()
-      .ref("/alarms/timestamped_alarms")
-      .once("value")
-      .then(snapshot => {
-        const data = snapshot.val();
-        if (data) {
-          this.setState({
-            alarms: data
-          });
-          console.log(this.state.alarms);
-        }
-      });
-  };
+  chatTest = () => this.db.ref(`/units/unit1/chat/`);
+  user = (unitname, username) =>
+    this.db.ref(`/units/${unitname}/users/${username}`);
+  users = () => this.db.ref(`/users/`);
 }
 
 export default Firebase;

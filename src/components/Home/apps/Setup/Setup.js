@@ -9,16 +9,26 @@ import "../../style.css";
 import { AuthUserContext } from "../../../Session";
 
 const Setup = () => (
-  <div>
+  <div className="setup-canvas">
     <AuthUserContext.Consumer>
-      {authUser => (authUser ? <SetupAdmin /> : <SetupGuest />)}
+      {authUser => {
+        if (authUser.role) {
+          if (authUser.role === "admin") {
+            return <SetupAdmin {...authUser} />;
+          } else {
+            return <SetupGuest {...authUser} />;
+          }
+        }
+
+        console.log(authUser);
+      }}
     </AuthUserContext.Consumer>
   </div>
 );
 
-const SetupAdmin = () => (
+const SetupAdmin = authUser => (
   <BrowserRouter>
-    <SetupGridAdmin />
+    <SetupGridAdmin {...authUser} />
   </BrowserRouter>
 );
 

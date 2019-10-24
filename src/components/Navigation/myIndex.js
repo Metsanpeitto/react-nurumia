@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Grid from "@material-ui/core/Grid";
 import SignOutButton from "../SignOut";
 import * as ROUTES from "../../constants/routes";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
+
 import ResponsiveMenu from "react-responsive-navbar";
 import styled from "styled-components";
 import { FaBars, FaTimes } from "react-icons/fa";
@@ -11,6 +12,7 @@ import "./Logo.png";
 import "../style.css";
 
 import { AuthUserContext } from "../Session";
+import { withAuthentication } from "../Session";
 
 const Menu = styled.div`
   border-bottom: 2px solid #3f52b5;
@@ -47,13 +49,30 @@ const Menu = styled.div`
   }
 `;
 
-const MyNavigation = () => (
+var auth = false;
+
+const MyNavigation = props => (
   <div>
     <AuthUserContext.Consumer>
-      {authUser => (authUser ? <NavigationAuth /> : <NavigationNonAuth />)}
+      {authUser => {
+        console.log(authUser);
+        if (authUser !== null) {
+          console.log(authUser);
+          if (authUser.username !== undefined) {
+            auth = true;
+            return <NavigationAuth />;
+          } else {
+            return <NavigationNonAuth />;
+          }
+        } else {
+          return <NavigationNonAuth />;
+        }
+      }}
     </AuthUserContext.Consumer>
   </div>
 );
+
+//{authUser => (authUser ? <NavigationAuth /> : <NavigationNonAuth />)}
 const NavigationAuth = () => (
   <ResponsiveMenu
     menuOpenButton={<FaBars size={30} color="#3f52b5" />}
@@ -64,12 +83,20 @@ const NavigationAuth = () => (
     menu={
       <div>
         <Menu>
-          <ul class="flex justify-between">
-            <img
-              style={{ paddingLeft: "1%", marginTop: "1%" }}
-              alt=""
-              src={require("./Logo.png")}
-            />
+          <ul className="flex justify-between">
+            <Link to={ROUTES.HOME} className="link-logo">
+              <img
+                style={{
+                  paddingLeft: "1%",
+                  marginTop: "1%",
+                  marginBottom: "0.15%",
+                  maxHeight: "50px",
+                  minWidth: "200px"
+                }}
+                alt=""
+                src={require("../Logo.png")}
+              />
+            </Link>
             <Link to={ROUTES.LANDING} className="link">
               The Project
             </Link>
@@ -87,7 +114,7 @@ const NavigationAuth = () => (
   />
 );
 
-const NavigationNonAuth = () => (
+const NavigationNonAuth = props => (
   <ResponsiveMenu
     className="responsive-menu"
     menuOpenButton={<FaBars size={30} color="#3f52b5" />}
@@ -97,12 +124,20 @@ const NavigationNonAuth = () => (
     smallMenuClassName="small-menu-classname"
     menu={
       <Menu>
-        <ul class="flex justify-between">
-          <img
-            style={{ paddingLeft: "1%", marginTop: "1%" }}
-            alt=""
-            src={require("./Logo.png")}
-          />
+        <ul className="flex justify-between">
+          <Link to={ROUTES.LANDING} className="link-logo">
+            <img
+              style={{
+                paddingLeft: "1%",
+                marginTop: "1%",
+                marginBottom: "0.15%",
+                maxHeight: "50px",
+                minWidth: "200px"
+              }}
+              alt=""
+              src={require("../Logo.png")}
+            />
+          </Link>
 
           <Link to={ROUTES.LANDING} className="link">
             The Project
@@ -110,11 +145,17 @@ const NavigationNonAuth = () => (
           <Link to={ROUTES.SIGN_IN} className="link-noau">
             Sign In
           </Link>
-          <SignOutButton />
         </ul>
       </Menu>
     }
   />
 );
 
-export default MyNavigation;
+const clickHandler = () => (
+  <Router>
+    <Redirect push to="/" />
+    <Route path="/" component={ROUTES.LANDING} />
+  </Router>
+);
+
+export default withAuthentication(MyNavigation);

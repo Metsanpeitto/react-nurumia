@@ -34,7 +34,8 @@ const stateSetup = {
   textLamp: "Lamp",
   textFan: "Fan",
   black: "black",
-  green: "green"
+  green: "green",
+  new: "false"
   // on: "ON",
   //  off: "OFF"
 };

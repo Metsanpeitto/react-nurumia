@@ -24,7 +24,11 @@ class Firebase {
   doSignInWithEmailAndPassword = (email, password) =>
     this.auth.signInWithEmailAndPassword(email, password);
 
-  doSignOut = () => this.auth.signOut();
+  doSignOut = authUser => {
+    this.auth.signOut();
+    authUser = null;
+    return authUser;
+  };
 
   doPasswordReset = email => this.auth.sendPasswordResetEmail(email);
 
@@ -38,45 +42,117 @@ class Firebase {
         this.user(authUser.uid)
           .once("value")
           .then(snapshot => {
-            const dbUser = snapshot.val();
-            // default empty roles
-            if (dbUser) {
-              if (!dbUser.roles) {
-                dbUser.roles = {};
-              }
-            }
+            // merge auth
 
-            // merge auth and db user
             authUser = {
               uid: authUser.uid,
-              email: authUser.email,
-              ...dbUser
+              email: authUser.email
             };
 
-            next(authUser);
+            this.db
+              .ref(`/users/${authUser.uid}`)
+              .once("value")
+              .then(snapshot => {
+                const unit = snapshot.val();
+
+                if (unit) {
+                  authUser = {
+                    uid: authUser.uid,
+                    email: authUser.email,
+                    unitname: unit.unitname,
+                    username: authUser.username
+                  };
+                  this.db
+                    .ref(`/units/${authUser.unitname}/users/${authUser.uid}/`)
+                    .once("value")
+                    .then(snapshot => {
+                      const thisAuthUser = snapshot.val();
+
+                      if (thisAuthUser) {
+                        authUser = {
+                          uid: authUser.uid,
+                          email: thisAuthUser.email,
+                          unitname: thisAuthUser.unitname,
+                          username: thisAuthUser.username,
+                          role: thisAuthUser.role
+                        };
+                        next(authUser);
+                      }
+                    });
+                }
+              });
           });
       } else {
+        console.log(authUser);
+        authUser = {};
+        console.log(authUser);
+        next(authUser);
         fallback();
       }
     });
+
   // USER API
-  user = uid => this.db.ref(`users/${uid}`);
-  users = () => this.db.ref(`users`);
+  //user = username => this.db.ref(`users/${username}`);
+  //The next line is totally contraintuitive .The order as field are created is reversed
+  //In Firebases tree will show ->this-users-c
+  // Get the last 10 users, ordered by key
+  usernameRef = (unitname, uid) =>
+    this.db.ref(`/units/${unitname}/users/ ${uid}/username`);
+
+  user = unitname => this.db.ref(`/units/${unitname}/users/`);
+  unit = unitname => this.db.ref(`/units/${unitname}`);
+  dbRef = () => this.db.ref(`/`);
+  dbserialnumber = unitname => this.db.ref(`/SerialNumbers/${unitname}`);
+  dbunitname = () => this.db.ref(`/units/`);
+  populatenewunit = unitname => this.db.ref(`/units/${unitname}`);
+  globalChat = () => this.db.ref(`/chat/`);
+
+  checkSerialNumberExists = (serialnumber, unitname) => {
+    console.log(serialnumber);
+    console.log(unitname);
+    const allow = new Promise((resolve, reject) => {
+      this.dbserialnumber(unitname)
+        .once("value")
+        .then(snapshot => {
+          const number = snapshot.val();
+          if (number) {
+            if (number == serialnumber) {
+              console.log("OK");
+              console.log(`${number} = ${serialnumber}`);
+              resolve("OK");
+            } else {
+              console.log("error");
+              console.log(`${number} != ${serialnumber}`);
+              reject();
+            }
+          }
+        });
+    });
+    return allow;
+  };
+
+  checkUnitExists = unitname => {
+    console.log(unitname);
+    const unit = new Promise((resolve, reject) => {
+      this.dbunitname()
+        .once("value")
+        .then(snapshot => {
+          var unitsArray = snapshot.val();
+          console.log(unitsArray);
+          const unitfromarray = unitsArray[unitname];
+          console.log(unitfromarray);
+          if (unitfromarray) {
+            console.log("Unit found");
+            resolve("OK");
+          } else {
+            console.log("Unit not found");
+            reject();
+          }
+        });
+    });
+    return unit;
+  };
 
   //
-
-  readAlarms = () => {
-    this.db
-      .ref("/alarms/timestamped_alarms")
-      .once("value")
-      .then(snapshot => {});
-  };
-
-  readControl = () => {
-    this.db
-      .ref("/control/timestamped_control")
-      .once("value")
-      .then(snapshot => {});
-  };
 }
 export default Firebase;

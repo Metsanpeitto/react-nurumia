@@ -1,6 +1,9 @@
 import React, { Component } from "react";
+import { compose } from "recompose";
 
 import { withFirebase } from "../Firebase";
+import { withAuthorization } from "../Session";
+import * as ROLES from "../../constants/roles";
 
 import { Container } from "../styled-components";
 
@@ -44,7 +47,7 @@ class AdminPage extends Component {
     return (
       <div>
         <Container
-          className="is-dark-text-light mb-4 card  is-card-dark text-large"
+          className="is-dark-text-light mb-4 user-card  is-card-dark text-large"
           style={{ padding: "1%", margin: "5%", textAlign: "center" }}
         >
           Admin
@@ -86,4 +89,9 @@ const UserList = ({ users }) => (
   </Container>
 );
 
-export default withFirebase(AdminPage);
+const condition = authUser => authUser && authUser.roles.includes(ROLES.ADMIN);
+
+export default compose(
+  withAuthorization(condition),
+  withFirebase
+)(AdminPage);

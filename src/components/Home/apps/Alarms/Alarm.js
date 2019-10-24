@@ -4,7 +4,15 @@ import { Container } from "../../components/styled-components";
 import "../../style.css";
 import firebase from "firebase";
 
-const Table = ({ alarms }) => {
+import AuthUserContext from "../../../Session/context";
+
+var authUser = undefined;
+
+const Table = ({ state, alarms }) => {
+  if (state) {
+    console.log(state);
+  }
+
   return (
     <Container className="card alarm-card  is-card-dark">
       <Container className="is-dark-text-light letter-spacing text-small">
@@ -37,7 +45,7 @@ const Table = ({ alarms }) => {
             {alarms !== undefined ? (
               Object.keys(alarms).map(function(key) {
                 let alarm = alarms[key];
-                alarm.data = key;
+                // alarm.data = key;
                 const alarmString = "Alarm";
                 const okString = "OK";
                 let ac, ad, ah, am, lf, lh, ll, ln, ma, mo, wh;
@@ -61,77 +69,77 @@ const Table = ({ alarms }) => {
                   second: "2-digit"
                 }).format(alarm.timestamp);
 
-                if (alarm.alarm.ac === 1) {
+                if (alarms.ac === 1) {
                   ac = alarmString;
                   acColor = "red";
                 } else {
                   ac = okString;
                   acColor = "green";
                 }
-                if (alarm.alarm.ad === 1) {
+                if (alarms.ad === 1) {
                   ad = alarmString;
                   adColor = "red";
                 } else {
                   ad = okString;
                   adColor = "green";
                 }
-                if (alarm.alarm.ah === 1) {
+                if (alarms.ah === 1) {
                   ah = alarmString;
                   ahColor = "red";
                 } else {
                   ah = okString;
                   ahColor = "green";
                 }
-                if (alarm.alarm.am === 1) {
+                if (alarms.am === 1) {
                   am = alarmString;
                   amColor = "red";
                 } else {
                   am = okString;
                   amColor = "green";
                 }
-                if (alarm.alarm.lf === 1) {
+                if (alarms.lf === 1) {
                   lf = alarmString;
                   lfColor = "red";
                 } else {
                   lf = okString;
                   lfColor = "green";
                 }
-                if (alarm.alarm.lh === 1) {
+                if (alarms.lh === 1) {
                   lh = alarmString;
                   lhColor = "red";
                 } else {
                   lh = okString;
                   lhColor = "green";
                 }
-                if (alarm.alarm.ll === 1) {
+                if (alarms.ll === 1) {
                   ll = alarmString;
                   llColor = "red";
                 } else {
                   ll = okString;
                   llColor = "green";
                 }
-                if (alarm.alarm.ln === 1) {
+                if (alarms.ln === 1) {
                   ln = alarmString;
                   lnColor = "red";
                 } else {
                   ln = okString;
                   lnColor = "green";
                 }
-                if (alarm.alarm.ma === 1) {
+                if (alarms.ma === 1) {
                   ma = alarmString;
                   maColor = "red";
                 } else {
                   ma = okString;
                   maColor = "green";
                 }
-                if (alarm.alarm.mo === 1) {
+                if (alarms.mo === 1) {
                   mo = alarmString;
                   moColor = "red";
                 } else {
                   mo = okString;
                   moColor = "green";
                 }
-                if (alarm.alarm.wh === 1) {
+                if (alarms.wh === 1) {
                   wh = alarmString;
                   whColor = "red";
                 } else {
@@ -168,36 +176,63 @@ const Table = ({ alarms }) => {
 };
 
 class Alarm extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {};
   }
 
   readAlarms = () => {
-    firebase
-      .database()
-      .ref("/alarms/timestamped_alarms")
-      .once("value")
-      .then(snapshot => {
-        const data = snapshot.val();
-        if (data) {
-          this.setState({
-            alarms: data
-          });
-        }
-      });
+    if (this.authUser !== undefined) {
+      firebase
+        .database()
+        .ref(`units/${this.authUser.unitname}/alarm/timestamped_alarms`)
+        .once("value")
+        .then(snapshot => {
+          const data = snapshot.val();
+          if (data) {
+            this.setState({
+              ...{ alarms: data }
+            });
+          }
+        });
+    }
+  };
+
+  readAlarmState = () => {
+    if (this.authUser !== undefined) {
+      firebase
+        .database()
+        .ref(`units/${this.authUser.unitname}/alarm/alarm_state`)
+        .once("value")
+        .then(snapshot => {
+          const data = snapshot.val();
+          if (data) {
+            this.setState({
+              ...{ alarm: data }
+            });
+          }
+        });
+    }
   };
 
   componentDidMount() {
     this.readAlarms();
+    this.readAlarmState();
   }
 
   render() {
-    if (!this.state.alarms) {
-      return null;
-    } else {
-      return <Table alarms={this.state.alarms} />;
-    }
+    return (
+      <div key={Math.random()} className="alarm-canvas">
+        <AuthUserContext.Consumer>
+          {authUser => {
+            if (authUser !== undefined) {
+              this.authUser = authUser;
+            }
+          }}
+        </AuthUserContext.Consumer>
+        <Table {...this.state} />
+      </div>
+    );
   }
 }
 

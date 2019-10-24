@@ -17,7 +17,8 @@ const theme = createMuiTheme({
         "&$focused": {
           // increase the specificity for the pseudo class
           color: "green"
-        }
+        },
+        transform: "scale(0.9)"
       }
     }
   }
@@ -83,17 +84,16 @@ class ValidField extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="setup-div-textfield">
         {" "}
         <ThemeProvider theme={theme}>
           <TextField
             id={this.state.id}
             label={this.state.label}
-            className="setup-textField"
+            className="setup-textField "
             value={this.myState.value}
             onChange={this.handleChange}
             onBlur={this.handleFromParent}
-            margin="normal"
             variant="outlined"
             style={{ color: "gray" }}
             InputLabelProps={{
@@ -114,7 +114,7 @@ class ValidField extends React.Component {
               inputMode: "numeric"
             }}
           />
-          <h6 className=".text-x-small" style={{ color: "green" }}>
+          <h6 className="text-x-small" style={{ color: "green" }}>
             {this.state.comment}
           </h6>
         </ThemeProvider>

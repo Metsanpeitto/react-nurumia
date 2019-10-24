@@ -13,7 +13,7 @@ class ReadingsGrid extends React.Component {
   render() {
     return (
       <div key={Math.random()}>
-        <Container className="card temp-grid-card is-card-dark is-light-text mb-9 padding: 4em">
+        <Container className="user-card temp-grid-card is-card-dark is-light-text mb-9 padding: 4em">
           <Card
             headerValue="Air Temperature"
             actualValue={this.state.readings.temp}

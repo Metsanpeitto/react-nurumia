@@ -8,6 +8,8 @@ import { Button } from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
 import { Container } from "../styled-components";
 import { createMuiTheme } from "@material-ui/core/styles";
+import Checkbox from "@material-ui/core/Checkbox";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
 
 import "../style.css";
 
@@ -43,67 +45,100 @@ const SignUpPage = () => (
 );
 
 const INITIAL_STATE = {
+  unitname: "",
   username: "",
   email: "",
   passwordOne: "",
   passwordTwo: "",
-  roles: "",
+  role: "worker",
   isAdmin: "",
   isWorker: "",
-  isGuest: "true",
+  isGuest: "",
+  serialnumber: "111",
   error: null,
-  checked: true
+  checked: false
 };
 
 class SignUpFormBase extends Component {
   constructor(props) {
     super(props);
-
     this.state = { ...INITIAL_STATE };
+    this.checkboxToggle = this.checkboxToggle.bind(this);
+  }
+
+  checkboxToggle() {
+    // state is updated first
+
+    this.setState({ checked: !this.state.checked }, () =>
+      console.log("boxIsChecked: " + this.state.checked)
+    );
+    if (this.state.checked === false) {
+      this.setState({ serialnumber: undefined, role: "admin" }, () => {
+        console.log(this.state.serialnumber, this.state.role);
+      });
+    } else {
+      this.setState({ serialnumber: "111", role: "worker" }, () => {
+        console.log(this.state.serialnumber, this.state.role);
+      });
+    }
   }
 
   onSubmit = event => {
+    console.log(this.state.serialnumber, this.state.role);
     const {
+      unitname,
       username,
       email,
       passwordOne,
-      isAdmin,
-      isWorker,
-      isGuest
+      role,
+      serialnumber
     } = this.state;
 
-    const roles = {};
-
-    if (isAdmin) {
-      roles[ROLES.ADMIN] = ROLES.ADMIN;
-    }
-
-    if (isWorker) {
-      roles[ROLES.WORKER] = ROLES.WORKER;
-    }
-
-    if (isGuest) {
-      roles[ROLES.GUEST] = ROLES.GUEST;
-    }
-
-    this.props.firebase
-      .doCreateUserWithEmailAndPassword(email, passwordOne)
-      .then(authUser => {
-        return this.props.firebase.user(authUser.user.uid).set({
-          username,
-          email,
-          roles
+    if (this.state.checked === false) {
+      this.props.firebase
+        .doCreateUserWithEmailAndPassword(email, passwordOne)
+        .then(authUser => {
+          console.log(authUser.user.uid);
+          const uid = authUser.user.uid;
+          return this.props.firebase.user(username, unitname).set({
+            uid,
+            email,
+            role
+          });
+        })
+        .then(() => {
+          this.setState({ ...INITIAL_STATE });
+          this.props.history.push(ROUTES.HOME);
+        })
+        .catch(error => {
+          this.setState({ error });
+          console.log(error);
         });
-      })
-      .then(() => {
-        this.setState({ ...INITIAL_STATE });
-        this.props.history.push(ROUTES.HOME);
-      })
-      .catch(error => {
-        this.setState({ error });
-      });
 
-    event.preventDefault();
+      event.preventDefault();
+    } else {
+      this.props.firebase
+        .doCreateUserWithEmailAndPassword(email, passwordOne)
+        .then(authUser => {
+          console.log(authUser.user.uid);
+          const uid = authUser.user.uid;
+          return this.props.firebase.user(username, unitname).set({
+            uid,
+            email,
+            role
+          });
+        })
+        .then(() => {
+          this.setState({ ...INITIAL_STATE });
+          this.props.history.push(ROUTES.HOME);
+        })
+        .catch(error => {
+          this.setState({ error });
+          console.log(error);
+        });
+
+      event.preventDefault();
+    }
   };
 
   onChange = event => {
@@ -111,13 +146,55 @@ class SignUpFormBase extends Component {
   };
 
   render() {
-    const { username, email, passwordOne, passwordTwo, error } = this.state;
+    const {
+      unitname,
+      username,
+      email,
+      passwordOne,
+      passwordTwo,
+      error,
+      checked,
+      serialnumber
+    } = this.state;
 
     const isInvalid =
       passwordOne !== passwordTwo ||
       passwordOne === "" ||
       email === "" ||
-      username === "";
+      username === "" ||
+      unitname === "" ||
+      serialnumber === "";
+
+    const content = this.state.checked ? (
+      <TextField
+        name="serialnumber"
+        value={this.state.serialnumber}
+        onChange={this.onChange}
+        type="text"
+        placeholder="Serial Number"
+        margin="normal"
+        variant="outlined"
+        style={{ width: "60%", marginLeft: "20%" }}
+        InputLabelProps={{
+          classes: {
+            root: theme.white,
+            focused: "white"
+          }
+        }}
+        InputProps={{
+          className: styles.input,
+          style: { color: "white" },
+          classes: {
+            className: styles.input,
+            root: styles.cssOutlinedInput,
+            focused: styles.cssFocused,
+            notchedOutline: styles.notchedOutline
+          },
+          inputMode: "text"
+        }}
+      />
+    ) : null;
+
     return (
       <form onSubmit={this.onSubmit}>
         <Container
@@ -131,12 +208,59 @@ class SignUpFormBase extends Component {
             SignUp
           </Container>
 
+          <FormControlLabel
+            label="Start a New Greenhouse"
+            style={{ marginLeft: "20%" }}
+            control={
+              <Checkbox
+                name="checked"
+                checked={this.state.checked}
+                onClick={this.checkboxToggle}
+                value={checked}
+                color="primary"
+                inputProps={{
+                  "aria-label": "secondary checkbox"
+                }}
+              />
+            }
+          />
+
+          {content}
+
+          <TextField
+            name="unitname"
+            value={unitname}
+            onChange={this.onChange}
+            type="text"
+            placeholder="Greenhouse Name"
+            margin="normal"
+            variant="outlined"
+            style={{ width: "60%", marginLeft: "20%" }}
+            InputLabelProps={{
+              classes: {
+                root: theme.white,
+                focused: "white"
+              }
+            }}
+            InputProps={{
+              className: styles.input,
+              style: { color: "white" },
+              classes: {
+                className: styles.input,
+                root: styles.cssOutlinedInput,
+                focused: styles.cssFocused,
+                notchedOutline: styles.notchedOutline
+              },
+              inputMode: "text"
+            }}
+          />
+
           <TextField
             name="username"
             value={username}
             onChange={this.onChange}
             type="text"
-            placeholder="Full Name"
+            placeholder="User Name"
             margin="normal"
             variant="outlined"
             style={{ width: "60%", marginLeft: "20%" }}

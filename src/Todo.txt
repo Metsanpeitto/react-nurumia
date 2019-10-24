@@ -1,0 +1,3 @@
+1-Reorganize around the greenhouse name unitID.
+2-Fix visit as guest without admin rights.
+3-Input better mockup data in firebase to show legit graphics.

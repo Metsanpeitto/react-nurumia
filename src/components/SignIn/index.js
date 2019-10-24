@@ -40,7 +40,7 @@ const styles = theme => ({
 const SignInPage = () => (
   <div>
     <SignInForm />
-    <div style={{ marginLeft: "5%" }}>
+    <div className="signinLink">
       <PasswordForgetLink />
       <SignUpLink />
     </div>
@@ -89,7 +89,7 @@ class SignInFormBase extends Component {
     console.log("boxIsChecked: " + this.state.checked);
     if (this.state.checked === true) {
       console.log("Send once the solicitude");
-      this.setState({ email: "guest@nurumi.com", password: "password" });
+      this.setState({ email: "guest@nurumia.com", password: "password" });
     }
   }
 
@@ -100,10 +100,7 @@ class SignInFormBase extends Component {
 
     return (
       <form onSubmit={this.onSubmit}>
-        <Container
-          className="is-light-text mb-4 card  is-card-dark"
-          style={{ padding: "4%", margin: "5%" }}
-        >
+        <Container className="container-signin  is-light-text mb-4 user-card  is-card-dark">
           <Container
             className="is-dark-text-light letter-spacing text-large"
             style={{ textAlign: "center" }}

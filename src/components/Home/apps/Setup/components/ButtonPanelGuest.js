@@ -6,6 +6,7 @@ import stateSetup from "./stateSetup";
 import { getData } from "../../getData";
 import firebase from "firebase/app";
 import "../../../style.css";
+import AuthUserContext from "../../../../Session/context";
 
 const styles = theme => ({
   button: {
@@ -22,6 +23,8 @@ const styles = theme => ({
   }
 });
 
+var authUser = undefined;
+
 class ButtonPanel extends React.Component {
   constructor(props) {
     super(props);
@@ -29,33 +32,48 @@ class ButtonPanel extends React.Component {
     this.readSetupButtons = this.readSetupButtons.bind(this);
   }
 
-  fetchJson = () => {
-    getData(
-      "https://cors-anywhere.herokuapp.com/http://melandru.000webhostapp.com/NurumiWebApi.php"
-    )
-      .then(data => {
-        if (data[0]) {
-          stateSetup.json = data;
-          this.setState({ stateSetup });
-          this.setButtonState();
-        }
-      })
-      .catch();
+  componentDidMount() {
+    this.readSetupButtons();
+  }
+
+  handleChange = name => event => {
+    this.setState({
+      [name]: event.target.value
+    });
+  };
+
+  readSetupButtons = () => {
+    if (this.authUser !== undefined) {
+      firebase
+        .database()
+        .ref(`/units/${this.authUser.unitname}/control/control_state`)
+        .once("value")
+        .then(snapshot => {
+          const data = snapshot.val();
+
+          if (data !== undefined) {
+            this.setState(
+              {
+                ...{
+                  pump: data.p,
+                  fan: data.f,
+                  valveIn: data.vi,
+                  valveOut: data.vo,
+                  wHeater: data.wh,
+                  aHeater: data.ah,
+                  lamp: data.l
+                }
+              },
+              () => {}
+            );
+            console.log(this.state);
+            this.setButtonState();
+          }
+        });
+    }
   };
 
   setButtonState = () => {
-    if (this.state.json[0]) {
-      this.setState({
-        pump: this.state.json[0].pump,
-        fan: this.state.json[0].fan,
-        valveIn: this.state.json[0].valveIn,
-        valveOut: this.state.json[0].valveOut,
-        wHeater: this.state.json[0].wHeater,
-        aHeater: this.state.json[0].aHeater,
-        lamp: this.state.json[0].lamp
-      });
-    }
-
     this.state.aHeater === "0"
       ? this.setState({
           color1: stateSetup.black,
@@ -125,101 +143,70 @@ class ButtonPanel extends React.Component {
           color7: stateSetup.green,
           text7: stateSetup.textFan + " "
         });
-  };
-
-  cleanData() {
-    stateSetup = [];
-  }
-
-  componentDidMount() {
-    this.fetchJson();
-    this.readSetupButtons();
-  }
-
-  handleChange = name => event => {
-    this.setState({
-      [name]: event.target.value
-    });
-  };
-
-  readSetupButtons = () => {
-    console.log("Read Setup Buttons");
-    firebase
-      .database()
-      .ref("/control/control_state")
-      .once("value")
-      .then(snapshot => {
-        const data = snapshot.val();
-        if (data !== undefined) {
-          this.setState({
-            pump: data.p,
-            fan: data.f,
-            valveIn: data.vi,
-            valveOut: data.vo,
-            wHeater: data.wh,
-            aHeater: data.ah,
-            lamp: data.l
-          });
-          console.log(this.state.pump);
-        }
-      });
-    this.setButtonState();
+    console.log(this.state);
   };
 
   render() {
     return (
-      <Container className="setup-button-card is-card-dark  ">
-        <h3
-          className="is-dark-text-light text-large"
-          style={{ textAlign: "center" }}
-        >
-          Actual State of the Actuators
-        </h3>
-        <Container className=" grid-card is-card-dark ">
-          <MyButton
-            color={this.state.color4}
-            text={this.state.text4}
-            className="button-valvein"
-            child="vi"
-          />
+      <div key={Math.random()}>
+        <AuthUserContext.Consumer>
+          {authUser => {
+            if (authUser !== undefined) {
+              this.authUser = authUser;
+            }
+          }}
+        </AuthUserContext.Consumer>
 
-          <MyButton
-            backgroundColor={this.state.backgroundColor2}
-            color={this.state.color2}
-            text={this.state.text2}
-            className="button-waterheater"
-            child="wh"
-          />
+        <Container className="setup-button-card-canvas is-card-dark  ">
+          <Container className="setup-buttons-title is-dark-text-light letter-spacing text-large ">
+            Actual State of the Actuators
+          </Container>
+          <div className="setup-div-buttons">
+            <MyButton
+              color={this.state.color4}
+              text={this.state.text4}
+              className="button-valvein"
+              child="vi"
+            />
 
-          <MyButton
-            color={this.state.color3}
-            text={this.state.text3}
-            className="button-waterpump"
-            child="p"
-          />
+            <MyButton
+              backgroundColor={this.state.backgroundColor2}
+              color={this.state.color2}
+              text={this.state.text2}
+              className="button-waterheater"
+              child="wh"
+            />
 
-          <MyButton
-            color={this.state.color5}
-            text={this.state.text5}
-            className="button-valveout"
-            child="vo"
-          />
+            <MyButton
+              color={this.state.color3}
+              text={this.state.text3}
+              className="button-waterpump"
+              child="p"
+            />
 
-          <MyButton
-            color={this.state.color6}
-            text={this.state.text6}
-            className="button-lamp"
-            child="l"
-          />
+            <MyButton
+              color={this.state.color5}
+              text={this.state.text5}
+              className="button-valveout"
+              child="vo"
+            />
 
-          <MyButton
-            color={this.state.color7}
-            text={this.state.text7}
-            className="button-fan"
-            child="f"
-          />
+            <MyButton
+              color={this.state.color6}
+              text={this.state.text6}
+              className="button-lamp"
+              child="l"
+            />
+
+            <MyButton
+              color={this.state.color7}
+              text={this.state.text7}
+              className="button-fan"
+              child="f"
+            />
+          </div>
         </Container>
-      </Container>
+      </div>
     );
   }
 }

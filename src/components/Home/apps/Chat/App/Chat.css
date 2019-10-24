@@ -1,0 +1,157 @@
+@media only screen and (min-width: 1400px) and (max-device-width: 1824px) {
+  .app {
+    text-align: center;
+  }
+  .app__logo {
+    animation: App-logo-spin infinite 20s linear;
+    height: 80px;
+  }
+  .app__header {
+    background-color: #222;
+    padding: 20px;
+    color: white;
+  }
+  .app__intro {
+    font-size: large;
+  }
+  .app__list {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    margin: 0 auto;
+  }
+  .app__button {
+    border: 0;
+    border-radius: 0;
+    padding: 10px 20px;
+    color: black;
+    background-color: white;
+    cursor: pointer;
+    opacity: 0.8;
+    outline: 0;
+  }
+  .app__button:hover {
+    opacity: 1;
+  }
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .chat-canvas {
+    margin-top: 5%;
+  }
+}
+
+/* Desktops and laptops ----------- */
+@media only screen and (min-width: 900px) and (max-device-width: 1400px) {
+  .app {
+    text-align: center;
+  }
+  .app__logo {
+    animation: App-logo-spin infinite 20s linear;
+    height: 80px;
+  }
+  .app__header {
+    background-color: #222;
+    padding: 20px;
+    color: white;
+  }
+  .app__intro {
+    font-size: large;
+  }
+  .app__list {
+    width: 50%;
+    max-width: 600px;
+    padding: 2px;
+    margin: 0 auto;
+  }
+  .app__button {
+    border: 0;
+    border-radius: 0;
+    padding: 10px 20px;
+    color: black;
+    background-color: white;
+    cursor: pointer;
+    opacity: 0.8;
+    outline: 0;
+  }
+  .app__button:hover {
+    opacity: 1;
+  }
+
+  .grid-item {
+    width: 50%;
+  }
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .chat-canvas {
+    margin-top: 1%;
+    margin-left: 30%;
+  }
+
+  .grid-container {
+    display: flex;
+  }
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .app {
+    text-align: center;
+  }
+  .app__logo {
+    animation: App-logo-spin infinite 20s linear;
+    height: 80px;
+  }
+  .app__header {
+    background-color: #222;
+    padding: 20px;
+    color: white;
+  }
+  .app__intro {
+    font-size: large;
+  }
+  .app__list {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    margin: 0 auto;
+  }
+  .app__button {
+    border: 0;
+    border-radius: 0;
+    padding: 10px 20px;
+    color: black;
+    background-color: white;
+    cursor: pointer;
+    opacity: 0.8;
+    outline: 0;
+  }
+  .app__button:hover {
+    opacity: 1;
+  }
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .chat-canvas {
+    margin-top: 5%;
+  }
+}

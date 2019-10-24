@@ -11,6 +11,7 @@ import AppReadings from "../apps/Readings/AppReadings";
 import Alarm from "../apps/Alarms/Alarm";
 import Tasks from "../apps/Tasks/Tasks";
 import Chat from "../apps/Chat/App/Chat";
+import firebase from "../../Firebase";
 
 import "../style.css";
 
@@ -32,6 +33,9 @@ const styles = theme => ({
 });
 
 class ScrollableTabsButtonAuto extends React.Component {
+  constructor(props) {
+    super(props);
+  }
   state = {
     value: 0,
     json: [],
@@ -42,12 +46,15 @@ class ScrollableTabsButtonAuto extends React.Component {
     this.setState({ value });
   };
 
-  componentDidMount() {}
+  componentDidMount() {
+    console.log(this.props);
+    this.props.firebase.onCredentialsUserListener();
+  }
 
   render() {
     const { classes } = this.props;
     const { value } = this.state;
-
+    console.log(this.props);
     return (
       <div key={Math.random()} className={classes.root}>
         <BrowserRouter>

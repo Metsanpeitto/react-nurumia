@@ -7,6 +7,9 @@ import { getData } from "./../getData";
 import "bootstrap/dist/css/bootstrap.css";
 import Grid from "@material-ui/core/Grid";
 import "../../style.css";
+import AuthUserContext from "../../../Session/context";
+
+var authUser = undefined;
 
 class AppReadings extends Component {
   constructor(props) {
@@ -60,7 +63,7 @@ class AppReadings extends Component {
     MY_STATE.dataLineTemperature.labels = [];
   }
 
-  componentDidMount() {
+  componentDidMount(props) {
     this.fetchJson();
     //fetch("http://jsonplaceholder.typicode.com/todos")
   }
@@ -68,28 +71,40 @@ class AppReadings extends Component {
   render() {
     return (
       <div className="readings-canvas">
+        <AuthUserContext.Consumer>
+          {authUser => {
+            if (authUser) {
+              this.authUser = authUser;
+            }
+          }}
+        </AuthUserContext.Consumer>
         <Grid
           key="3"
           container
-          spacing={10}
-          style={{ width: "100%", margin: "1%" }}
+          spacing={8}
+          style={{
+            width: "95%",
+            margin: "0%",
+            alignItems: "center",
+            paddingTop: "1%",
+            paddingBottom: "1%"
+          }}
         >
           <Grid
             item
             xs={10}
             sm={10}
-            lg={8}
-            xl={8}
+            lg={6}
+            xl={6}
             className="readings-grid-chart"
+            style={{
+              paddingTop: "0%",
+              paddingBottom: "1%"
+            }}
           >
             <Container className="chart-grid-card is-card-dark is-dark-text-light letter-spacing text-small">
-              <h3
-                className="text-large "
-                style={{ textAlign: "center", paddingTop: "2%" }}
-              >
-                Temperature Readings
-              </h3>
-              <div style={{ padding: "4%", paddingTop: "8%" }}>
+              <h3 className="chart-title-text-large ">Temperature Readings</h3>
+              <div className="chart-canvas">
                 <Chart dataLine={this.state.dataLineTemperature} />
               </div>
             </Container>
@@ -98,15 +113,17 @@ class AppReadings extends Component {
           <Grid
             item
             xs={10}
-            sm={10}
-            lg={3}
-            xl={3}
+            sm={5}
+            lg={2}
+            xl={2}
             className="readings-grid-readings"
+            style={{
+              paddingTop: "0%",
+              paddingBottom: "1%"
+            }}
           >
-            <Container className="card grid-card is-card-dark is-dark-text-light letter-spacing text-small">
-              <h3 className="text-large " style={{ textAlign: "center" }}>
-                Last Readings
-              </h3>
+            <Container className="card readings-grid-card is-card-dark is-dark-text-light letter-spacing text-small">
+              <h3 className="readings-title-text-large ">Last Readings</h3>
 
               <ReadingsGrid />
             </Container>

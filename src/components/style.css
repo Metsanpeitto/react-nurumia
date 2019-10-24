@@ -12,53 +12,212 @@
   color: rgb(255, 255, 255);
 }
 
-/* font weights */
-
-.font-medium {
-  font-family: "basefont-medium";
-}
-
-.font-bold {
-  font-family: "basefont-bold";
-}
-
-/* text sizes */
-.text-x-large {
-  font-size: 2rem;
-}
-
-.text-large {
-  font-size: 1.25rem;
-}
-
-.text-medium {
-  font-size: 1.125rem;
-}
-
-.text-small {
-  font-size: 0.875rem;
-}
-
-.text-x-small {
-  font-size: 0.75rem;
-}
-
-/* letter spacing */
-.letter-spacing {
-  letter-spacing: 0.05rem;
-}
-
-.chart-container svg text {
-  letter-spacing: 0.05rem;
-}
-
-@media only screen and (min-width: 1024px) and (max-device-width: 1824px) {
+@media only screen and (min-width: 1400px) and (max-device-width: 1824px) {
   body {
     background: rgb(23, 32, 46) !important;
     font-family: "basefont-regular" !important;
     color: rgb(255, 255, 255);
-    padding: 20%;
-    margin: 0%;
+    padding: 2%;
+    margin-top: 4%;
+  }
+
+  /* font weights */
+
+  .font-medium {
+    font-family: "basefont-medium";
+  }
+
+  .font-bold {
+    font-family: "basefont-bold";
+  }
+
+  /* text sizes */
+  .text-x-large {
+    font-size: 5rem;
+  }
+
+  .text-large {
+    font-size: 3rem;
+  }
+
+  .text-medium {
+    font-size: 1.125rem;
+  }
+
+  .text-small {
+    font-size: 1rem;
+  }
+
+  .text-x-small {
+    font-size: 1rem;
+  }
+
+  /* letter spacing */
+  .letter-spacing {
+    letter-spacing: 0.05rem;
+  }
+
+  .chart-container svg text {
+    letter-spacing: 0.05rem;
+  }
+  .container-signin {
+    padding: 4%;
+    margin: 10%;
+    margin-top: 15%;
+  }
+
+  .container-landing {
+    padding: 2%;
+    margin: 10%;
+    margin-top: 15%;
+  }
+
+  .link-noau {
+    margin-right: 25%;
+  }
+
+  .signOutButton {
+    background-color: white;
+    border: 1;
+    max-height: fit-content;
+    margin-top: 0.45%;
+    margin-right: 1%;
+  }
+  .signinLink {
+    margin-left: 10%;
+  }
+
+  .user-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+    border: 1px solid rgb(63, 81, 181);
+  }
+}
+
+@media only screen and (min-width: 1024px) and (max-device-width: 1400px) {
+  body {
+    background: rgb(23, 32, 46) !important;
+    font-family: "basefont-regular" !important;
+    color: rgb(255, 255, 255);
+    padding: 2%;
+    margin-top: 3%;
+  }
+
+  /* font weights */
+
+  .font-medium {
+    font-family: "basefont-medium";
+  }
+
+  .font-bold {
+    font-family: "basefont-bold";
+  }
+
+  /* text sizes */
+  .text-x-large {
+    font-size: 2rem;
+  }
+
+  .text-large {
+    font-size: 4rem;
+  }
+
+  .text-medium {
+    font-size: 2rem;
+  }
+
+  .text-small {
+    font-size: 1rem;
+  }
+
+  .text-x-small {
+    font-size: 0.75rem;
+  }
+
+  /* letter spacing */
+  .letter-spacing {
+    letter-spacing: 0.05rem;
+  }
+
+  .chart-container svg text {
+    letter-spacing: 0.05rem;
+  }
+
+  .container-signin {
+    padding: 3%;
+    margin: 7%;
+  }
+  .container-landing {
+    padding: 1%;
+    margin: 3%;
+  }
+  .readings-canvas {
+    padding: 1%;
+    margin: 3%;
+  }
+
+  .link-noau {
+    margin-right: 25%;
+  }
+
+  .signinLink {
+    margin-left: 7%;
+  }
+
+  .signOutButton {
+    background-color: white;
+    border: 1;
+    max-height: fit-content;
+    margin-top: 0.45%;
+    margin-right: 1%;
+  }
+
+  .nav-secondary {
+    margin-top: 65px;
+    box-shadow: 0px 2px 10px #0000006e;
+  }
+
+  /* user image style */
+  .img-container > img {
+    width: 40px;
+  }
+
+  .grid-card {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding: 1.5rem;
+    height: calc(100%);
+    border: 1px solid rgb(63, 81, 181);
+  }
+  .user-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+    border: 1px solid rgb(63, 81, 181);
   }
 }
 
@@ -111,78 +270,19 @@ body {
   flex-direction: column;
   padding: 1.5rem;
   height: calc(100%);
+  border: 1px solid rgb(63, 81, 181);
 }
-
-.chart-card {
-  display: flex;
-  flex-grow: 1;
-  flex-direction: column;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  padding: 1.5rem 1.5rem 0.75rem 1.5rem;
-  height: calc(30%);
-}
-
-.card-heading {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: stretch;
-  -ms-flex-align: stretch;
-  align-items: stretch;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
+.user-card {
   position: relative;
-  min-height: 30px;
-}
-
-.temperature-header-chart {
-  padding-top: 5%;
-  padding-left: 20%;
-}
-.readings-header-chart {
-  padding-top: 20px;
-  padding-left: 600px;
-}
-
-.container-chart {
-  padding-top: 30px;
-}
-
-.readings-grid {
-  padding-left: 20%;
-}
-
-.readings-grid-temp {
-  padding-top: 20px;
-}
-
-.readings-grid-humi {
-  padding-top: 20px;
-}
-.readings-grid-wTemp {
-  padding-top: 20px;
-}
-.readings-grid-wPh {
-  padding-top: 20px;
-}
-
-.readings-card-actualValue {
-  padding-left: 45%;
-}
-
-.readings-card-headerValue {
-  padding-left: 20px;
-  margin-right: 20px;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  border: 1px solid rgb(63, 81, 181);
 }
 
 .is-card-dark {
@@ -261,49 +361,40 @@ body {
     border-right: none !important;
   }
 
-  .chart-container {
-    height: 180px !important;
+  /* font weights */
+
+  .font-medium {
+    font-family: "basefont-medium";
   }
 
-  .large {
-    height: 350px !important;
+  .font-bold {
+    font-family: "basefont-bold";
   }
 
-  .container {
-    display: "flex";
-    flex-wrap: "wrap";
+  /* text sizes */
+  .text-x-large {
+    font-size: 2rem;
   }
 
-  .setup-main-grid {
-    align-content: center;
+  .text-large {
+    font-size: 1.25rem;
   }
 
-  .setup-time {
-    align-content: top;
+  .text-medium {
+    font-size: 1.125rem;
   }
 
-  .setup-water {
-    align-content: top;
+  .text-small {
+    font-size: 0.875rem;
   }
 
-  .setup-temperature {
-    align-content: top;
+  .text-x-small {
+    font-size: 0.75rem;
   }
 
-  .buttons-container {
-    padding-top: 100px;
-  }
-
-  .setup-button-card {
-    padding-top: 100px;
-  }
-
-  .textField {
-    margin-left: 100;
-    margin-right: 100;
-    width: 200;
-    text-decoration-color: aliceblue;
-    color: primary;
+  /* letter spacing */
+  .letter-spacing {
+    letter-spacing: 0.05rem;
   }
 }
 

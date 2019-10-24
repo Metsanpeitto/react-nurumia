@@ -76,7 +76,7 @@ class PasswordForgetFormBase extends Component {
     return (
       <form onSubmit={this.onSubmit}>
         <Container
-          className="is-light-text mb-4 card  is-card-dark"
+          className="is-light-text mb-4 user-card  is-card-dark"
           style={{ padding: "4%", margin: "5%" }}
         >
           <Container

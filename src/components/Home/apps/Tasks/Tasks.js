@@ -6,16 +6,20 @@ import "./react-big-calendar.css";
 import { Container } from "../../components/styled-components";
 import firebase from "firebase";
 
+import { AuthUserContext } from "../../../Session";
+import "../../style.css";
+
 const localizer = momentLocalizer(moment);
 
 // The Calendar show events posted by different members ,and each member can see only
 // the events allowed for his group.
+var authUser = null;
 
 class Tasks extends React.Component {
   constructor(...args) {
     super(...args);
 
-    this.state = { event: "", events: events };
+    this.state = { authUser: undefined, event: "", events: events };
   }
 
   startStr = "start";
@@ -68,7 +72,7 @@ class Tasks extends React.Component {
       });
       firebase
         .database()
-        .ref("calendar/calendar_events")
+        .ref(`/units/${this.authUser.unitname}/calendar/calendar_events`)
         .child(pEvent.key)
         .remove();
     }
@@ -77,7 +81,7 @@ class Tasks extends React.Component {
   readCalendarEvents = () => {
     firebase
       .database()
-      .ref("/calendar/calendar_events")
+      .ref(`/units/${this.authUser.unitname}/calendar/calendar_events`)
       .once("value")
       .then(snapshot => {
         const events = snapshot.val();
@@ -112,12 +116,16 @@ class Tasks extends React.Component {
   updateCalendarEvents = event => {
     firebase
       .database()
-      .ref("/calendar/calendar_events/")
+      .ref(`/units/${this.authUser.unitname}/calendar/calendar_events/`)
       .push(event);
   };
 
   componentDidMount() {
     this.readCalendarEvents();
+    if (this.authUser !== undefined) {
+      this.setState({ authUser: this.authUser });
+    }
+
     let newDate = new Date();
     this.date = newDate.getDate();
   }
@@ -126,14 +134,23 @@ class Tasks extends React.Component {
     //const { localizer } = this.props;
 
     return (
-      <div>
-        <Container
-          className="is-card-dark is-dark-text-light letter-spacing text-small"
-          style={{ height: 523 }}
-        >
+      <div className="task-canvas">
+        <AuthUserContext.Consumer>
+          {authUser => {
+            if (authUser) {
+              console.log(authUser);
+              this.authUser = authUser;
+              console.log(this.authUser);
+              console.log(this.state);
+            }
+          }}
+        </AuthUserContext.Consumer>
+
+        <Container className="is-card-dark  calendar-card is-dark-text-light letter-spacing text-small">
           <Calendar
             selectable
-            style={{ height: 480, marginTop: 10 }}
+            className="calendar-canvas"
+            Style={{ height: "fit-content" }}
             events={this.state.events}
             culture={this.state.culture}
             defaultDate={this.date}

@@ -7,19 +7,21 @@ const withAuthentication = Component => {
   class WithAuthentication extends React.Component {
     constructor(props) {
       super(props);
-
-      this.state = {
-        authUser: null
-      };
     }
 
     componentDidMount() {
       this.listener = this.props.firebase.onAuthUserListener(
         authUser => {
-          this.setState({ authUser });
+          this.setState({
+            uid: authUser.uid,
+            email: authUser.email,
+            unitname: authUser.unitname,
+            role: authUser.role,
+            username: authUser.username
+          });
         },
         () => {
-          this.setState({ authUser: null });
+          this.setState({});
         }
       );
     }
@@ -30,7 +32,7 @@ const withAuthentication = Component => {
 
     render() {
       return (
-        <AuthUserContext.Provider value={this.state.authUser}>
+        <AuthUserContext.Provider value={this.state}>
           <Component {...this.props} />
         </AuthUserContext.Provider>
       );

@@ -3,11 +3,13 @@ import { Link, withRouter } from "react-router-dom";
 
 import { withFirebase } from "../Firebase";
 import * as ROUTES from "../../constants/routes";
-import * as ROLES from "../../constants/roles";
 import { Button } from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
 import { Container } from "../styled-components";
 import { createMuiTheme } from "@material-ui/core/styles";
+import Checkbox from "@material-ui/core/Checkbox";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import unitskeleton from "./unitSkeleton.json";
 
 import "../style.css";
 
@@ -43,67 +45,184 @@ const SignUpPage = () => (
 );
 
 const INITIAL_STATE = {
+  unitname: "",
   username: "",
   email: "",
   passwordOne: "",
   passwordTwo: "",
-  roles: "",
-  isAdmin: "",
-  isWorker: "",
-  isGuest: "true",
+  role: "worker",
+  serialnumber: "111",
   error: null,
-  checked: true
+  checked: false
 };
 
 class SignUpFormBase extends Component {
   constructor(props) {
     super(props);
-
     this.state = { ...INITIAL_STATE };
+    this.checkboxToggle = this.checkboxToggle.bind(this);
+    this.checkSNExists = this.checkSNExists.bind(this);
+    this.checkUExists = this.checkUExists.bind(this);
+  }
+
+  checkSNExists(ok, error) {
+    return this.props.firebase
+      .checkSerialNumberExists(this.state.serialnumber, this.state.unitname)
+      .then(allow => {
+        console.log(allow);
+        if (allow === "OK") {
+          console.log("Returned");
+          ok(allow);
+        } else {
+          console.log("Error");
+          error("Error");
+        }
+      });
+  }
+
+  checkUExists(ok, error) {
+    return this.props.firebase
+      .checkUnitExists(this.state.unitname)
+      .then(allow => {
+        console.log(allow);
+        if (allow === "OK") {
+          console.log("Returned");
+          ok(allow);
+        } else {
+          console.log("Error");
+          error("Error");
+        }
+      });
+  }
+
+  creatNU(ok, error) {
+    const chat = unitskeleton.chat;
+    const setup = unitskeleton.setup;
+    const alarm = unitskeleton.alarm;
+    const calendar = unitskeleton.calendar;
+    const control = unitskeleton.control;
+    return this.props.firebase
+      .populatenewunit(this.state.unitname)
+      .set({ chat, setup, alarm, calendar, control });
+  }
+
+  checkboxToggle(serialnumber, unitname) {
+    // state is updated first
+
+    this.setState({ checked: !this.state.checked }, () =>
+      console.log("boxIsChecked: " + this.state.checked)
+    );
+    if (this.state.checked === false) {
+      this.setState({ serialnumber: undefined, role: "admin" }, () => {});
+    } else {
+      this.setState({ serialnumber: "111", role: "worker" }, () => {
+        console.log(this.state.serialnumber, this.state.role);
+      });
+    }
   }
 
   onSubmit = event => {
+    console.log(this.state.serialnumber, this.state.role);
     const {
+      unitname,
       username,
       email,
       passwordOne,
-      isAdmin,
-      isWorker,
-      isGuest
+      role,
+      serialnumber
     } = this.state;
 
-    const roles = {};
+    if (this.state.checked === false) {
+      this.checkUExists(
+        allow => {
+          console.log(allow);
+        },
+        error => {
+          console.log("Not allowed");
+        }
+      ).then(() => {
+        this.props.firebase
+          .doCreateUserWithEmailAndPassword(email, passwordOne)
+          .then(authUser => {
+            console.log(authUser.user.uid);
+            const uid = authUser.user.uid;
 
-    if (isAdmin) {
-      roles[ROLES.ADMIN] = ROLES.ADMIN;
-    }
+            this.props.firebase
+              .dbRef()
+              .child("users")
+              .update({ [uid]: { ["unitname"]: unitname } })
+              .then(() => {});
 
-    if (isWorker) {
-      roles[ROLES.WORKER] = ROLES.WORKER;
-    }
+            this.props.firebase
+              .unit(unitname)
+              .child("users")
+              .update({ [uid]: { email, username, role, unitname } });
 
-    if (isGuest) {
-      roles[ROLES.GUEST] = ROLES.GUEST;
-    }
-
-    this.props.firebase
-      .doCreateUserWithEmailAndPassword(email, passwordOne)
-      .then(authUser => {
-        return this.props.firebase.user(authUser.user.uid).set({
-          username,
-          email,
-          roles
-        });
-      })
-      .then(() => {
-        this.setState({ ...INITIAL_STATE });
-        this.props.history.push(ROUTES.HOME);
-      })
-      .catch(error => {
-        this.setState({ error });
+            this.props.firebase
+              .globalChat()
+              .child("users")
+              .update({ [uid]: { email, username, role, unitname } });
+          })
+          .then(() => {
+            this.setState({ ...INITIAL_STATE });
+            this.props.history.push(ROUTES.HOME);
+          })
+          .catch(error => {
+            this.setState({ error });
+            console.log(error);
+          });
       });
 
-    event.preventDefault();
+      event.preventDefault();
+    } else {
+      this.checkSNExists(
+        allow => {
+          console.log(allow);
+        },
+        error => {
+          console.log("Not allowed");
+        }
+      )
+        .then(() => {
+          this.creatNU();
+        })
+        .then(() => {
+          this.props.firebase
+            .doCreateUserWithEmailAndPassword(email, passwordOne)
+            .then(authUser => {
+              console.log(authUser.user.uid);
+
+              const uid = authUser.user.uid;
+
+              this.props.firebase
+                .dbRef()
+                .child("users")
+                .update({ [uid]: { ["unitname"]: unitname } })
+                .then(() => {});
+              this.props.firebase
+                .unit(unitname)
+                .child("users")
+                .update({ [uid]: { email, username, role, unitname } });
+            })
+            .then(() => {
+              var newState = {
+                unitname: unitname,
+                username: username,
+                email: email,
+                role: role
+              };
+              //this.setState({ ...INITIAL_STATE })
+              this.setState({ newState });
+              this.props.history.push(ROUTES.HOME);
+            })
+            .catch(error => {
+              this.setState({ error });
+              console.log(error);
+            });
+        });
+
+      event.preventDefault();
+    }
   };
 
   onChange = event => {
@@ -111,32 +230,122 @@ class SignUpFormBase extends Component {
   };
 
   render() {
-    const { username, email, passwordOne, passwordTwo, error } = this.state;
+    const {
+      unitname,
+      username,
+      email,
+      passwordOne,
+      passwordTwo,
+      error,
+      checked,
+      serialnumber
+    } = this.state;
 
     const isInvalid =
       passwordOne !== passwordTwo ||
       passwordOne === "" ||
       email === "" ||
-      username === "";
+      username === "" ||
+      unitname === "" ||
+      serialnumber === "" ||
+      error === true;
+
+    const content = this.state.checked ? (
+      <TextField
+        name="serialnumber"
+        value={this.state.serialnumber}
+        onChange={this.onChange}
+        type="text"
+        placeholder="Serial Number"
+        margin="normal"
+        variant="outlined"
+        style={{ width: "60%", marginLeft: "20%" }}
+        InputLabelProps={{
+          classes: {
+            root: theme.white,
+            focused: "white"
+          }
+        }}
+        InputProps={{
+          className: styles.input,
+          style: { color: "white" },
+          classes: {
+            className: styles.input,
+            root: styles.cssOutlinedInput,
+            focused: styles.cssFocused,
+            notchedOutline: styles.notchedOutline
+          },
+          inputMode: "text"
+        }}
+      />
+    ) : null;
+
     return (
       <form onSubmit={this.onSubmit}>
         <Container
-          className="is-light-text mb-4 card  is-card-dark"
+          className="is-light-text mb-4 user-card  is-card-dark"
           style={{ padding: "4%", margin: "5%" }}
         >
           <Container
             className="is-dark-text-light letter-spacing text-large"
             style={{ textAlign: "center" }}
           >
-            SignUp
+            Sign Up
           </Container>
+
+          <FormControlLabel
+            label="Start a New Green House"
+            style={{ marginLeft: "20%" }}
+            control={
+              <Checkbox
+                name="checked"
+                checked={this.state.checked}
+                onClick={this.checkboxToggle}
+                value={checked}
+                color="primary"
+                inputProps={{
+                  "aria-label": "secondary checkbox"
+                }}
+              />
+            }
+          />
+
+          {content}
+
+          <TextField
+            name="unitname"
+            value={unitname}
+            onChange={this.onChange}
+            type="text"
+            placeholder="Greenhouse Name"
+            margin="normal"
+            variant="outlined"
+            style={{ width: "60%", marginLeft: "20%" }}
+            InputLabelProps={{
+              classes: {
+                root: theme.white,
+                focused: "white"
+              }
+            }}
+            InputProps={{
+              className: styles.input,
+              style: { color: "white" },
+              classes: {
+                className: styles.input,
+                root: styles.cssOutlinedInput,
+                focused: styles.cssFocused,
+                notchedOutline: styles.notchedOutline
+              },
+              inputMode: "text"
+            }}
+          />
 
           <TextField
             name="username"
             value={username}
             onChange={this.onChange}
             type="text"
-            placeholder="Full Name"
+            placeholder="User Name"
             margin="normal"
             variant="outlined"
             style={{ width: "60%", marginLeft: "20%" }}

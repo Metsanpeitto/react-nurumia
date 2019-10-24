@@ -8,6 +8,10 @@ import AuthUserContext from "./context";
 
 const withAuthorization = condition => Component => {
   class WithAuthorization extends React.Component {
+    constructor(props) {
+      super(props);
+    }
+
     componentDidMount() {
       this.listener = this.props.firebase.onAuthUserListener(
         authUser => {

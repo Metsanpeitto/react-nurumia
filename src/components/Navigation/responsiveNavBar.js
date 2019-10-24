@@ -29,7 +29,16 @@ const NavigationAuth = () => (
         xl={2}
       >
         <Container className="navbar-brand   h1 mb-0 text-large font-medium">
-          <img alt="" src={require("./Logo.png")} />{" "}
+          <img
+            alt=""
+            style={{
+              paddingLeft: "1%",
+              marginTop: "1%",
+              maxHeight: "50px",
+              minWidth: "200px"
+            }}
+            src={require("./Logo.png")}
+          />{" "}
         </Container>
       </Grid>
       <Grid
