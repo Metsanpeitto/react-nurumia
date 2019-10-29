@@ -103,6 +103,11 @@
   .panel-main-header-text {
     color: #ddd;
   }
+
+  .search-result-canvas {
+    height: 195px;
+    overflow-y: scroll;
+  }
 }
 
 /* Smartphones (portrait and landscape) ----------- */

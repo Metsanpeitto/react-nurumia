@@ -55,9 +55,7 @@ const MyNavigation = props => (
   <div>
     <AuthUserContext.Consumer>
       {authUser => {
-        console.log(authUser);
         if (authUser !== null) {
-          console.log(authUser);
           if (authUser.username !== undefined) {
             auth = true;
             return <NavigationAuth />;

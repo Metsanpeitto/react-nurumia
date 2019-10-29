@@ -1,13 +1,14 @@
 import React, { Component } from "react";
-import "./Chat.css";
-import "../../../style.css";
-import Form from "../Form/Form";
-import Panel from "../Panel/Panel";
 import firebase from "firebase";
-
-//firebase.initializeApp(firebaseConfig);
-
+import Form from "./Components/Form/Form";
+import Panel from "./Components/Panel/Panel";
 import { AuthUserContext } from "../../../../Session";
+import Search from "./Components/Panel/Components/Search/Search";
+import Create from "./Components/Panel/Components/Create/Create";
+
+import "../../../style.css";
+import "./Chat.css";
+
 var authUser = null;
 
 class Chat extends Component {
@@ -16,9 +17,30 @@ class Chat extends Component {
 
     this.state = {
       user: null,
-      authUser: null
+      authUser: null,
+      dataSearch: null,
+      dataCreate: null
     };
   }
+
+  onSearchChange = val => {
+    this.setState({ ...{ dataSearch: val } });
+
+    if (val.area === "local" && val.type === "group") {
+    }
+    if (val.area === "global" && val.type === "group") {
+    }
+    if (val.area === "local" && val.type === "user") {
+    }
+    if (val.area === "global" && val.type === "user") {
+    }
+  };
+
+  onCreateChange = val => {
+    if (val) {
+      this.setState({ ...{ dataSearch: val } });
+    }
+  };
 
   componentDidMount() {
     firebase.auth().onAuthStateChanged(user => {
@@ -45,12 +67,15 @@ class Chat extends Component {
             }
           }}
         </AuthUserContext.Consumer>
-        <div className="app " class="grid-container">
+        <div className="app grid-container">
           <div className="app__list grid-item ">
             <Form {...this.state} />
           </div>
           <div className="app__groups grid-item ">
-            <Panel />
+            <Panel
+              onSearchChange={this.onSearchChange}
+              onCreateChange={this.onCreateChange}
+            ></Panel>
           </div>
         </div>
       </div>

@@ -162,6 +162,11 @@ class SignUpFormBase extends Component {
               .globalChat()
               .child("users")
               .update({ [uid]: { email, username, role, unitname } });
+
+            this.props.firebase
+              .localChat(unitname)
+              .child("users")
+              .update({ [uid]: { email, username, role, unitname } });
           })
           .then(() => {
             this.setState({ ...INITIAL_STATE });
@@ -199,11 +204,13 @@ class SignUpFormBase extends Component {
                 .child("users")
                 .update({ [uid]: { ["unitname"]: unitname } })
                 .then(() => {});
+
               this.props.firebase
                 .unit(unitname)
                 .child("users")
                 .update({ [uid]: { email, username, role, unitname } });
             })
+
             .then(() => {
               var newState = {
                 unitname: unitname,

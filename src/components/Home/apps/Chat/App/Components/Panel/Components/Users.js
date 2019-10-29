@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import { withFirebase } from "./../../../../../../Firebase";
-import { AuthUserContext } from "./../../../../../../Session";
-import "../../Panel.css";
+import { withFirebase } from "../../../../../../../Firebase";
+import { AuthUserContext } from "../../../../../../../Session";
+import "../Panel.css";
 
-import { makeStyles } from "@material-ui/core/styles";
 import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormHelperText from "@material-ui/core/FormHelperText";
@@ -13,7 +12,7 @@ import FormLabel from "@material-ui/core/FormLabel";
 
 var authUser = null;
 
-class Create extends Component {
+class Users extends Component {
   constructor(props) {
     super(props);
 
@@ -111,4 +110,4 @@ class Create extends Component {
   }
 }
 
-export default withFirebase(Create);
+export default withFirebase(Users);

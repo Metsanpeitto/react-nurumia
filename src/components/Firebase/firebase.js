@@ -106,6 +106,10 @@ class Firebase {
   dbunitname = () => this.db.ref(`/units/`);
   populatenewunit = unitname => this.db.ref(`/units/${unitname}`);
   globalChat = () => this.db.ref(`/chat/`);
+  localChat = unitname => this.db.ref(`/units/${unitname}/chat/`);
+  localGroup = (group, unitname) =>
+    this.db.ref(`/units/${unitname}/chat/groups/${group}/messages/`);
+  globalGroup = group => this.db.ref(`/chat/groups/${group}/messages/`);
 
   checkSerialNumberExists = (serialnumber, unitname) => {
     console.log(serialnumber);

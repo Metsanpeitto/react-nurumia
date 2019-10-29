@@ -1,12 +1,13 @@
 import React, { Component } from "react";
-import { Container } from "../../../components/styled-components";
+import { Container } from "../../../../../components/styled-components";
 import { makeStyles } from "@material-ui/core/styles";
 import { Button } from "@material-ui/core";
-import { withFirebase } from "../../../../Firebase/";
-import { AuthUserContext } from "../../../../Session";
+import { withFirebase } from "../../../../../../Firebase";
+import { AuthUserContext } from "../../../../../../Session";
 import Create from "./Components/Create/Create";
 import Search from "./Components/Search/Search";
-import Users from "./Components/Users";
+import CreatePrivateChat from "./Components/CreatePrivateChat";
+import Chat from "../../Chat";
 
 import "./Panel.css";
 
@@ -26,11 +27,15 @@ class Panel extends Component {
       message: "",
       list: [],
       myName: props.user,
-      authUser: null
+      authUser: null,
+      clickedCreate: null,
+      clickedSearch: null,
+      clickedChat: null,
+      createPrivate: null
     };
-
     this.messageRef = this.messageRef.bind(this);
     this.pushMessage = this.pushMessage.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   messageRef = () => {
@@ -40,7 +45,6 @@ class Panel extends Component {
       .then(snapshot => {
         const message = snapshot.val();
         if (message) {
-          console.log(message);
           return message;
         }
       });
@@ -48,7 +52,6 @@ class Panel extends Component {
 
   pushMessage = newItem => {
     if (newItem !== undefined && this.state.authUser.unitname !== undefined) {
-      console.log(this.state.authUser.unitname);
       this.props.firebase.db
         .ref(`/units/${this.authUser.unitname}/chat/messages/`)
         .push(newItem);
@@ -57,14 +60,11 @@ class Panel extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.user) {
-      console.log(nextProps);
       let shortName = nextProps.user;
       var thisState = {
         ...{ userName: shortName, authUser: nextProps.authUser }
       };
-      this.setState({ ...thisState }, () => {
-        console.log(this.state);
-      });
+      this.setState({ ...thisState }, () => {});
 
       this.messageRef();
       this.listenMessages();
@@ -73,8 +73,6 @@ class Panel extends Component {
 
   componentDidMount(props) {
     if (props !== undefined) {
-      console.log(props);
-
       this.componentWillReceiveProps(props);
       this.listenMessages(props);
     }
@@ -86,8 +84,6 @@ class Panel extends Component {
 
   handleSend() {
     if (this.state.message) {
-      console.log(this.state);
-
       var newItem = {
         userName: this.state.userName,
         message: this.state.message
@@ -102,42 +98,44 @@ class Panel extends Component {
     this.handleSend();
   }
 
-  listenUsersGlobally() {
-    this.props.firebase.db
-      .ref(`/units/${this.authUser.unitname}/chat/messages/`)
-      .limitToLast(10)
-      .on("value", message => {
+  handleClick = event => {
+    if (event) {
+      var target = event.currentTarget.value;
+      if (target === "search") {
         this.setState({
-          list: Object.values(message.val())
+          ...{ clickedSearch: true, clickedChat: null, clickedCreate: null }
         });
-        console.log(message);
-      });
-  }
-
-  listenUsersLocally() {}
-  listenChatsGlobally() {}
-  listenChatsLocally() {}
-  createsChatLocally() {}
-  createChatGlobally() {}
+      }
+      if (target === "create") {
+        this.setState({
+          ...{ clickedSearch: null, clickedChat: null, clickedCreate: true }
+        });
+      }
+      if (target === "chat") {
+        this.setState({
+          ...{ clickedSearch: null, clickedChat: true, clickedCreate: null }
+        });
+      }
+    }
+  };
 
   render(props) {
     {
       if (props !== undefined) {
-        console.log(props);
-
         this.componentWillReceiveProps(props);
         this.listenMessages(props);
       }
+
+      var clickedSearch = this.state.clickedSearch;
+      var clickedCreate = this.state.clickedCreate;
+      var clickedChat = this.state.clickedChat;
     }
     return (
       <div>
         <AuthUserContext.Consumer>
           {authUser => {
             if (authUser) {
-              console.log(authUser);
               this.authUser = authUser;
-              console.log(this.authUser);
-              console.log(this.state);
             }
           }}
         </AuthUserContext.Consumer>
@@ -147,43 +145,59 @@ class Panel extends Component {
               <div className="panel-card is-card-dark">
                 <div className="panel-buttons">
                   <Button
+                    value="create"
                     className="panel-create panel-button"
                     variant="contained"
-                    enabled
                     style={{
-                      color: "white",
+                      color: clickedCreate ? "white" : "rgb(128, 145, 171)",
                       backgroundColor: "transparent"
                     }}
+                    onClick={this.handleClick}
                   >
                     Create New Chat
                   </Button>
 
                   <Button
+                    value="search"
                     className="panel-search panel-button  "
                     variant="contained"
-                    enabled
                     style={{
-                      color: "is-card-text-light",
+                      color: clickedSearch ? "white" : "rgb(128, 145, 171)",
                       backgroundColor: "transparent"
                     }}
+                    onClick={this.handleClick}
                   >
                     Search
                   </Button>
 
                   <Button
+                    value="chat"
                     className="panel-thisUsers"
                     variant="contained"
-                    enabled
                     style={{
-                      color: "is-card-text-light",
+                      color: clickedChat ? "white" : "rgb(128, 145, 171)",
                       backgroundColor: "transparent"
                     }}
+                    onClick={this.handleClick}
                   >
                     This Chat
                   </Button>
                 </div>
                 <div className="panel-main-card">
-                  <Search {...this.state} />
+                  {clickedSearch ? (
+                    <Search
+                      {...this.state}
+                      onSearchChange={this.props.onSearchChange}
+                      val={this.state.val}
+                    />
+                  ) : null}
+                  {clickedCreate ? (
+                    <Create
+                      {...this.state}
+                      onCreateChange={this.props.onCreateChange}
+                    />
+                  ) : null}
+                  {clickedChat ? "List of users Here" : null}
                 </div>
               </div>
             </Container>
