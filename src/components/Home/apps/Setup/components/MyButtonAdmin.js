@@ -40,7 +40,6 @@ class MyButton extends React.Component {
     if (this.props) {
       var text = this.props.text;
       var color = this.props.color;
-      console.log(this.props);
 
       var isToggleOn = false;
       if (color == "green") {
@@ -50,7 +49,6 @@ class MyButton extends React.Component {
       }
       this.setState({ ...{ text: text, color: color, isToggleOn } }, () => {});
     }
-    console.log(this.state);
   }
 
   render() {
@@ -64,7 +62,6 @@ class MyButton extends React.Component {
           }}
         </AuthUserContext.Consumer>
         <Button
-          onClick={this.handleClick}
           variant="contained"
           className="setup-button"
           style={{

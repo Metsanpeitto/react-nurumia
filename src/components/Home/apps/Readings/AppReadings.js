@@ -22,7 +22,7 @@ class AppReadings extends Component {
       "https://cors-anywhere.herokuapp.com/http://melandru.000webhostapp.com/WebAppChart.php"
     )
       .then(data => {
-        this.setState({ key: data.id, json: data });
+        // this.setState({ key: data.id, json: data });
         let len = this.state.json.length;
 
         if (len > 6) {
@@ -48,10 +48,10 @@ class AppReadings extends Component {
             i++;
           }
           if (this.state.dataLineTemperature.datasets[0].data.length > 20) {
-            this.setState({
-              dataLineTemperature: MY_STATE.dataLineTemperature,
-              readings: MY_STATE.readings
-            });
+            //  this.setState({
+            //  dataLineTemperature: MY_STATE.dataLineTemperature,
+            // readings: MY_STATE.readings
+            //});
           }
         }
       })
@@ -102,7 +102,7 @@ class AppReadings extends Component {
               paddingBottom: "1%"
             }}
           >
-            <Container className="chart-grid-card is-card-dark is-dark-text-light letter-spacing text-small">
+            <Container className="chart-grid-card card is-card-dark is-dark-text-light letter-spacing text-small">
               <h3 className="chart-title-text-large ">Temperature Readings</h3>
               <div className="chart-canvas">
                 <Chart dataLine={this.state.dataLineTemperature} />
@@ -119,7 +119,8 @@ class AppReadings extends Component {
             className="readings-grid-readings"
             style={{
               paddingTop: "0%",
-              paddingBottom: "1%"
+              paddingBottom: "1%",
+              marginLeft: " 4%"
             }}
           >
             <Container className="card readings-grid-card is-card-dark is-dark-text-light letter-spacing text-small">

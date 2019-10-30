@@ -6,8 +6,7 @@ import { withFirebase } from "../../../../../../Firebase";
 import { AuthUserContext } from "../../../../../../Session";
 import Create from "./Components/Create/Create";
 import Search from "./Components/Search/Search";
-import CreatePrivateChat from "./Components/CreatePrivateChat";
-import Chat from "../../Chat";
+import ThisChat from "./Components/ThisChat/ThisChat";
 
 import "./Panel.css";
 
@@ -139,7 +138,7 @@ class Panel extends Component {
             }
           }}
         </AuthUserContext.Consumer>
-        <Container className=" panel-grid-card   is-card-dark">
+        <Container className=" panel-grid-card card  is-card-dark">
           <Container className="card-heading">
             <Container className="is-dark-text-light letter-spacing text-small">
               <div className="panel-card is-card-dark">
@@ -159,31 +158,19 @@ class Panel extends Component {
 
                   <Button
                     value="search"
-                    className="panel-search panel-button  "
+                    className="panel-search   "
                     variant="contained"
                     style={{
                       color: clickedSearch ? "white" : "rgb(128, 145, 171)",
-                      backgroundColor: "transparent"
+                      backgroundColor: "transparent",
+                      marginTop: "9%"
                     }}
                     onClick={this.handleClick}
                   >
                     Search
                   </Button>
-
-                  <Button
-                    value="chat"
-                    className="panel-thisUsers"
-                    variant="contained"
-                    style={{
-                      color: clickedChat ? "white" : "rgb(128, 145, 171)",
-                      backgroundColor: "transparent"
-                    }}
-                    onClick={this.handleClick}
-                  >
-                    This Chat
-                  </Button>
                 </div>
-                <div className="panel-main-card">
+                <div className="panel-main-card  is-card-dark">
                   {clickedSearch ? (
                     <Search
                       {...this.state}
@@ -197,7 +184,6 @@ class Panel extends Component {
                       onCreateChange={this.props.onCreateChange}
                     />
                   ) : null}
-                  {clickedChat ? "List of users Here" : null}
                 </div>
               </div>
             </Container>

@@ -67,7 +67,6 @@
   .app__list {
     width: 50%;
     max-width: 600px;
-    padding: 2px;
     margin: 0 auto;
   }
   .app__button {

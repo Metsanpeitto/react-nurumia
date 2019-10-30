@@ -483,17 +483,14 @@ body {
 
   .chart-title-text-large {
     text-align: center;
-    padding-top: 6%;
+    padding-top: 4%;
     padding-bottom: 1%;
   }
 
   .readings-title-text-large {
     text-align: center;
-    padding-top: 22%;
-    padding-bottom: 5%;
-  }
-
-  .chart-canvas {
+    padding-top: 10%;
+    padding-bottom: 18%;
   }
 
   .temperature-header-chart {

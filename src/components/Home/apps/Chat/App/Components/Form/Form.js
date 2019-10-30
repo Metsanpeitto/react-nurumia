@@ -22,7 +22,9 @@ class Form extends Component {
       dataSearch: null,
       unitname: null,
       group: null,
-      ref: null
+      ref: null,
+      background: "rgb(128, 145, 171)",
+      disabled: true
     };
 
     this.messageLocalGroupRef = this.messageLocalGroupRef.bind(this);
@@ -54,7 +56,13 @@ class Form extends Component {
 
           this.setState(
             {
-              ...{ list: Object.values(thisObj), ref: ref, group: group }
+              ...{
+                list: Object.values(thisObj),
+                ref: ref,
+                group: group,
+                background: "white",
+                disabled: false
+              }
             },
             () => {
               console.log(this.state.group);
@@ -75,7 +83,13 @@ class Form extends Component {
               var thisObj = Object.values(message.val());
               this.setState(
                 {
-                  ...{ list: Object.values(thisObj), ref: ref, group: group }
+                  ...{
+                    list: Object.values(thisObj),
+                    ref: ref,
+                    group: group,
+                    background: "white",
+                    disabled: false
+                  }
                 },
                 () => {
                   console.log(this.state.group);
@@ -104,7 +118,9 @@ class Form extends Component {
           this.setState(
             {
               list: Object.values(thisObj),
-              ref: ref
+              ref: ref,
+              background: "white",
+              disabled: false
             },
             () => {}
           );
@@ -122,7 +138,6 @@ class Form extends Component {
         ref = this.state.ref;
         console.log(ref);
         console.log(newItem);
-
         ref.push(newItem);
       }
     }
@@ -158,6 +173,11 @@ class Form extends Component {
         area = nextProps.dataSearch.area;
         type = nextProps.dataSearch.type;
         chatPublic = true;
+
+        this.setState(
+          { ...{ userName: nextProps.dataSearch.username } },
+          () => {}
+        );
 
         if (nextProps.dataSearch.chatPublic === false) {
           chatPublic = false;
@@ -209,6 +229,13 @@ class Form extends Component {
     this.handleSend();
   }
 
+  onThisChatChange = obj => {
+    if (obj) {
+      var data = obj;
+      this.props.onThisChatChange(data);
+    }
+  };
+
   render(props) {
     {
       var group = null;
@@ -239,12 +266,16 @@ class Form extends Component {
             }
           }}
         </AuthUserContext.Consumer>
-        <Container className="card chat-grid-card grid-card is-card-dark">
-          {group ? group : ""}
+        <Container className="card is-dark-text-light chat-grid-card grid-card is-card-dark">
+          {group ? group : "No chat"}
+
           <Container className="card-heading">
             <Container className="is-dark-text-light letter-spacing text-small">
               <div className="form">
-                <div className="form__message">
+                <div
+                  className="form__message"
+                  style={{ background: this.state.background }}
+                >
                   {this.state.list.map((item, index) => (
                     <Message
                       key={index}
@@ -263,6 +294,7 @@ class Form extends Component {
                 value={this.state.message}
                 onChange={this.handleChange.bind(this)}
                 onKeyPress={this.handleKeyPress.bind(this)}
+                disabled={this.state.disabled ? true : false}
               />
               <Button
                 style={{
@@ -272,6 +304,7 @@ class Form extends Component {
                 }}
                 className="form__button"
                 onClick={this.handleSend.bind(this)}
+                disabled={this.state.disabled ? true : false}
               >
                 send
               </Button>

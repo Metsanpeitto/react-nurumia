@@ -11,8 +11,43 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
 import TextField from "@material-ui/core/TextField";
 import { Button } from "@material-ui/core";
+import { createMuiTheme } from "@material-ui/core/styles";
+import { ThemeProvider } from "@material-ui/styles";
 
 var authUser = null;
+
+const theme = createMuiTheme({
+  overrides: {
+    MuiInputLabel: {
+      // Name of the component ⚛️ / style sheet
+      root: {
+        // Name of the rule
+        color: " rgb(128, 145, 171)",
+        "&$focused": {
+          // increase the specificity for the pseudo class
+          color: " rgb(128, 145, 171)"
+        },
+        transform: "scale(0.9)"
+      }
+    }
+  }
+});
+const styles = theme => ({
+  container: {},
+  textFieldInput: {},
+
+  input: {
+    color: theme.palette.common.white
+  },
+
+  cssLabel: {},
+
+  cssOutlinedInput: {},
+
+  cssFocused: {},
+
+  notchedOutline: {}
+});
 
 class Create extends Component {
   constructor(props) {
@@ -207,15 +242,34 @@ class Create extends Component {
                 }}
               />
             </RadioGroup>
-
-            <TextField
-              id="name"
-              label="Name"
-              className="is-dark-text-light"
-              value={this.nameInput}
-              onChange={this.handleName("name")}
-              margin="normal"
-            />
+            <ThemeProvider theme={theme}>
+              <TextField
+                id="name"
+                label="Name"
+                className="is-dark-text-light"
+                value={this.nameInput}
+                onChange={this.handleName("name")}
+                variant="outlined"
+                style={{ color: "gray" }}
+                InputLabelProps={{
+                  classes: {
+                    root: theme.white,
+                    focused: "white"
+                  }
+                }}
+                InputProps={{
+                  className: styles.input,
+                  style: { color: "gray" },
+                  classes: {
+                    className: styles.input,
+                    root: styles.cssOutlinedInput,
+                    focused: styles.cssFocused,
+                    notchedOutline: styles.notchedOutline
+                  },
+                  inputMode: "numeric"
+                }}
+              />
+            </ThemeProvider>
           </FormControl>
         </div>
         <Button

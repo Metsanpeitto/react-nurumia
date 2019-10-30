@@ -456,7 +456,7 @@ class Search extends Component {
               }
             })
           ) : (
-            <p>No Connection</p>
+            <p>Waiting parameters</p>
           )}
         </Container>
       </div>

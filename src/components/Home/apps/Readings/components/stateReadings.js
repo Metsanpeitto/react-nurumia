@@ -30,7 +30,7 @@ const stateReadings = {
         pointHoverBorderWidth: 2,
         pointRadius: 1,
         pointHitRadius: 10,
-        data: [65, 59, 80, 81, 56, 55, 40]
+        data: [20, 22, 24, 27, 23, 20, 18]
       },
       {
         label: "Water Temperature",
@@ -51,7 +51,7 @@ const stateReadings = {
         pointHoverBorderWidth: 2,
         pointRadius: 1,
         pointHitRadius: 10,
-        data: [65, 59, 80, 81, 56, 55, 40]
+        data: [18, 19, 20, 22, 21, 20, 19]
       }
     ]
   }

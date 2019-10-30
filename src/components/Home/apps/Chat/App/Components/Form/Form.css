@@ -24,7 +24,7 @@
     outline: 0;
   }
   .form__input:focus {
-    background-color: rgba(245, 243, 243, 0.5);
+    background-color: #ddd;
   }
   .form__button {
     padding: 0 30px;
@@ -51,6 +51,7 @@
 
   .chat-grid-card {
     position: relative;
+    padding-top: 0%;
   }
 
   .chat-canvas {
@@ -73,19 +74,20 @@
     position: absolute;
     bottom: 0;
     flex-wrap: nowrap;
-    width: 92.5%;
+    width: 424px;
     padding-bottom: 20px;
   }
   .form__input {
     width: 100%;
     padding: 15px 20px;
-    border-radius: 5px 0 0 5px;
+    margin-right: 11px;
+    border-radius: 5px 5px 5px 5px;
     border: 1px solid #ddd;
     box-sizing: border-box;
     outline: 0;
   }
   .form__input:focus {
-    background-color: rgba(245, 243, 243, 0.5);
+    background-color: white;
   }
   .form__button {
     padding: 0 30px;
@@ -111,10 +113,12 @@
   .card-heading {
     padding-top: 30%;
     display: contents;
+    width: 424px;
   }
 
   .chat-grid-card {
     position: relative;
+    padding-top: 0%;
   }
 }
 

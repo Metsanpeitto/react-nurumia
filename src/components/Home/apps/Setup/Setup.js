@@ -13,9 +13,15 @@ const Setup = () => (
     <AuthUserContext.Consumer>
       {authUser => {
         if (authUser.role) {
+          console.log(authUser);
+
           if (authUser.role === "admin") {
+            console.log("load as admin");
             return <SetupAdmin {...authUser} />;
-          } else {
+          }
+
+          if (authUser.role === "worker") {
+            console.log("load as guest");
             return <SetupGuest {...authUser} />;
           }
         }

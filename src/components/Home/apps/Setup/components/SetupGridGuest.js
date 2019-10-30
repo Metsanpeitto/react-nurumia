@@ -303,7 +303,7 @@ class SetupGridGuest extends React.Component {
             variant="contained"
             style={{
               backgroundColor: "white",
-              marginLeft: "30.5%",
+              marginLeft: "31.5%",
               paddingLeft: "5%",
               paddingRight: "5%"
             }}
