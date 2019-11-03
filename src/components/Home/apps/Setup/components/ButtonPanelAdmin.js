@@ -34,9 +34,11 @@ class ButtonPanel extends React.Component {
 
   componentDidMount() {
     this.readSetupButtons();
+    console.log("Button Panel Admin");
   }
 
   handleChange = name => event => {
+    console.log(event.target.value);
     this.setState({
       [name]: event.target.value
     });
@@ -66,7 +68,6 @@ class ButtonPanel extends React.Component {
               },
               () => {}
             );
-            console.log(this.state);
             this.setButtonState();
           }
         });
@@ -143,7 +144,6 @@ class ButtonPanel extends React.Component {
           color7: stateSetup.green,
           text7: stateSetup.textFan + " "
         });
-    console.log(this.state);
   };
 
   render() {
@@ -157,7 +157,7 @@ class ButtonPanel extends React.Component {
           }}
         </AuthUserContext.Consumer>
 
-        <Container className="setup-button-card-canvas is-card-dark  ">
+        <Container className="setup-button-card-canvas card is-card-dark  ">
           <Container className="setup-buttons-title is-dark-text-light letter-spacing text-large ">
             Actual State of the Actuators
           </Container>

@@ -73,8 +73,8 @@ class PasswordChangeForm extends Component {
     return (
       <form onSubmit={this.onSubmit}>
         <Container
-          className="is-light-text mb-4 user-card  is-card-dark"
-          style={{ padding: "4%", margin: "5%" }}
+          className="is-light-text mb-4  container-password-change user-card  is-card-dark"
+          style={{}}
         >
           <Container
             className="is-dark-text-light letter-spacing text-large"
@@ -145,7 +145,8 @@ class PasswordChangeForm extends Component {
               backgroundColor: "white",
               color: "black",
               width: "60%",
-              marginLeft: "20%"
+              marginLeft: "20%",
+              marginTop: "2rem"
             }}
           >
             Change My Password

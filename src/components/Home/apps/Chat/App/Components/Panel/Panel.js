@@ -158,12 +158,12 @@ class Panel extends Component {
 
                   <Button
                     value="search"
-                    className="panel-search   "
+                    className="panel-search"
                     variant="contained"
                     style={{
                       color: clickedSearch ? "white" : "rgb(128, 145, 171)",
                       backgroundColor: "transparent",
-                      marginTop: "9%"
+                      marginTop: "1rem"
                     }}
                     onClick={this.handleClick}
                   >

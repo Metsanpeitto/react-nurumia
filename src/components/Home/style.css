@@ -115,6 +115,13 @@ body {
     font-size: 3%;
   }
 
+  .bDpJEf ul {
+    padding-top: 19px;
+    padding-left: 20px;
+    /* padding: 0%; */
+    margin: 0%;
+  }
+
   .is-dark {
     background: rgb(19, 25, 36);
     height: 60px;
@@ -131,7 +138,8 @@ body {
     min-width: max-content;
     /* padding: 2%; */
     height: 600px;
-    border: 1px solid rgb(63, 81, 181);
+    border: 1px solid rgb(63, 81, 181) !important;
+    border-radius: 0.25rem;
   }
 
   .readings-grid-card {
@@ -142,11 +150,12 @@ body {
     flex-grow: 1;
     flex-direction: column;
     padding: 1.5rem;
-    min-width: max-content;
+    width: 180%;
     /* padding: 2%; */
     height: 600px;
     margin-left: 125%;
     border: 1px solid rgb(63, 81, 181);
+    border-radius: 0.25rem;
   }
 
   .chart-grid-card {
@@ -168,6 +177,13 @@ body {
     width: 800px;
     margin-left: 15%;
     border: 1px solid rgb(63, 81, 181);
+    border-radius: 0.25rem;
+  }
+
+  .readings-grid-readings {
+    padding-top: "0%";
+    padding-bottom: "1%";
+    margin-left: " 4%";
   }
 
   .chart-title-text-large {
@@ -183,7 +199,7 @@ body {
   }
 
   .chart-canvas {
-    margin-top: 15%;
+    margin-top: 0%;
   }
 
   .temperature-header-chart {
@@ -229,6 +245,7 @@ body {
     min-width: max-content;
     text-align: center;
     padding-bottom: 0%;
+    width: 100%;
   }
 
   .readings-canvas {
@@ -284,6 +301,17 @@ body {
 
   .setup-temp {
     align-content: top;
+  }
+
+  .setup-submit-button {
+    background-color: "white";
+    margin-left: "30.5%";
+    padding-left: "5%";
+    padding-right: "5%";
+  }
+
+  .setup-submit-button-canvas {
+    margin-left: 32.5%;
   }
 
   .buttons-container {
@@ -352,7 +380,8 @@ body {
     margin: 1%;
     padding: 3%;
     margin-top: 11%;
-    border: 1px solid rgb(63, 81, 181);
+    border: 1px solid rgb(63, 81, 181) !important;
+    border-radius: 0.25rem !important;
   }
 
   .alarm-header {
@@ -442,7 +471,8 @@ body {
     min-width: max-content;
     /* padding: 2%; */
     height: 450px;
-    border: 1px solid rgb(63, 81, 181);
+    border: 1px solid rgb(63, 81, 181) !important;
+    border-radius: 0.25rem !important;
   }
 
   .readings-grid-card {
@@ -457,7 +487,9 @@ body {
     /* padding: 2%; */
     height: 500px;
     margin-left: 180%;
-    border: 1px solid rgb(63, 81, 181);
+    margin-top: -9%;
+    border: 1px solid rgb(63, 81, 181) !important;
+    border-radius: 0.25rem;
   }
 
   .chart-grid-card {
@@ -478,7 +510,8 @@ body {
     width: 740px;
     height: 500px;
     margin-left: 12%;
-    border: 1px solid rgb(63, 81, 181);
+    border: 1px solid rgb(63, 81, 181) !important;
+    border-radius: 0.25rem;
   }
 
   .chart-title-text-large {
@@ -525,6 +558,12 @@ body {
   .readings-grid {
     padding-left: 2%;
     padding-top: 10%;
+  }
+
+  .readings-grid-readings {
+    padding-top: "0%" !important;
+    padding-bottom: "1%";
+    margin-left: " 4%";
   }
 
   .card-value {
@@ -613,7 +652,7 @@ body {
   .setup-div-buttons {
     height: fit-content;
     display: grid;
-    margin-top: 5%;
+    margin-top: 0%;
   }
 
   .setup-button-card-canvas {
@@ -633,7 +672,15 @@ body {
   .setup-buttons-title {
     height: fit-content;
     min-width: max-content;
-    margin-top: 0%;
+    margin-top: 5%;
+    margin-bottom: 0%;
+  }
+
+  .setup-submit-button {
+    background-color: white;
+    margin-left: 30.5% !important;
+    padding-left: 5%;
+    padding-right: 5%;
   }
 
   .setup-button {
@@ -652,7 +699,8 @@ body {
     margin: 5%;
     margin-top: 1%;
     padding: 5%;
-    border: 1px solid rgb(63, 81, 181);
+    border: 1px solid rgb(63, 81, 181) !important;
+    border-radius: 0.25rem;
   }
 
   .alarm-header {
@@ -661,7 +709,7 @@ body {
 
   .task-canvas {
     margin-top: 0%;
-    padding: 1%;
+    padding: 0%;
   }
 
   .calendar-canvas {
@@ -669,10 +717,11 @@ body {
   }
 
   .calendar-card {
-    height: 500px;
+    height: 520px !important;
     padding-left: 1%;
     padding-right: 1%;
-    padding-top: 1%;
+    padding-top: 0%;
+    margin-top: 0% !important;
   }
 
   .rbc-toolbar {
@@ -681,7 +730,7 @@ body {
   }
 
   .rbc-calendar {
-    height: 98%;
+    height: 87%;
   }
   .rbc-month-view {
     margin-top: 3%;
@@ -690,7 +739,6 @@ body {
 
   .chat-canvas {
     margin-top: 5%;
-
     position: relative;
   }
 }
@@ -699,6 +747,117 @@ body {
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
   .container-fluid {
     width: 95% !important;
+  }
+
+  /* Force table to not be like tables anymore */
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+
+  /* Hide table headers (but not display: none;, for accessibility) */
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  tr {
+    border: 1px solid #ccc;
+  }
+
+  th {
+    color: #ffff !important;
+  }
+
+  table td {
+    padding: 2% !important;
+    vertical-align: center !important;
+    border-top: 1px solid #dee2e6;
+  }
+
+  td {
+    /* Behave  like a "row" */
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 50%;
+  }
+
+  td:before {
+    position: static;
+    top: 14px;
+    left: 6px;
+    width: 45%;
+    padding-right: 67px;
+    white-space: nowrap;
+  }
+
+  /*
+	Label the data
+	*/
+  td:nth-of-type(1):before {
+    content: "TimeStamp";
+  }
+  td:nth-of-type(2):before {
+    content: "Air Too Hot";
+    color: #ffff !important;
+  }
+  td:nth-of-type(3):before {
+    content: "Air Too Cold";
+    color: #ffff !important;
+  }
+  td:nth-of-type(4):before {
+    content: "Air Too Dry";
+    color: #ffff !important;
+  }
+  td:nth-of-type(5):before {
+    content: "Air Too Moist";
+    color: #ffff !important;
+  }
+  td:nth-of-type(6):before {
+    content: "Air Too Moist";
+    color: #ffff !important;
+  }
+  td:nth-of-type(7):before {
+    content: "Water Too Hot";
+    color: #ffff !important;
+  }
+  td:nth-of-type(8):before {
+    content: "Water Too Hot";
+    color: #ffff !important;
+  }
+  td:nth-of-type(9):before {
+    content: "Ph too High";
+    color: #ffff !important;
+  }
+  td:nth-of-type(10):before {
+    content: "Water Level Too Low";
+    color: #ffff !important;
+  }
+  td:nth-of-type(11):before {
+    content: "Water Level Too High";
+    color: #ffff !important;
+  }
+  td:nth-of-type(12):before {
+    content: "Lights On";
+    color: #ffff !important;
+  }
+  td:nth-of-type(13):before {
+    content: "Lights Off";
+    color: #ffff !important;
+  }
+  td:nth-of-type(14):before {
+    content: "Motion Start";
+    color: #ffff !important;
+  }
+  td:nth-of-type(15):before {
+    content: "Motion Stop";
+    color: #ffff !important;
   }
 
   /* navbar styles */
@@ -715,6 +874,29 @@ body {
     height: 60px;
   }
 
+  .readings-grid-readings {
+    padding-top: "0%";
+    padding-bottom: "1%";
+    margin-left: " 1%";
+  }
+
+  .readings-grid-card {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    padding: 1.5rem;
+    min-width: max-content;
+    /* padding: 2%; */
+    height: 510px;
+    width: 295px;
+    margin-left: 0%;
+    border: 1px solid rgb(63, 81, 181);
+    border-radius: 0.25rem;
+  }
+
   .grid-card {
     display: flex;
     flex-grow: 1;
@@ -729,13 +911,34 @@ body {
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-
     height: calc(100%);
     margin: 1%;
-    min-width: fit-content;
+    border: 1px solid rgb(63, 81, 181) !important;
+    border-radius: 0.25rem;
   }
 
   .chart-grid-card {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    width: 295px;
+    margin-left: 11.5%;
+    flex-grow: 1;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding: 0%;
+    border: 1px solid rgb(63, 81, 181) !important;
+    border-radius: 0.25rem;
+  }
+
+  .card {
     display: flex;
     flex-grow: 1;
     flex-direction: column;
@@ -750,7 +953,27 @@ body {
     -ms-flex-direction: column;
     flex-direction: column;
     padding: 0%;
-    height: 600px;
+    width: 300px;
+    border: 1px solid rgb(63, 81, 181) !important;
+    border-radius: 0.25rem;
+  }
+
+  .chartjs-render-monitor {
+    display: block;
+    height: 350px !important;
+    width: 275px !important;
+  }
+
+  .chart-title-text-large {
+    text-align: center;
+    padding-top: 1%;
+    padding-bottom: 1%;
+  }
+
+  .readings-title-text-large {
+    text-align: center;
+    padding-top: 5%;
+    padding-bottom: 5%;
   }
 
   .temperature-header-chart {
@@ -769,18 +992,44 @@ body {
     padding-top: 1%;
     padding-left: 15%;
   }
+
   .readings-canvas {
-    margin-left: 7%;
+    margin-top: 5%;
+  }
+
+  .readings-grid-chart {
+    padding: 0% !important;
+    padding-bottom: 1% !important;
+  }
+
+  .w10 {
+    width: 300px !important;
+    height: 350px !important ;
   }
 
   .setup-canvas {
-    margin-left: 9%;
+    margin-left: -4%;
+    margin-top: 5%;
   }
 
   .container-chart {
     padding-top: 1%;
     height: 100%;
     width: 100%;
+  }
+
+  .container-signin {
+    width: 340px;
+    display: inline-flex;
+    margin: 10px;
+    margin-top: 23%;
+    padding: 3%;
+  }
+
+  .container-forgot {
+    padding: 10%;
+    margin: 5%;
+    margin-top: 33%;
   }
 
   .chart {
@@ -818,6 +1067,16 @@ body {
     min-width: max-content;
     word-wrap: normal;
     text-align: center;
+    border-radius: 0.25rem;
+  }
+
+  .setup-submit-button {
+    background-color: white;
+    margin-left: 38.5% !important;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-top: 4% !important;
+    margin-bottom: 2% !important;
   }
 
   .setup-card-heading {
@@ -826,12 +1085,18 @@ body {
     justify-content: center;
     position: relative;
     min-height: 30px;
+    margin-top: 5%;
   }
 
   .setup-main-grid {
     align-content: center;
     width: 100%;
     margin: 0%;
+  }
+
+  .chat-canvas {
+    margin-top: 0% !important;
+    position: relative;
   }
 
   .setup-time {
@@ -853,6 +1118,28 @@ body {
   .setup-button-card {
     padding: 5%;
     margin: 2%;
+    border: 1px solid rgb(63, 81, 181);
+  }
+
+  .setup-buttons-title {
+    height: fit-content;
+    min-width: -webkit-fill-available;
+    text-align: -webkit-center;
+    margin-top: 0%;
+  }
+
+  .setup-button-card-canvas {
+    margin-top: 0%;
+    padding: 5%;
+    height: 490px;
+    width: 300px;
+    border: 1px solid rgb(63, 81, 181);
+  }
+
+  .setup-div-textfield {
+    margin-top: 7%;
+    margin-left: 12%;
+    margin-bottom: 10%;
   }
 
   .table {
@@ -863,7 +1150,7 @@ body {
   }
 
   .alarm-card {
-    margin: 5%;
+    margin: 11%;
     padding: 5%;
   }
 
@@ -875,5 +1162,36 @@ body {
     width: "100%";
     background-color: "transparent";
     align-content: center;
+  }
+
+  .tabs-menu-canvas {
+    width: 100%;
+  }
+
+  .tab-style {
+    margin-left: 0% !important;
+    margin-right: 0% !important;
+    padding: 0% !important;
+    width: fit-content !important;
+    font-size: 0.7rem !important;
+  }
+
+  .tabs-menu {
+    width: 100%;
+    margin-left: 1%;
+  }
+
+  .task-canvas {
+    height: 525px;
+    margin-top: 1%;
+    padding: 1%;
+  }
+
+  .calendar-card {
+    margin-top: 2%;
+    height: 400px;
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-top: 1%;
   }
 }

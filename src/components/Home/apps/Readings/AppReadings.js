@@ -86,7 +86,7 @@ class AppReadings extends Component {
             width: "95%",
             margin: "0%",
             alignItems: "center",
-            paddingTop: "1%",
+            paddingTop: "0%",
             paddingBottom: "1%"
           }}
         >
@@ -102,7 +102,7 @@ class AppReadings extends Component {
               paddingBottom: "1%"
             }}
           >
-            <Container className="chart-grid-card card is-card-dark is-dark-text-light letter-spacing text-small">
+            <Container className="chart-grid-card  is-card-dark is-dark-text-light letter-spacing text-small">
               <h3 className="chart-title-text-large ">Temperature Readings</h3>
               <div className="chart-canvas">
                 <Chart dataLine={this.state.dataLineTemperature} />
@@ -117,13 +117,9 @@ class AppReadings extends Component {
             lg={2}
             xl={2}
             className="readings-grid-readings"
-            style={{
-              paddingTop: "0%",
-              paddingBottom: "1%",
-              marginLeft: " 4%"
-            }}
+            style={{}}
           >
-            <Container className="card readings-grid-card is-card-dark is-dark-text-light letter-spacing text-small">
+            <Container className=" readings-grid-card is-card-dark is-dark-text-light letter-spacing text-small">
               <h3 className="readings-title-text-large ">Last Readings</h3>
 
               <ReadingsGrid />

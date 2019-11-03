@@ -15,7 +15,6 @@ import AuthUserContext from "../../../../Session/context";
 //         -Upload the buttons State and the Setup Values Form to firebase
 // ah,f,l,p,vi,vo,wh ---> /control/control_state
 var authUser = null;
-var state = null;
 
 class SetupGridAdmin extends React.Component {
   constructor(props) {
@@ -26,7 +25,6 @@ class SetupGridAdmin extends React.Component {
       valueFromChild: "",
       idFromChild: ""
     };
-
     this.onFormSubmit = this.onFormSubmit.bind(this);
     this.handleData = this.handleData.bind(this);
     this.parseValues = this.parseValues.bind(this);
@@ -38,31 +36,25 @@ class SetupGridAdmin extends React.Component {
   handleData = data => {
     this.inputs[data.id].value = parseInt(data.value);
     this.setState({
-      inputs: this.inputs
+      inputs: this.inputs,
+      isToggleOn: true
     });
   };
 
   onKeyPress = e => {
-    console.log(e);
     if (e.key === "Enter") {
-      console.log(e.key);
       this.onFormSubmit();
+      console.log("submitted");
     }
   };
 
   onFormSubmit = e => {
     e.preventDefault();
-    console.log("Submit");
-    this.setState(
-      prevState => ({
-        isToggleOn: !prevState.isToggleOn,
-        text: this.props.text,
-        color: "black"
-      }),
-      () => {
-        console.log(this.setState);
-      }
-    );
+    this.setState(prevState => ({
+      isToggleOn: !prevState.isToggleOn,
+      text: this.props.text,
+      color: "black"
+    }));
     this.parseValues();
     this.updateSetup(this.jsonSetup);
   };
@@ -73,6 +65,7 @@ class SetupGridAdmin extends React.Component {
 
   componentDidMount(props) {
     this.downloadSetup();
+    console.log("Setup Admin");
   }
 
   updateSetup = thisJson => {
@@ -124,7 +117,7 @@ class SetupGridAdmin extends React.Component {
     this.inputs.tempmin.value = data.ai;
     this.inputs.humimax.value = data.ha;
     this.inputs.humimin.value = data.hi;
-    this.setState({ inputs: this.inputs }, () => {});
+    this.setState({ inputs: this.inputs });
   }
 
   render() {
@@ -308,20 +301,21 @@ class SetupGridAdmin extends React.Component {
               <ButtonPanel {...this.authUser} />
             </Grid>
           </Grid>
-          <Button
-            className="setup-submit-button"
-            type="submit"
-            variant="contained"
-            onClick={this.onFormSubmit}
-            style={{
-              backgroundColor: "white",
-              marginLeft: "31.5%",
-              paddingLeft: "5%",
-              paddingRight: "5%"
-            }}
-          >
-            {this.state.isToggleOn ? "Submit" : "Submitted"}
-          </Button>
+          <div className="setup-submit-button-canvas">
+            <Button
+              type="submit"
+              variant="contained"
+              style={{
+                backgroundColor: "white",
+
+                paddingLeft: "5%",
+                paddingRight: "5%"
+              }}
+              className="setup-submit-button"
+            >
+              {this.state.isToggleOn ? "Submit" : "Submitted"}
+            </Button>
+          </div>
         </form>
       </div>
     );

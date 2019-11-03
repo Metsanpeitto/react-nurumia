@@ -3,49 +3,102 @@ import { Link } from "react-router-dom";
 import SignOutButton from "../SignOut";
 import * as ROUTES from "../../constants/routes";
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
-
 import ResponsiveMenu from "react-responsive-navbar";
 import styled from "styled-components";
 import { FaBars, FaTimes } from "react-icons/fa";
-
+import { AuthUserContext } from "../Session";
+import { withAuthentication } from "../Session";
 import "./Logo.png";
 import "../style.css";
 
-import { AuthUserContext } from "../Session";
-import { withAuthentication } from "../Session";
-
 const Menu = styled.div`
+
+/* Desktops and laptops ----------- */
+@media only screen and (min-width: 1400px) and (max-device-width: 1824px) {
   border-bottom: 2px solid #3f52b5;
   margin: 0%;
   background-color: white;
   flex: 1;
-  text-align: -webkit-left;
+  text-align: start;
   width: 100%;
+  height: 100px;
   ul {
-    padding: 0%;
-    margin: 0%;
+    padding-top: 30px;
+    margin: %;
   }
-  li {
-    display: inline;
-    font-size: 1.125rem;
-    list-style-type: none;
-    margin: 5%;
-  }
-  a {
-    text-decoration: none;
 
+  a {
+    text-decoration: none;   
     font-size: 20px;
     color: #3f52b5;
     &:hover {
       color: #8895dc;
     }
   }
-  @media (max-width: 500px) {
-    li {
-      padding: 10px 0;
-      display: block;
-      margin-left: 0;
+
+  img {
+    vertical-align: bottom;
+    border-style: none;
+}
+
+}
+ 
+  @media only screen and (min-width: 1024px) and (max-device-width: 1400px) {
+    border-bottom: 2px solid #3f52b5;
+    margin: 0%;
+    background-color: white;
+    flex: 1;
+    text-align: start;
+    width: 100%;
+    height: 60px;
+    ul {
+      padding-top: 2px;
+      padding-left:1%;
+      margin: %;
     }
+  
+    a {
+      text-decoration: none;   
+      font-size: 20px;
+      color: #3f52b5;
+      &:hover {
+        color: #8895dc;
+      }
+    }
+
+    img {
+      vertical-align: bottom;
+      border-style: none;
+  }
+   
+  }
+
+  @media (max-width: 500px) {
+    border-bottom: 2px solid #3f52b5;
+    margin: 0%;
+    background-color: white;
+    flex: 1;
+    text-align: center;
+    width: 100%;
+    height:fit-content
+    ul {   display: grid;
+           padding-top: 3%; 
+           margin: 0%;
+    }
+    li {
+      display: block;
+      font-size: 1.125rem;
+      list-style-type: none;
+      margin: 5%;
+    }
+    a {
+      text-decoration: none;
+  
+      font-size: 20px;
+      color: #3f52b5;
+      &:hover {
+        color: #8895dc;
+      }
   }
 `;
 
@@ -81,31 +134,28 @@ const NavigationAuth = () => (
     menu={
       <div>
         <Menu>
-          <ul className="flex justify-between">
-            <Link to={ROUTES.HOME} className="link-logo">
-              <img
-                style={{
-                  paddingLeft: "1%",
-                  marginTop: "1%",
-                  marginBottom: "0.15%",
-                  maxHeight: "50px",
-                  minWidth: "200px"
-                }}
-                alt=""
-                src={require("../Logo.png")}
-              />
-            </Link>
-            <Link to={ROUTES.LANDING} className="link">
-              The Project
-            </Link>
-            <Link to={ROUTES.HOME} className="link">
-              Home
-            </Link>
-            <Link to={ROUTES.ACCOUNT} className="link">
-              Account
-            </Link>
-            <SignOutButton />
-          </ul>
+          <div class="menuNavAuth">
+            <ul class="menu-nav-ul" style={{}}>
+              <Link to={ROUTES.HOME} className="link-logo">
+                <img
+                  className="nav-img"
+                  style={{}}
+                  alt=""
+                  src={require("../Logo.png")}
+                />
+              </Link>
+              <Link to={ROUTES.LANDING} className="link-landing">
+                The Project
+              </Link>
+              <Link to={ROUTES.HOME} className="link-home">
+                Home
+              </Link>
+              <Link to={ROUTES.ACCOUNT} className="link-account">
+                Account
+              </Link>
+              <SignOutButton />
+            </ul>
+          </div>
         </Menu>
       </div>
     }
@@ -122,28 +172,20 @@ const NavigationNonAuth = props => (
     smallMenuClassName="small-menu-classname"
     menu={
       <Menu>
-        <ul className="flex justify-between">
-          <Link to={ROUTES.LANDING} className="link-logo">
-            <img
-              style={{
-                paddingLeft: "1%",
-                marginTop: "1%",
-                marginBottom: "0.15%",
-                maxHeight: "50px",
-                minWidth: "200px"
-              }}
-              alt=""
-              src={require("../Logo.png")}
-            />
-          </Link>
+        <div class="menuNavAuth">
+          <ul className="menu-nav-ul" style={{}}>
+            <Link to={ROUTES.LANDING} className="link-logo">
+              <img style={{}} alt="" src={require("../Logo.png")} />
+            </Link>
 
-          <Link to={ROUTES.LANDING} className="link">
-            The Project
-          </Link>
-          <Link to={ROUTES.SIGN_IN} className="link-noau">
-            Sign In
-          </Link>
-        </ul>
+            <Link to={ROUTES.LANDING} className="link-project-noau ">
+              The Project
+            </Link>
+            <Link to={ROUTES.SIGN_IN} className="link-noau ">
+              Sign In
+            </Link>
+          </ul>
+        </div>
       </Menu>
     }
   />

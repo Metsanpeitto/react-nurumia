@@ -1,12 +1,6 @@
 import React from "react";
-import "react-dropdown/style.css";
-import "bootstrap/dist/css/bootstrap.css";
-import "@fortawesome/fontawesome-free/css/all.css";
-import "./style.css";
 import { BrowserRouter } from "react-router-dom/cjs/react-router-dom";
-
 import PropTypes from "prop-types";
-import { withStyles } from "@material-ui/core/styles";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
@@ -16,7 +10,10 @@ import Alarm from "./apps/Alarms/Alarm";
 import Tasks from "./apps/Tasks/Tasks";
 import Chat from "./apps/Chat/App/Chat";
 import { withAuthorization } from "../Session";
-import AuthUserContext from "../Session/context";
+import "react-dropdown/style.css";
+import "bootstrap/dist/css/bootstrap.css";
+import "@fortawesome/fontawesome-free/css/all.css";
+import "./style.css";
 
 function TabContainer(props) {
   return <Typography component={"span"}>{props.children}</Typography>;
@@ -46,7 +43,7 @@ class HomePage extends React.Component {
     const { value } = this.state;
 
     return (
-      <div key={Math.random()} className="root">
+      <div key={Math.random()} className="tabs-menu-canvas">
         <BrowserRouter>
           <Tabs
             value={value}
@@ -55,13 +52,13 @@ class HomePage extends React.Component {
             textColor="inherit"
             backgroundcolor="transparent"
             centered
-            className="is-light-text text-x-large "
+            className="is-light-text tabs-menu text-x-large "
           >
-            <Tab label="Readings" />
-            <Tab label="Setup" />
-            <Tab label="Alarms" />
-            <Tab label="Tasks" />
-            <Tab label="Chat" />
+            <Tab label="Readings" className="tab-style" />
+            <Tab label="Setup" className="tab-style" />
+            <Tab label="Alarms" className="tab-style" />
+            <Tab label="Tasks" className="tab-style" />
+            <Tab label="Chat" className="tab-style" />
           </Tabs>
 
           {value === 0 && (

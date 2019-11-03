@@ -164,6 +164,7 @@ class Search extends Component {
       console.log(CreatePrivateChat(data, this.props));
       this.onSearchChange(data);
     }
+    this.handleClose();
   };
 
   handleClose = () => {
@@ -282,78 +283,62 @@ class Search extends Component {
         </AuthUserContext.Consumer>{" "}
         <div className="panel-create">Search for ...</div>
         <div
-          className="options card"
+          className="panel-search-options card"
           style={{ backgroundColor: "rgba(255, 255, 255, 0.05)" }}
         >
           <FormControl controlid="fieldarea">
             {" "}
-            <RadioGroup
-              aria-label="area"
-              name="area"
-              value={this.state.value}
-              onChange={this.handleChangeArea}
-              style={{ display: "block", marginBottom: "0%" }}
-            >
-              <FormControlLabel
-                value="local"
-                control={<Radio color="primary" />}
-                label="Local"
-                style={{
-                  marginLeft: "0%",
-                  marginRight: "2%",
-                  marginBottom: "0%",
-                  verticalAlign: "middle",
-                  width: "fit-content"
-                }}
-              />
-              <FormControlLabel
-                value="global"
-                control={<Radio color="primary" />}
-                label="Global"
-                style={{
-                  marginLeft: "0%",
-                  marginRight: "2%",
-                  marginBottom: "0%",
-                  verticalAlign: "middle",
-                  width: "fit-content"
-                }}
-              />
-            </RadioGroup>
+            <div className="search-fieldarea">
+              <RadioGroup
+                aria-label="area"
+                name="area"
+                value={this.state.value}
+                onChange={this.handleChangeArea}
+                style={{ display: "-webkit-inline-box", marginBottom: "0%" }}
+              >
+                <FormControlLabel
+                  className="search-local-button"
+                  value="local"
+                  control={<Radio color="primary" />}
+                  label="Local"
+                  style={{}}
+                />
+                <FormControlLabel
+                  className="search-global-button"
+                  value="global"
+                  control={<Radio color="primary" />}
+                  label="Global"
+                  style={{}}
+                />
+              </RadioGroup>
+            </div>
           </FormControl>
 
           <FormControl controlid="fieldtype">
-            <RadioGroup
-              aria-label="type"
-              name="type"
-              value={this.state.value1}
-              onChange={this.handleChangeType}
-              style={{ display: "block", marginBottom: "0%" }}
-            >
-              <FormControlLabel
-                value="user"
-                control={<Radio color="primary" />}
-                label="User"
-                style={{
-                  marginLeft: "0%",
-                  marginRight: "2%",
-                  marginBottom: "0%",
-                  verticalAlign: "middle",
-                  width: "fit-content"
-                }}
-              />
-              <FormControlLabel
-                value="group"
-                control={<Radio color="primary" />}
-                label="Group"
-                style={{
-                  marginLeft: "0%",
-                  marginRight: "2%",
-                  marginBottom: "0%",
-                  verticalAlign: "middle",
-                  width: "fit-content"
-                }}
-              />
-            </RadioGroup>
+            <div className="search-fieldtype">
+              <RadioGroup
+                aria-label="type"
+                name="type"
+                value={this.state.value1}
+                onChange={this.handleChangeType}
+                style={{ display: "-webkit-inline-box", marginBottom: "0%" }}
+              >
+                <FormControlLabel
+                  className="search-user-button"
+                  value="user"
+                  control={<Radio color="primary" />}
+                  label="User"
+                  style={{}}
+                />
+                <FormControlLabel
+                  className="search-group-button"
+                  value="group"
+                  control={<Radio color="primary" />}
+                  label="Group"
+                  style={{}}
+                />
+              </RadioGroup>
+            </div>
           </FormControl>
         </div>
         <Container className="search-result-canvas is-dark-text-light letter-spacing text-small">

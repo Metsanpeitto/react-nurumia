@@ -103,7 +103,7 @@ class SignInFormBase extends Component {
         <Container className="container-signin  is-light-text mb-4 user-card  is-card-dark">
           <Container
             className="is-dark-text-light letter-spacing text-large"
-            style={{ textAlign: "center" }}
+            style={{ textAlign: "center", margin: "3%" }}
           >
             SignIn
           </Container>
@@ -190,7 +190,8 @@ class SignInFormBase extends Component {
               backgroundColor: "white",
               color: "black",
               width: "60%",
-              marginLeft: "20%"
+              marginLeft: "20%",
+              marginTop: "3%"
             }}
           >
             Sign In

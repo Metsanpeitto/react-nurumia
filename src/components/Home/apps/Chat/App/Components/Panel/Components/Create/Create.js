@@ -206,7 +206,7 @@ class Create extends Component {
         </AuthUserContext.Consumer>{" "}
         <div className="panel-create">Create New Chat</div>
         <div
-          className="options card"
+          className="panel-search-options card"
           style={{ backgroundColor: "rgba(255, 255, 255, 0.05)" }}
         >
           <FormControl component="fieldset" onSubmit={this.onSubmit}>

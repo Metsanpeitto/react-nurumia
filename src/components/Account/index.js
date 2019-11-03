@@ -13,10 +13,10 @@ const AccountPage = () => (
     {authUser => (
       console.log(authUser),
       (
-        <div>
+        <div className="container-account">
           <Container
-            className="is-light-text mb-4 user-card  is-card-dark"
-            style={{ padding: "1%", margin: "5%" }}
+            className="is-light-text mb-4 container-account-card user-card  is-card-dark"
+            style={{}}
           >
             <Container className="is-dark-text-light letter-spacing text-small">
               <h1 className="text-large" style={{ textAlign: "center" }}>

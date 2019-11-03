@@ -289,12 +289,9 @@ class SignUpFormBase extends Component {
 
     return (
       <form onSubmit={this.onSubmit}>
-        <Container
-          className="is-light-text mb-4 user-card  is-card-dark"
-          style={{ padding: "4%", margin: "5%" }}
-        >
+        <Container className="is-light-text mb-4  user-card container-signup  is-card-dark">
           <Container
-            className="is-dark-text-light letter-spacing text-large"
+            className="is-dark-text-light letter-spacing signup-title text-large"
             style={{ textAlign: "center" }}
           >
             Sign Up
@@ -321,6 +318,7 @@ class SignUpFormBase extends Component {
 
           <TextField
             name="unitname"
+            className="signup-text"
             value={unitname}
             onChange={this.onChange}
             type="text"
@@ -349,6 +347,7 @@ class SignUpFormBase extends Component {
 
           <TextField
             name="username"
+            className="signup-text"
             value={username}
             onChange={this.onChange}
             type="text"
@@ -377,6 +376,7 @@ class SignUpFormBase extends Component {
 
           <TextField
             name="email"
+            className="signup-text"
             value={email}
             onChange={this.onChange}
             type="text"
@@ -405,6 +405,7 @@ class SignUpFormBase extends Component {
 
           <TextField
             name="passwordOne"
+            className="signup-text"
             value={passwordOne}
             onChange={this.onChange}
             type="password"
@@ -433,6 +434,7 @@ class SignUpFormBase extends Component {
 
           <TextField
             name="passwordTwo"
+            className="signup-text"
             value={passwordTwo}
             onChange={this.onChange}
             type="password"
@@ -466,7 +468,8 @@ class SignUpFormBase extends Component {
               backgroundColor: "white",
               color: "black",
               width: "60%",
-              marginLeft: "20%"
+              marginLeft: "20%",
+              marginTop: "3%"
             }}
           >
             Sign Up
@@ -480,7 +483,7 @@ class SignUpFormBase extends Component {
 }
 
 const SignUpLink = () => (
-  <p>
+  <p style={{ color: "white" }}>
     Don't have an account? <Link to={ROUTES.SIGN_UP}>Sign Up</Link>
   </p>
 );

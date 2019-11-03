@@ -34,6 +34,7 @@ class ButtonPanel extends React.Component {
 
   componentDidMount() {
     this.readSetupButtons();
+    console.log("Button Panel Guest");
   }
 
   handleChange = name => event => {
@@ -66,7 +67,6 @@ class ButtonPanel extends React.Component {
               },
               () => {}
             );
-            console.log(this.state);
             this.setButtonState();
           }
         });
@@ -143,7 +143,6 @@ class ButtonPanel extends React.Component {
           color7: stateSetup.green,
           text7: stateSetup.textFan + " "
         });
-    console.log(this.state);
   };
 
   render() {

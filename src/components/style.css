@@ -60,44 +60,155 @@
   .chart-container svg text {
     letter-spacing: 0.05rem;
   }
+
   .container-signin {
     padding: 4%;
-    margin: 10%;
-    margin-top: 15%;
+    margin: 22%;
+    margin-top: 10%;
   }
 
   .container-landing {
     padding: 2%;
-    margin: 10%;
-    margin-top: 15%;
-  }
-
-  .link-noau {
-    margin-right: 25%;
-  }
-
-  .signOutButton {
-    background-color: white;
-    border: 1;
-    max-height: fit-content;
-    margin-top: 0.45%;
-    margin-right: 1%;
-  }
-  .signinLink {
-    margin-left: 10%;
-  }
-
-  .user-card {
+    margin: 16%;
+    margin-top: 10%;
     position: relative;
     display: flex;
     flex-direction: column;
-    min-width: 0;
+    /* width: 900px; */
     word-wrap: break-word;
     background-color: #fff;
     background-clip: border-box;
     border: 1px solid rgba(0, 0, 0, 0.125);
     border-radius: 0.25rem;
     border: 1px solid rgb(63, 81, 181);
+  }
+
+  .container-signup {
+    padding: 4%;
+    margin-left: 22%;
+    margin-top: 10%;
+  }
+
+  .container-forgot {
+    padding: 4%;
+    margin: 22%;
+    margin-top: 10%;
+  }
+
+  .nav-img {
+    padding-left: "1%";
+    margin-top: "10%";
+    margin-bottom: "0.15%";
+    max-height: "100px";
+    min-width: "200px";
+  }
+
+  .grjlkb img {
+    vertical-align: bottom;
+    border-style: none;
+    height: 75px;
+    width: 250px;
+  }
+
+  .OSanL ul {
+    padding: 0.7%;
+    margin: 0%;
+    margin-top: 0%;
+  }
+
+  .link-project-noau {
+    margin: 31%;
+    margin-top: 40%;
+  }
+
+  .link-noau {
+    margin-right: 0%;
+  }
+
+  .link-home {
+    margin-top: 5px;
+    margin-left: 234px;
+  }
+
+  .link-account {
+    margin-top: 5px;
+    margin-left: 255px;
+  }
+
+  .link-landing {
+    margin-top: 5px;
+    margin-left: 253px;
+  }
+
+  .signOutButton-canvas {
+    background-color: white;
+    border: 1;
+    max-height: fit-content;
+    width: fit-content;
+    margin-top: 0%;
+    margin: -4%;
+    margin-left: 89%;
+    padding-top: 0%;
+    margin-bottom: 10px;
+  }
+
+  .signOutButton {
+    width: 150px;
+    height: 50px;
+  }
+
+  .signinLink {
+    margin-left: 22%;
+  }
+
+  .container-account {
+    margin-left: 18%;
+    margin-top: 10%;
+  }
+
+  .container-account-card {
+    margin-left: 5%;
+    padding: 2%;
+  }
+
+  .container-password-change {
+    margin-left: 5%;
+    padding: 5%;
+  }
+
+  .user-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 900px;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+    border: 1px solid rgb(63, 81, 181);
+  }
+
+  .grjlkb ul {
+    padding-top: 1% !important;
+    padding-left: 10px;
+    margin: 0%;
+  }
+
+  .menu-nav-ul {
+    padding-top: 2% !important;
+    padding-left: 10px;
+    margin: 0%;
+  }
+
+  .menuNavAuth {
+    padding-top: 0px !important;
+  }
+
+  .menu-nav-noauth {
+    padding-top: 1rem !important;
+    padding-left: 10px;
+    margin: 0%;
   }
 }
 
@@ -150,21 +261,76 @@
     letter-spacing: 0.05rem;
   }
 
-  .container-signin {
-    padding: 3%;
-    margin: 7%;
+  .sigunp-title {
+    margin: 1% !important;
   }
+
+  .signup-text {
+    width: 60%;
+    margin-left: 20%;
+    margin-top: 0% !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .container-signin {
+    padding: 2%;
+    margin: 7%;
+    margin-top: 2%;
+  }
+
+  .container-signup {
+    padding: 1%;
+    margin: 10%;
+    margin-top: 2%;
+    width: 80%;
+    height: 60%;
+  }
+
   .container-landing {
     padding: 1%;
     margin: 3%;
+    margin-top: 1%;
+    border: 1px solid rgb(63, 81, 181);
   }
+
+  .container-forgot {
+    padding: 4%;
+    margin: 22%;
+    margin-top: 10%;
+  }
+
+  .container-account {
+    margin-left: 18%;
+    margin-top: 2%;
+  }
+
+  .container-account-card {
+    width: 80%;
+    height: 60%;
+    margin-left: 0%;
+    padding: 2%;
+  }
+
+  .container-password-change {
+    width: 80%;
+    height: 60%;
+    margin-left: 0%;
+    padding: 5%;
+  }
+
   .readings-canvas {
     padding: 1%;
     margin: 3%;
   }
 
+  .link-project-noau {
+    margin-right: 20%;
+    margin-left: 20%;
+  }
+
   .link-noau {
-    margin-right: 25%;
+    margin-right: 20%;
+    margin-left: 20%;
   }
 
   .signinLink {
@@ -175,13 +341,76 @@
     background-color: white;
     border: 1;
     max-height: fit-content;
-    margin-top: 0.45%;
-    margin-right: 1%;
+    /* margin-top: 0.45%; */
+    margin-right: 0%;
+    width: 100px;
   }
 
   .nav-secondary {
     margin-top: 65px;
     box-shadow: 0px 2px 10px #0000006e;
+  }
+
+  .link-project-noau {
+    margin-left: 34%;
+    margin-top: 0%;
+  }
+
+  .link-noau {
+    margin-right: 0%;
+  }
+
+  .nav-img {
+    padding-left: "1%";
+    margin-top: "10%";
+    margin-bottom: "0.15%";
+    max-height: "100px";
+    width: "12%" !important;
+  }
+
+  .link-home {
+    margin-top: 5px;
+    margin-left: 234px;
+  }
+
+  .link-account {
+    margin-top: 5px;
+    margin-left: 255px;
+  }
+
+  .link-landing {
+    margin-top: 5px;
+    margin-left: 253px;
+  }
+
+  .signOutButton-canvas {
+    background-color: white;
+    border: 1;
+    max-height: fit-content;
+    width: fit-content;
+    margin-top: 0%;
+    margin: -4%;
+    margin-left: 91%;
+    padding-top: 1%;
+    margin-bottom: 1%;
+  }
+
+  .signOutButton {
+    width: fit-content;
+    height: fit-content;
+  }
+
+  .grjlkb {
+    border-bottom: 2px solid #3f52b5;
+    margin: 0%;
+    background-color: white;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    text-align: start;
+    width: 100%;
+    height: 60px;
+    padding-top: 0.25% !important;
   }
 
   /* user image style */
@@ -242,6 +471,22 @@ body {
 .is-dark {
   background: rgb(19, 25, 36);
   height: 60px;
+}
+
+.menu-nav-ul {
+  padding-top: 0rem !important;
+  padding-left: 10px;
+  margin: 0%;
+}
+
+.menuNavAuth {
+  padding-top: 0px !important;
+}
+
+.menu-nav-noauth {
+  padding-top: 1rem !important;
+  padding-left: 10px;
+  margin: 0%;
 }
 
 .nav-secondary {
@@ -338,27 +583,10 @@ body {
   top: 18px;
 }
 
-/* media queries */
-@media screen and (max-width: 991px) {
-  .container-fluid.pr-5,
-  .container-fluid.pl-5 {
-    width: 90% !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
-}
-
-@media screen and (min-width: 991px) {
-  .full-height {
-    height: 100% !important;
-  }
-}
-
-@media screen and (max-width: 567px) {
-  .full-height.border-left,
-  .full-height.border-right {
-    border-left: none !important;
-    border-right: none !important;
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .container-fluid {
+    width: 95% !important;
   }
 
   /* font weights */
@@ -396,6 +624,67 @@ body {
   .letter-spacing {
     letter-spacing: 0.05rem;
   }
+
+  .menuNav {
+    padding-left: 0%;
+    padding-bottom: 3%;
+  }
+
+  .OSanL ul {
+    padding: 0%;
+    margin: 0%;
+  }
+
+  .link {
+    margin: 30%;
+  }
+
+  .signOutButton-canvas {
+    margin-bottom: 2%;
+  }
+
+  .link-project-noau {
+    margin-right: 0%;
+  }
+
+  .signinLink {
+    margin-left: 10%;
+  }
+
+  .container-signin {
+    width: 300px;
+    display: inline-flex;
+    margin: 20px;
+    padding: 3%;
+  }
+
+  .container-landing {
+    padding: 1%;
+    margin: 2%;
+    margin-top: 2%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    /* width: 900px; */
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+    border: 1px solid rgb(63, 81, 181);
+  }
+
+  .fyLvdv {
+    border-bottom: 2px solid #3f52b5;
+    margin: 0%;
+    background-color: white;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    text-align: center;
+    width: 100%;
+    height: fit-content;
+  }
 }
 
 .iVBHjs {
@@ -414,24 +703,6 @@ body {
   font-size: 20px;
   margin-top: auto;
   color: #3f52b5;
-}
-
-.jUCstG {
-  flex: 1;
-  justify-content: space-between;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-size: 20px;
-  margin-top: auto;
-  color: #3f52b5;
-}
-
-.flex {
-  display: flex;
-}
-
-.justify-between {
-  justify-content: space-between;
 }
 
 .color-primary-0 {

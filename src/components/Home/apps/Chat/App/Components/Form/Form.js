@@ -1,11 +1,10 @@
 import React, { Component } from "react";
-import "./Form.css";
 import { Container } from "../../../../../components/styled-components";
 import { Button } from "@material-ui/core";
-
 import Message from "../Message/Message";
 import { withFirebase } from "../../../../../../Firebase";
 import { AuthUserContext } from "../../../../../../Session";
+import "./Form.css";
 
 var authUser = null;
 
@@ -267,7 +266,7 @@ class Form extends Component {
           }}
         </AuthUserContext.Consumer>
         <Container className="card is-dark-text-light chat-grid-card grid-card is-card-dark">
-          {group ? group : "No chat"}
+          <div className="chat-title">{group ? group : "No chat"}</div>
 
           <Container className="card-heading">
             <Container className="is-dark-text-light letter-spacing text-small">

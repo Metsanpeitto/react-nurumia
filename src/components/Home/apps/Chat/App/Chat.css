@@ -15,9 +15,8 @@
     font-size: large;
   }
   .app__list {
-    width: 100%;
+    width: 50%;
     max-width: 600px;
-    padding: 20px;
     margin: 0 auto;
   }
   .app__button {
@@ -33,6 +32,10 @@
   .app__button:hover {
     opacity: 1;
   }
+
+  .grid-item {
+    width: 50%;
+  }
   @keyframes App-logo-spin {
     from {
       transform: rotate(0deg);
@@ -43,7 +46,16 @@
   }
 
   .chat-canvas {
-    margin-top: 5%;
+    margin-top: 10%;
+    margin-left: 30%;
+  }
+
+  .chat-title {
+    padding-bottom: 1%;
+  }
+
+  .grid-container {
+    display: flex;
   }
 }
 
@@ -100,6 +112,10 @@
     margin-left: 30%;
   }
 
+  .chat-title {
+    padding-bottom: 1%;
+  }
+
   .grid-container {
     display: flex;
   }
@@ -152,5 +168,18 @@
 
   .chat-canvas {
     margin-top: 5%;
+  }
+
+  .chat-grid-card {
+    position: relative;
+    padding-top: 0%;
+    height: 440px;
+    width: 335px;
+    margin-right: 0% !important;
+    margin-left: 0%;
+  }
+
+  .chat-title {
+    padding-top: 1%;
   }
 }

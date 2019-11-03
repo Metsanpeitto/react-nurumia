@@ -1,10 +1,10 @@
 import React from "react";
 import { MDBTable, MDBTableBody, MDBTableHead } from "mdbreact";
 import { Container } from "../../components/styled-components";
-import "../../style.css";
 import firebase from "firebase";
-
 import AuthUserContext from "../../../Session/context";
+import TableHead from "./TableHead";
+import "../../style.css";
 
 var authUser = undefined;
 
@@ -21,25 +21,7 @@ const Table = ({ state, alarms }) => {
           Record of the Last Alarms
         </h1>
         <MDBTable>
-          <MDBTableHead color="primary-color" textWhite>
-            <tr>
-              <th>TimeStamp</th>
-              <th>Air Too Hot</th>
-              <th>Air Too Cold</th>
-              <th>Air Too Dry</th>
-              <th>Air Too Moist</th>
-              <th>Water Too Cold</th>
-              <th>Water Too Hot</th>
-              <th>Ph Too Low</th>
-              <th>Ph too High</th>
-              <th>Water Level Too Low</th>
-              <th>Water Level Too High</th>
-              <th>Lights On </th>
-              <th>Lights Off</th>
-              <th>Motion Start </th>
-              <th>Motion Stop</th>
-            </tr>
-          </MDBTableHead>
+          <TableHead />
 
           <MDBTableBody color="primary-color" textWhite>
             {alarms !== undefined ? (

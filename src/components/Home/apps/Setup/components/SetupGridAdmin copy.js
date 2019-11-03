@@ -6,7 +6,7 @@ import defaultInputs from "./defaultInputs";
 import { Button } from "@material-ui/core";
 import firebase from "firebase";
 import jsonToSendSetup from "./jsonToSendSetup";
-import ButtonPanel from "./ButtonPanelGuest";
+import ButtonPanel from "./ButtonPanelAdmin";
 import AuthUserContext from "../../../../Session/context";
 
 // Todo :
@@ -16,7 +16,7 @@ import AuthUserContext from "../../../../Session/context";
 // ah,f,l,p,vi,vo,wh ---> /control/control_state
 var authUser = null;
 
-class SetupGridGuest extends React.Component {
+class SetupGridAdmin extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -54,7 +54,7 @@ class SetupGridGuest extends React.Component {
       color: "black"
     }));
     this.parseValues();
-    //this.updateSetup(this.jsonSetup);
+    this.updateSetup(this.jsonSetup);
   };
 
   componentDidUpdate() {
@@ -304,7 +304,7 @@ class SetupGridGuest extends React.Component {
             variant="contained"
             style={{
               backgroundColor: "white",
-              marginLeft: "30.5%",
+              marginLeft: "40%",
               paddingLeft: "5%",
               paddingRight: "5%"
             }}
@@ -318,4 +318,4 @@ class SetupGridGuest extends React.Component {
   }
 }
 
-export default SetupGridGuest;
+export default SetupGridAdmin;

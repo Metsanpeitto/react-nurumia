@@ -4,7 +4,7 @@ import "../style.css";
 
 const LandingPage = () => (
   <div style={{ textAlign: "center" }}>
-    <Container className="container-landing user-card is-light-text mb-4   is-card-dark">
+    <Container className="container-landing  is-light-text mb-4   is-card-dark">
       <h1 className="text-large" style={{ textAlign: "center" }}>
         The Project
       </h1>

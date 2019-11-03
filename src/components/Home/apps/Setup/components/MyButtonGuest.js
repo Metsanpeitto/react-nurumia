@@ -19,11 +19,7 @@ class MyButton extends React.Component {
   }
 
   updateButton = (thisChild, thisValue) => {
-    firebase
-      .database()
-      .ref(`/units/${this.authUser.unitname}/control/control_state`)
-      .child(thisChild)
-      .set(thisValue);
+    return null;
   };
 
   handleClick(event) {
@@ -40,7 +36,6 @@ class MyButton extends React.Component {
     if (this.props) {
       var text = this.props.text;
       var color = this.props.color;
-      console.log(this.props);
 
       var isToggleOn = false;
       if (color == "green") {
@@ -50,7 +45,7 @@ class MyButton extends React.Component {
       }
       this.setState({ ...{ text: text, color: color, isToggleOn } }, () => {});
     }
-    console.log(this.state);
+    console.log("my button Guest");
   }
 
   render() {

@@ -49,6 +49,7 @@ class MyButton extends React.Component {
       }
       this.setState({ ...{ text: text, color: color, isToggleOn } }, () => {});
     }
+    console.log("my button Admin");
   }
 
   render() {
@@ -62,6 +63,7 @@ class MyButton extends React.Component {
           }}
         </AuthUserContext.Consumer>
         <Button
+          onClick={this.handleClick}
           variant="contained"
           className="setup-button"
           style={{
