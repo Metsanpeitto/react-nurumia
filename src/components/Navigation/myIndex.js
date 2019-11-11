@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import SignOutButton from "../SignOut";
 import * as ROUTES from "../../constants/routes";
-import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import ResponsiveMenu from "react-responsive-navbar";
 import styled from "styled-components";
 import { FaBars, FaTimes } from "react-icons/fa";
@@ -145,7 +144,7 @@ const NavigationAuth = () => (
                 />
               </Link>
               <Link to={ROUTES.LANDING} className="link-landing">
-                The Project
+                The Platform
               </Link>
               <Link to={ROUTES.HOME} className="link-home">
                 Home
@@ -179,8 +178,9 @@ const NavigationNonAuth = props => (
             </Link>
 
             <Link to={ROUTES.LANDING} className="link-project-noau ">
-              The Project
+              The Platform
             </Link>
+
             <Link to={ROUTES.SIGN_IN} className="link-noau ">
               Sign In
             </Link>
@@ -189,13 +189,6 @@ const NavigationNonAuth = props => (
       </Menu>
     }
   />
-);
-
-const clickHandler = () => (
-  <Router>
-    <Redirect push to="/" />
-    <Route path="/" component={ROUTES.LANDING} />
-  </Router>
 );
 
 export default withAuthentication(MyNavigation);

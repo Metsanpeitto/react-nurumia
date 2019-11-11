@@ -23,6 +23,7 @@ class Form extends Component {
       group: null,
       ref: null,
       background: "rgb(128, 145, 171)",
+      backgroundImage: null,
       disabled: true
     };
 
@@ -60,6 +61,7 @@ class Form extends Component {
                 ref: ref,
                 group: group,
                 background: "white",
+                backgroundImage: null,
                 disabled: false
               }
             },
@@ -87,6 +89,7 @@ class Form extends Component {
                     ref: ref,
                     group: group,
                     background: "white",
+                    backgroundImage: null,
                     disabled: false
                   }
                 },
@@ -119,6 +122,7 @@ class Form extends Component {
               list: Object.values(thisObj),
               ref: ref,
               background: "white",
+              backgroundImage: "none",
               disabled: false
             },
             () => {}
@@ -254,6 +258,12 @@ class Form extends Component {
           group = this.state.dataSearch.group;
         }
       }
+
+      var classMessage = "form__message";
+
+      if (this.state.background === "white") {
+        classMessage = "form__message2";
+      }
     }
 
     return (
@@ -272,8 +282,10 @@ class Form extends Component {
             <Container className="is-dark-text-light letter-spacing text-small">
               <div className="form">
                 <div
-                  className="form__message"
-                  style={{ background: this.state.background }}
+                  className={classMessage}
+                  style={{
+                    background: this.state.background
+                  }}
                 >
                   {this.state.list.map((item, index) => (
                     <Message

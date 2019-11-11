@@ -99,7 +99,7 @@ class AppReadings extends Component {
             className="readings-grid-chart"
             style={{
               paddingTop: "0%",
-              paddingBottom: "1%"
+              paddingBottom: "0%"
             }}
           >
             <Container className="chart-grid-card  is-card-dark is-dark-text-light letter-spacing text-small">

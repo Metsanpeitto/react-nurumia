@@ -116,6 +116,7 @@ class PasswordChangeForm extends Component {
             onChange={this.onChange}
             type="password"
             placeholder="Confirm New Password"
+            className="account-fields"
             margin="normal"
             variant="outlined"
             style={{ width: "60%", marginLeft: "20%" }}

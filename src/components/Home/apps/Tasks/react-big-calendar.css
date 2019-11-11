@@ -712,6 +712,7 @@ button.rbc-input::-moz-focus-inner {
     display: flex;
     flex-direction: column;
     align-items: stretch;
+    height: 88%;
   }
 
   .rbc-calendar *,
@@ -1060,6 +1061,7 @@ button.rbc-input::-moz-focus-inner {
     flex-direction: column;
     flex: 1 0 0;
     overflow: auto;
+    margin-top: 4%;
   }
   .rbc-agenda-view table.rbc-agenda-table {
     width: 100%;
@@ -1254,6 +1256,7 @@ button.rbc-input::-moz-focus-inner {
     width: 100%;
     border: 1px solid #3f51b5;
     min-height: 0;
+    margin-top: 4%;
   }
   .rbc-time-view .rbc-time-gutter {
     white-space: nowrap;

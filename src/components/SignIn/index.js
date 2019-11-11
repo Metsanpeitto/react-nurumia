@@ -11,6 +11,7 @@ import { Container } from "../styled-components";
 import { createMuiTheme } from "@material-ui/core/styles";
 import Checkbox from "@material-ui/core/Checkbox";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Background from "../../img/pattern.png";
 import "../style.css";
 
 const theme = createMuiTheme({
@@ -38,7 +39,7 @@ const styles = theme => ({
 });
 
 const SignInPage = () => (
-  <div>
+  <div className="signin-canvas">
     <SignInForm />
     <div className="signinLink">
       <PasswordForgetLink />

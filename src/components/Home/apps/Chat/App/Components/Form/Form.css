@@ -35,6 +35,17 @@
     width: 488px;
     height: 450px;
     padding: 5%;
+    background-image: none !important;
+    background-image: url(../../../../../../../img/pattern.png) !important;
+    background-color: rgb(252, 250, 250);
+    overflow-y: scroll;
+  }
+
+  .form__message2 {
+    width: 488px;
+    height: 450px;
+    padding: 5%;
+    background-image: none !important;
     background-color: rgb(252, 250, 250);
     overflow-y: scroll;
   }
@@ -107,7 +118,17 @@
     width: 100%;
     height: 325px;
     padding: 5%;
+
+    background-image: url(../../../../../../../img/pattern.png) !important;
+    overflow-y: scroll;
+  }
+
+  .form__message2 {
+    width: 100%;
+    height: 325px;
+    padding: 5%;
     background-color: rgb(252, 250, 250);
+    background-image: none !important;
     overflow-y: scroll;
   }
 
@@ -174,7 +195,16 @@
     height: 315px;
     margin: 2.5%;
     padding: 5%;
+    background-image: url(../../../../../../../img/pattern.png) !important;
+    overflow-y: scroll;
+  }
+
+  .form__message2 {
+    width: 100%;
+    height: 325px;
+    padding: 5%;
     background-color: rgb(252, 250, 250);
+    background-image: none !important;
     overflow-y: scroll;
   }
 

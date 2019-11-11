@@ -2,7 +2,6 @@ import React from "react";
 import { AuthUserContext } from "../Session";
 import PasswordChangeForm from "../PasswordChange";
 import { withAuthorization } from "../Session";
-import * as ROLES from "../../constants/roles";
 
 import { Container } from "../styled-components";
 
@@ -18,7 +17,7 @@ const AccountPage = () => (
             className="is-light-text mb-4 container-account-card user-card  is-card-dark"
             style={{}}
           >
-            <Container className="is-dark-text-light letter-spacing text-small">
+            <Container className="is-dark-text-light letter-spacing text-small account-fields">
               <h1 className="text-large" style={{ textAlign: "center" }}>
                 Account:
               </h1>
