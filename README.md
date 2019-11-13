@@ -1,6 +1,6 @@
 ## Nurumia Platform
 
- The Nurumia Platform is combination of an electronic controller, connected to a database,  for a greenhouse.
+ The Nurumia Platform is combination of an electronic controller, connected to a Firebase database,  for a greenhouse.
  And a webapp designed to control and manage it . From the mechanical components as lamp or heaters,to the task 
 management.
  
@@ -12,6 +12,8 @@ management.
    -An alarm monitor log with the history of the alarm events in the past .
    
 The webApp is accesible from a webPage that serves as landing page for the platform in general .
+
+
 
 
    
