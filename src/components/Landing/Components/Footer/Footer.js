@@ -28,7 +28,7 @@ const Footer = () => (
       <div class="footer__nav">
         <div class="nav__item">
           {" "}
-          <h2 class="nav__title">Legal</h2>
+          <h2 className="nav__title">Legal</h2>
           <div class="nav__ul">
             <Link to={ROUTES.PRIVACY} className="fnav__ul__item ">
               Privacy Policy
