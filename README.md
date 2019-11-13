@@ -4,7 +4,7 @@
  And a webapp designed to control and manage it . From the mechanical components as lamp or heaters,to the task 
 management.
  
- The webapp contains until now 5 different sections.
+ The webapp contains until now 5 different sections.<br></br>
    -Charts and dashboard with the last values recorded and posted from the device.
    -A control panel where to setup the different parameters of the greenhouse.
    -A Chat where members of the greenhouse and from another greenhouses can communicate.
