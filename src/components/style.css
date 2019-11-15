@@ -233,6 +233,7 @@
     position: absolute !important;
     padding-top: 6%;
     padding-right: 24%;
+    padding-left: 2%;
     left: 0% !important;
     top: 68.8% !important;
     width: 100% !important;
@@ -1768,6 +1769,7 @@
   .img-beautiful-text {
     position: absolute !important;
     padding-top: 2%;
+    padding-left: 2%;
     padding-right: 38%;
     left: 0% !important;
     /* top: 68.8% !important; */
