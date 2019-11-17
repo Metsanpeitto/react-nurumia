@@ -8,6 +8,7 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import { AuthUserContext } from "../Session";
 import { withAuthentication } from "../Session";
 import "./Logo.png";
+import IconNurumia from "./IconNurumia";
 import "../style.css";
 
 const Menu = styled.div`
@@ -134,24 +135,21 @@ const NavigationAuth = () => (
       <div>
         <Menu>
           <div class="menuNavAuth">
-            <ul class="menu-nav-ul" style={{}}>
-              <Link to={ROUTES.HOME} className="link-logo">
-                <img
-                  className="nav-img"
-                  style={{}}
-                  alt=""
-                  src={require("../Logo.png")}
-                />
+            <ul class="menu-nav-ul-aut">
+              <Link to={ROUTES.HOME} className="link-logo-aut">
+                <IconNurumia style={{ height: "40% !important" }} />
               </Link>
-              <Link to={ROUTES.LANDING} className="link-landing">
-                The Platform
-              </Link>
-              <Link to={ROUTES.HOME} className="link-home">
-                Home
-              </Link>
-              <Link to={ROUTES.ACCOUNT} className="link-account">
-                Account
-              </Link>
+              <div className="link-links-aut">
+                <Link to={ROUTES.LANDING} className="link-landing">
+                  The Platform
+                </Link>
+                <Link to={ROUTES.HOME} className="link-home">
+                  Home
+                </Link>
+                <Link to={ROUTES.ACCOUNT} className="link-account">
+                  Account
+                </Link>
+              </div>
               <SignOutButton />
             </ul>
           </div>
@@ -171,19 +169,22 @@ const NavigationNonAuth = props => (
     smallMenuClassName="small-menu-classname"
     menu={
       <Menu>
-        <div class="menuNavAuth">
-          <ul className="menu-nav-ul" style={{}}>
-            <Link to={ROUTES.LANDING} className="link-logo">
-              <img style={{}} alt="" src={require("../Logo.png")} />
+        <div class="menuNavNoAuth">
+          <ul className="menu-nav-ul">
+            <Link to={ROUTES.LANDING}>
+              <div className="link-logo-noaut">
+                <IconNurumia />
+              </div>
             </Link>
+            <div className="link-links-noaut">
+              <Link to={ROUTES.LANDING} className="link-project-noau ">
+                The Platform
+              </Link>
 
-            <Link to={ROUTES.LANDING} className="link-project-noau ">
-              The Platform
-            </Link>
-
-            <Link to={ROUTES.SIGN_IN} className="link-noau ">
-              Sign In
-            </Link>
+              <Link to={ROUTES.SIGN_IN} className="link-noau ">
+                Sign In
+              </Link>
+            </div>
           </ul>
         </div>
       </Menu>
