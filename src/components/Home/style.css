@@ -506,6 +506,12 @@
     border-radius: 0.25rem;
   }
 
+  .chartjs-render-monitor {
+    display: block;
+    height: 350px !important;
+    width: 600px !important;
+  }
+
   .chart-title-text-large {
     text-align: center;
     padding-top: 4%;
@@ -593,6 +599,17 @@
     min-width: max-content;
     word-wrap: normal;
     text-align: center;
+  }
+
+  .readings-grid-chart {
+    margin-left: 4%;
+    padding-left: 5% !important;
+    padding-bottom: 0% !important;
+  }
+
+  .chart-title-text-large {
+    text-align: center;
+    padding-top: 2%;
   }
 
   .setup-canvas {
@@ -694,6 +711,347 @@
     padding: 5%;
     border: 1px solid rgb(63, 81, 181) !important;
     border-radius: 0.25rem;
+  }
+
+  .alarm-header {
+    text-align: center;
+  }
+
+  .task-canvas {
+    margin-top: 0%;
+    padding: 0%;
+  }
+
+  .calendar-canvas {
+    margin-top: 0%;
+  }
+
+  .calendar-card {
+    height: 520px !important;
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-top: 0%;
+    margin-top: 0% !important;
+  }
+
+  .rbc-toolbar {
+    height: 0%;
+    margin-bottom: 0%;
+  }
+
+  .rbc-calendar {
+    height: 87%;
+  }
+  .rbc-month-view {
+    margin-top: 3%;
+    height: 0%;
+  }
+
+  .chat-canvas {
+    margin-top: 5%;
+    position: relative;
+  }
+}
+
+/* Desktops and laptops ----------- */
+@media only screen and (min-width: 480px) and (max-device-width: 900px) {
+  /* text sizes */
+  .text-x-large {
+    font-size: 1.9rem;
+  }
+
+  .text-large {
+    font-size: 1.2rem;
+  }
+
+  .text-medium {
+    font-size: 1rem;
+  }
+
+  .text-small {
+    font-size: 0.95rem;
+  }
+
+  .text-x-small {
+    font-size: 0.8rem;
+  }
+
+  .container-fluid {
+    width: 95% !important;
+  }
+
+  /* navbar styles */
+  .is-white {
+    background: rgb(255, 255, 255);
+    height: 65px;
+  }
+
+  .is-dark {
+    background: rgb(19, 25, 36);
+    height: 60px;
+  }
+
+  .grid-card {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    padding: 1.5rem;
+    min-width: unset;
+    width: 100%;
+    /* padding: 2%; */
+    height: fit-content;
+    border: 1px solid rgb(63, 81, 181) !important;
+    border-radius: 0.25rem !important;
+  }
+
+  .readings-grid-card {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    padding: 1.5rem;
+    min-width: max-content;
+    /* padding: 2%; */
+    height: 500px;
+    margin-left: 90%;
+    margin-top: 0%;
+    border: 1px solid rgb(63, 81, 181) !important;
+    border-radius: 0.25rem;
+  }
+
+  .chart-grid-card {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    padding: 2%;
+    width: 634px;
+    height: 500px;
+    margin-left: 0%;
+    border: 1px solid rgb(63, 81, 181) !important;
+    border-radius: 0.25rem;
+  }
+
+  .chartjs-render-monitor {
+    display: block;
+    height: 350px !important;
+    width: 600px !important;
+  }
+
+  .chart-title-text-large {
+    text-align: center;
+    padding-top: 4%;
+    padding-bottom: 1%;
+  }
+
+  .readings-title-text-large {
+    text-align: center;
+    padding-top: 10%;
+    padding-bottom: 18%;
+  }
+
+  .temperature-header-chart {
+    padding-top: 2%;
+    padding-left: 0%;
+    text-align: center;
+  }
+
+  .readings-header-chart {
+    padding-top: 6%;
+    padding-left: 5%;
+  }
+
+  .readings-mui-grid {
+    margin: 0%;
+    width: 100%;
+    padding-left: 1%;
+  }
+
+  .container-chart {
+    padding-top: 9%;
+    margin-top: 10%;
+    height: 50%;
+    width: 50%;
+  }
+
+  .chart {
+    padding-top: 7%;
+    height: 100%;
+  }
+
+  .readings-grid {
+    padding-left: 2%;
+    padding-top: 10%;
+  }
+
+  .readings-grid-readings {
+    padding-top: "0%" !important;
+    padding-bottom: "1%";
+    margin-left: " 4%";
+  }
+
+  .card-value {
+    padding-top: 5%;
+    padding-bottom: 5%;
+  }
+
+  .temp-grid-card {
+    min-width: max-content;
+    text-align: center;
+    padding-bottom: 5%;
+  }
+
+  .readings-canvas {
+    margin: 0%;
+    padding: 0%;
+    width: -webkit-fill-available;
+  }
+
+  .readings-chart-container {
+    margin-top: 6%;
+    padding: 1%;
+    padding-bottom: 2%;
+  }
+
+  .readings-card-actualValue {
+    padding-left: 0.2%;
+  }
+
+  .readings-card-headerValue {
+    padding-left: 0.2%;
+    margin-right: 0.2%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    min-width: max-content;
+    word-wrap: normal;
+    text-align: center;
+  }
+
+  .readings-grid-chart {
+    margin-left: 4%;
+    padding-left: 9% !important;
+    padding-bottom: 0% !important;
+  }
+
+  .chart-title-text-large {
+    text-align: center;
+    padding-top: 2%;
+  }
+
+  .setup-canvas {
+    margin-top: 0%;
+    width: 97%;
+  }
+
+  .setup-card-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 0%;
+  }
+
+  .setup-main-grid {
+    align-content: center;
+    height: 99%;
+  }
+
+  .setup-time {
+    padding-top: 1%;
+    padding-bottom: 0%;
+    height: 100%;
+    padding-left: 24% !important;
+  }
+
+  .setup-water {
+    align-content: top;
+    padding-left: 24% !important;
+  }
+
+  .setup-temp {
+    align-content: top;
+    padding-left: 24% !important;
+  }
+
+  .buttons-container {
+    padding-top: 10%;
+  }
+
+  .setup-textField {
+    margin-top: 10px;
+    margin-bottom: 8px;
+  }
+
+  .setup-div-textfield {
+    margin-top: 3%;
+    margin-left: 13%;
+    margin-bottom: 1%;
+  }
+
+  .setup-div-buttons {
+    height: fit-content;
+    display: grid;
+    margin-top: 0%;
+  }
+
+  .setup-button-card-canvas {
+    margin-top: 0%;
+    padding: 5%;
+    height: 450px;
+    width: 100%;
+    border: 1px solid rgb(63, 81, 181);
+    border-radius: 0.25rem !important;
+  }
+
+  .setup-buttons-grid {
+    padding-top: 1%;
+    padding-bottom: 0%;
+    height: 100%;
+    padding-left: 24% !important;
+  }
+
+  .setup-buttons-canvas {
+    margin: 1%;
+    margin-bottom: 1%;
+    padding-top: 5%;
+  }
+
+  .setup-buttons-title {
+    height: fit-content;
+    min-width: max-content;
+    margin-top: 5%;
+    margin-bottom: 0%;
+  }
+
+  .setup-submit-button {
+    background-color: white;
+    margin-left: 30.5% !important;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .setup-button {
+    margin-top: 2%;
+    padding: 5%;
+  }
+
+  .table {
+    width: 100%;
+    /* min-width: max-content; */
+    margin-bottom: 1rem;
+    color: #212529;
+  }
+
+  .alarm-card {
+    margin: 11% !important;
+    padding: 5% !important;
   }
 
   .alarm-header {
