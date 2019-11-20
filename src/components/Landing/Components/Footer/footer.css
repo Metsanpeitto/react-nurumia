@@ -160,14 +160,14 @@ body {
     display: flex;
     flex-wrap: wrap;
     color: #999;
-    margin-left: 15.5%;
+    margin-left: 16%;
   }
 
   .legal__links {
     display: block !important;
     position: sticky !important;
     align-items: center;
-    padding-left: 63.5% !important;
+    padding-left: 65% !important;
     margin-top: -3% !important;
     color: #999;
   }
@@ -202,14 +202,14 @@ body {
     display: flex;
     flex-wrap: wrap;
     color: #999;
-    margin-left: 13.5%;
+    margin-left: 15.5%;
   }
 
   .legal__links {
     display: block !important;
     position: sticky !important;
     align-items: center;
-    margin-left: 62% !important;
+    margin-left: 64% !important;
     margin-top: -3% !important;
     color: #999;
   }

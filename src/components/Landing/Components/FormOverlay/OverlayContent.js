@@ -1,4 +1,6 @@
 import React from "react";
+import * as emailjs from "emailjs-com";
+
 import "./formStyle.css";
 
 class OverlayContent extends React.Component {
@@ -6,9 +8,8 @@ class OverlayContent extends React.Component {
     super(props);
     this.state = {
       name: "",
-      company: "",
       email: "",
-      phone: "",
+      subject: "",
       message: ""
     };
 
@@ -28,20 +29,30 @@ class OverlayContent extends React.Component {
     console.log("Change detected. State updated" + name + " = " + value);
   }
 
-  handleSubmit(event) {
-    const name = this.state.name;
-    const email = this.state.email;
-    const phone = this.state.phone;
-    const message = this.state.message;
-    if (name && email && phone && message) {
-      alert(
-        "A form was submitted: " + this.state.name + " // " + this.state.email
-      );
-    } else {
-      alert("Some parameter is not correct");
-    }
-
-    event.preventDefault();
+  handleSubmit(e) {
+    e.preventDefault();
+    const { name, email, subject, message } = this.state;
+    let templateParams = {
+      from_name: name,
+      user_mail: email,
+      subject: subject,
+      message: message
+    };
+    emailjs.send(
+      "default_service",
+      "emailtemplate",
+      templateParams,
+      "user_FqIXKAIpDQYC1lkU3it2G"
+    );
+    this.resetForm();
+  }
+  resetForm() {
+    this.setState({
+      fname: "",
+      email: "",
+      subject: "",
+      message: ""
+    });
   }
   render() {
     return (
@@ -73,15 +84,15 @@ class OverlayContent extends React.Component {
               />
             </div>
             <div className="form-group">
-              <label for="phoneInput">Phone Number</label>
+              <label for="subjectInput">Subject</label>
               <input
-                name="phone"
+                name="subject"
                 type="text"
-                value={this.state.phone}
+                value={this.state.subject}
                 onChange={this.handleChange}
                 className="form-control"
-                id="phoneInput"
-                placeholder="Phone Number"
+                id="subjectInput"
+                placeholder="Subject"
               />
             </div>
             <div className="form-group">
