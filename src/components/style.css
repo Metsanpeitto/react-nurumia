@@ -487,7 +487,7 @@
   }
 
   .learn-body-low {
-    display: inline-flex;
+    display: block;
     background-color: white;
     height: fit-content;
     width: fit-content;
@@ -506,7 +506,7 @@
   }
 
   .learn-body-content3 {
-    margin-left: 0%;
+    margin-left: 10%;
     padding: 2%;
     font-size: 0.6rem !important;
   }
@@ -529,8 +529,8 @@
   }
 
   .learn-body-content-inner2 {
-    max-width: 100%;
-    column-width: 21em;
+    max-width: 91%;
+    column-width: 42em;
     column-gap: 70px;
     font-family: "Open Sans", "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
     font-size: 16px;
@@ -539,9 +539,8 @@
   }
 
   .learn-body-content-inner3 {
-    max-width: 81%;
-    padding-left: 16%;
-    column-width: 21em;
+    max-width: 92%;    
+    column-width: 42em;
     column-gap: 70px;
     font-family: "Open Sans", "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
     font-size: 16px;
