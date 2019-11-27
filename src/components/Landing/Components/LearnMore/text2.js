@@ -6,16 +6,25 @@ const text2 = (
     <div className="learn-body-content-inner2">
       <strong className="text-large"> Meet our ambitions for growth </strong>
       <p className="text-medium">
-        It is our mission to contribute to a sustainable world where a growing
-        world population can live a healthy and comfortable life. <br></br>With
-        our unique combination of hardware, software and services we are
-        perfectly positioned to offer solutions for the challenges the
-        urbanizing world faces.<br></br> Whatever we do, our focus is on local
-        and efficient food production, green and clean buildings and
-        neighborhoods and minimal use of scarce natural resources like fossil
-        energy and fresh water. This way, we believe that we can really
-        contribute to a number of themes that are high on the global political
-        agenda: water, food, climate and energy.
+        in a time when too many people has lost control over their own lives.
+        Where many work in jobs they dislike ,and many don't even have a job.
+        The existence of advanced technologies that are easy accessible to
+        everyone,and the correct use of it ,should contribute to create
+        alternatives much more attractive than the existent ones. An universe of
+        possibilities is in front of us ,but seems like society is failing in
+        catch up with the time we are in. Let's combine software,hardware and
+        all kind of services ,we can provide the vehicle to express new ideas 
+        and create new ways of living around the communities we create.{" "}
+        <br></br> Whatever we do is try to free people of artificial scarce
+        needs. Start them to produce and capitalize on healthy organic foods,
+        instead of the questionable other options that the big
+        corporations give.Make them find a way to enrich their life creating
+        new  relations, with like minded people interested in positive things,
+        making look absurd that people nowadays , could feel alone or
+        isolated,even if there are 7 billion people and almost  everyone has a
+        cellphone.Give them more free time,with the assistance of the devices
+        and the automation in the work area,your time.Gain control over your
+        food,energy,economy and life in general . 
       </p>
     </div>
   </article>
