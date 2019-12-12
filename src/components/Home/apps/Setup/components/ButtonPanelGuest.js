@@ -164,7 +164,7 @@ class ButtonPanel extends React.Component {
             <MyButton
               color={this.state.color4}
               text={this.state.text4}
-              className="button-valvein"
+              className="button-valvein setup-button"
               child="vi"
             />
 
@@ -172,35 +172,35 @@ class ButtonPanel extends React.Component {
               backgroundColor={this.state.backgroundColor2}
               color={this.state.color2}
               text={this.state.text2}
-              className="button-waterheater"
+              className="button-waterheater  setup-button"
               child="wh"
             />
 
             <MyButton
               color={this.state.color3}
               text={this.state.text3}
-              className="button-waterpump"
+              className="button-waterpump setup-button"
               child="p"
             />
 
             <MyButton
               color={this.state.color5}
               text={this.state.text5}
-              className="button-valveout"
+              className="button-valveout setup-button"
               child="vo"
             />
 
             <MyButton
               color={this.state.color6}
               text={this.state.text6}
-              className="button-lamp"
+              className="button-lamp setup-button"
               child="l"
             />
 
             <MyButton
               color={this.state.color7}
               text={this.state.text7}
-              className="button-fan"
+              className="button-fan setup-button"
               child="f"
             />
           </div>

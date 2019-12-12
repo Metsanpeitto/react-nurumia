@@ -18,11 +18,14 @@ class AppReadings extends Component {
   }
 
   fetchJson = () => {
+    console.log("try to get data");
+
     getData(
-      "https://cors-anywhere.herokuapp.com/http://melandru.000webhostapp.com/WebAppChart.php"
+      "https://cors-anywhere.herokuapp.com/http://nurumia.com/WebAppChart.php"
     )
       .then(data => {
-        // this.setState({ key: data.id, json: data });
+        console.log(data);
+        this.setState({ key: data.id, json: data });
         let len = this.state.json.length;
 
         if (len > 6) {
@@ -48,10 +51,10 @@ class AppReadings extends Component {
             i++;
           }
           if (this.state.dataLineTemperature.datasets[0].data.length > 20) {
-            //  this.setState({
-            //  dataLineTemperature: MY_STATE.dataLineTemperature,
-            // readings: MY_STATE.readings
-            //});
+            this.setState({
+              dataLineTemperature: MY_STATE.dataLineTemperature,
+              readings: MY_STATE.readings
+            });
           }
         }
       })

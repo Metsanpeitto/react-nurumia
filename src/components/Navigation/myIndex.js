@@ -134,8 +134,8 @@ const NavigationAuth = () => (
     menu={
       <div>
         <Menu>
-          <div class="menuNavAuth">
-            <ul class="menu-nav-ul-aut">
+          <div className="menuNavAuth">
+            <ul className="menu-nav-ul-aut">
               <Link to={ROUTES.HOME} className="link-logo-aut">
                 <IconNurumia style={{ height: "40% !important" }} />
               </Link>
@@ -169,7 +169,7 @@ const NavigationNonAuth = props => (
     smallMenuClassName="small-menu-classname"
     menu={
       <Menu>
-        <div class="menuNavNoAuth">
+        <div className="menuNavNoAuth">
           <ul className="menu-nav-ul">
             <Link to={ROUTES.LANDING}>
               <div className="link-logo-noaut">

@@ -44,7 +44,7 @@
 /* Colors */
 
 /* Desktops and laptops ----------- */
-@media only screen and (min-width: 1400px) and (max-device-width: 1824px) {
+@media only screen and (min-width: 1400px) and (max-device-width: 2200px) {
   /* text sizes */
   .text-x-large {
     font-size: 2.2rem;
@@ -342,6 +342,12 @@
     height: 600px;
     border: 1px solid rgb(63, 81, 181);
     border-radius: 0.25rem !important;
+  }
+
+  .setup-button {
+    margin-top: 2%;
+    padding: 5%;
+    width: 90% !important;
   }
 
   .setup-buttons-canvas {
@@ -696,6 +702,7 @@
   .setup-button {
     margin-top: 2%;
     padding: 5%;
+    width: 90% !important;
   }
 
   .table {
@@ -1040,6 +1047,7 @@
   .setup-button {
     margin-top: 2%;
     padding: 5%;
+    width: 90% !important;
   }
 
   .table {

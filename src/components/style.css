@@ -161,16 +161,18 @@
   }
 
      
-
-
   .link-logo-aut{
     display: inline-block;
+    margin-top:0% !important;
+    width: fit-content !important;
+    max-width: 20% !important;
 }
 
   .link-logo-noaut{
     display: inline-block;
     margin-top:0% !important;
-    width: fit-content;
+    width: fit-content !important;
+    max-width: 20% !important;
 }
 
   .inside-svg{
@@ -1567,7 +1569,7 @@
 
 
 
-@media only screen and (min-width: 1024px) and (max-device-width: 1400px) {
+@media only screen and (min-width: 900px) and (max-device-width: 1400px) {
   body {
     background: rgb(23, 32, 46) !important;
     font-family: "basefont-regular" !important;
@@ -1688,17 +1690,14 @@
 .link-logo-noaut{
   margin-top:0% !important;
   width: fit-content;
+  width: fit-content !important;
+  max-width: 20% !important;
 }
 
 .inside-svg{
   height: 50px !important;
   width: 150px !important;
 }
-
-
-
-
-
 
 .link-home {
   margin-top: 5px;
@@ -1723,7 +1722,7 @@
   margin-top: 0%;
   margin: -4%;
   margin-left: 87%;
-  padding-top: 0%;
+  padding-top: 0% !important;
   margin-bottom: 10px;
 }
 
@@ -1875,7 +1874,7 @@
     margin: -4%;
     margin-left: 91%;
     padding-top: 1%;
-    margin-bottom: 1%;
+    margin-bottom: 0%;
   }
 
   .signOutButton {
@@ -2194,7 +2193,7 @@
   }
 
   .learn-body-low {
-    display: inline-flex;
+    display: block;
     background-color: white;
     height: fit-content;
     width: fit-content;
@@ -2236,8 +2235,8 @@
   }
 
   .learn-body-content-inner2 {
-    max-width: 100%;
-    column-width: 21em;
+    max-width: 87%;
+    column-width: 35em;
     column-gap: 70px;
     font-family: "Open Sans", "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
     font-size: 16px;
@@ -2246,9 +2245,9 @@
   }
 
   .learn-body-content-inner3 {
-    max-width: 81%;
-    padding-left: 16%;
-    column-width: 21em;
+    max-width: 90%;
+    padding-left:10%;
+    column-width: 35em;
     column-gap: 70px;
     font-family: "Open Sans", "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
     font-size: 16px;
@@ -3406,7 +3405,7 @@
 
 
 
-@media only screen and (min-width: 480px) and (max-device-width: 1024px) {
+@media only screen and (min-width: 480px) and (max-device-width: 900px) {
   body {
     background: rgb(23, 32, 46) !important;
     font-family: "basefont-regular" !important;
