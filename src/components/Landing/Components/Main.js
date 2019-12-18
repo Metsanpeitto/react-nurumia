@@ -40,9 +40,9 @@ const Main = () => (
 
       <div className="main-block-text">
         <h4 className="text-medium" style={{ textAlign: "center" }}>
-          Share and mutual help as fundstones of the plaform. Meet like-minded
+          Share and mutual aid as fundstones of the plaform. Meet like-minded
           people and grow together an ecosystem where to learn,make a living and
-          better our lives,and the ones we love.
+          improve our lives,and the ones we love.
         </h4>
         <div
           className="main-block-link text-small"

@@ -20,7 +20,7 @@
   font-family: "basefont-bold";
 }
 
-@media only screen and (min-width: 1400px) and (max-device-width: 2200px) {
+@media only screen and (min-width: 1400px)  {
   body {
     background: rgb(23, 32, 46) !important;
     font-family: "basefont-regular" !important;
@@ -150,13 +150,13 @@
 
   .link-project-noau {
     margin-left: 28%;
-    margin-top: 3%;
+    margin-top: 0%;
     width: fit-content;
   }
 
   .link-noau {
     margin-left: 50%;
-    margin-top: 3%;
+    margin-top: 0%;
     width: fit-content;
   }
 
@@ -182,34 +182,35 @@
 
   .link-home {
     margin-top: 5px;
-    margin-left: 234px;
+    margin-left: 20%;
   }
 
   .link-account {
     margin-top: 5px;
-    margin-left: 255px;
+    margin-left: 20%;
   }
 
   .link-landing {
     margin-top: 5px;
-    margin-left: 253px;
+    margin-left: 20%;
   }
 
-  .signOutButton-canvas {
-    background-color: white;
+  .signOutButton-canvas {    
     border: 1;
     max-height: fit-content;
     width: fit-content;
-    margin-top: 0%;
-    margin: -4%;
+    /* margin-top: 18%; */
+    
     margin-left: 89%;
-    padding-top: 0%;
-    margin-bottom: 10px;
+   
   }
 
   .signOutButton {
-    width: 150px;
-    height: 50px;
+    border: 1px;
+    height: fit-content;
+    margin-top: auto !important;
+    margin-bottom: auto !important;
+    margin-right: 2% !important;   
   }
 
   .signinLink {
@@ -220,14 +221,15 @@
 
   .link-links-aut{
     display: block !important;
-    margin-top: -2%;
+    width: 50% !important;
     margin-left: 10.5%;
+    margin-right: 15%;
+    margin-top: auto;
   }
 
   .link-links-noaut{
-    display: block !important;
-    margin-top: -1.5%;
-    margin-left: 24%;
+    display: contents !important;
+    margin-right: auto; 
   }
 
   .grjlkb {
@@ -247,6 +249,8 @@
 .grjlkb ul {
   padding-top: 0% !important;
   margin: 0%;
+  width: -webkit-fill-available;
+  display: inline-flex;
 }
 
   .menu-nav-ul-aut {
@@ -1715,14 +1719,13 @@
 }
 
 .signOutButton-canvas {
-  background-color: white;
   border: 1;
   max-height: fit-content;
   width: fit-content;
-  margin-top: 0%;
-  margin: -4%;
-  margin-left: 87%;
-  padding-top: 0% !important;
+  /* margin-top: 18%; */
+  margin: -5%;
+  margin-left: 89%;
+  padding-top: 2%;
   margin-bottom: 10px;
 }
 

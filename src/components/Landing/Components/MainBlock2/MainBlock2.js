@@ -43,7 +43,7 @@ const MainBlock2 = () => (
       console.log(img);
       return (
         <Link
-          key="link-block2"
+          key={"link-block2-${}" + i}
           to={routes[i]}
           color="black"
           textDecoration="none"

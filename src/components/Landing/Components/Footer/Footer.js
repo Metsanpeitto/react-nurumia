@@ -9,27 +9,26 @@ import "../../../style.css";
 
 const Footer = () => (
   <div className="footer-canvas ">
-    <footer class="footer">
-      <div class="footer__addr">
+    <footer className="footer">
+      <div className="footer__addr">
         <h1 className="footer__logo1" style={{ fontFamily: "Pacifico" }}>
-          we are here to help you
+          We are here to help you
         </h1>
 
         <h2 className="footer__contact">Contact</h2>
 
-        <address>
-          33670 Waldenberg 70. Morea d'Ayer . Spain
-          <a class="footer__btn" href="mailto:admin@nurumia..com">
-            Email Us
-          </a>
-        </address>
+        <address>33670 Waldenberg 70. Morea d'Ayer . Spain</address>
+        <a className="footer__btn" href="mailto:admin@nurumia..com">
+          Email Us
+        </a>
+        <p className="legal">&copy; 2019 Nurumia. All rights reserved.</p>
       </div>
 
-      <div class="footer__nav">
-        <div class="nav__item">
+      <div className="footer__nav">
+        <div className="nav__item">
           {" "}
           <h2 className="nav__title">Legal</h2>
-          <div class="nav__ul">
+          <div className="nav__ul">
             <Link to={ROUTES.PRIVACY} className="fnav__ul__item ">
               Privacy Policy
             </Link>
@@ -37,15 +36,11 @@ const Footer = () => (
               Disclaimer
             </Link>
           </div>
+          <span className="legal__links ">
+            Made with <span className="heart">♥</span> remotely from Waldenberg
+          </span>
         </div>
       </div>
-
-      <div class="legal">
-        <p>&copy; 2019 Nurumia. All rights reserved.</p>
-      </div>
-      <span class="legal__links ">
-        Made with <span class="heart">♥</span> remotely from Waldenberg
-      </span>
     </footer>
   </div>
 );

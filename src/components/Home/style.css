@@ -44,7 +44,7 @@
 /* Colors */
 
 /* Desktops and laptops ----------- */
-@media only screen and (min-width: 1400px) and (max-device-width: 2200px) {
+@media only screen and (min-width: 1400px) {
   /* text sizes */
   .text-x-large {
     font-size: 2.2rem;

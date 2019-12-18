@@ -171,16 +171,13 @@ const NavigationNonAuth = props => (
       <Menu>
         <div className="menuNavNoAuth">
           <ul className="menu-nav-ul">
-            <Link to={ROUTES.LANDING}>
-              <div className="link-logo-noaut">
-                <IconNurumia />
-              </div>
+            <Link to={ROUTES.LANDING} className="link-logo-noaut">
+              <IconNurumia />
             </Link>
             <div className="link-links-noaut">
               <Link to={ROUTES.LANDING} className="link-project-noau ">
                 The Platform
               </Link>
-
               <Link to={ROUTES.SIGN_IN} className="link-noau ">
                 Sign In
               </Link>
