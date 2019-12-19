@@ -37,7 +37,7 @@ button.rbc-input::-moz-focus-inner {
   padding: 0;
 }
 
-@media only screen and (min-width: 1400px) and (max-device-width: 1824px) {
+@media only screen and (min-width: 1400px)  {
   .rbc-calendar {
     box-sizing: border-box;
     display: flex;

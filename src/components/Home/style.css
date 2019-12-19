@@ -127,7 +127,7 @@
     padding: 1.5rem;
     min-width: max-content;
     /* padding: 2%; */
-    height: 600px;
+    height: auto;
     border: 1px solid rgb(63, 81, 181) !important;
     border-radius: 0.25rem;
   }
@@ -339,7 +339,7 @@
   .setup-button-card-canvas {
     margin-top: 0%;
     padding: 5%;
-    height: 600px;
+    height: auto;
     border: 1px solid rgb(63, 81, 181);
     border-radius: 0.25rem !important;
   }

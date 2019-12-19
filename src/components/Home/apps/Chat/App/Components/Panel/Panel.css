@@ -6,7 +6,7 @@
   color: rgb(128, 145, 171);
 }
 
-@media only screen and (min-width: 1400px) and (max-device-width: 1824px) {
+@media only screen and (min-width: 1400px) {
   .card-heading {
     padding-top: 30%;
     display: contents;
@@ -68,6 +68,10 @@
   .search-result-canvas {
     height: 294px;
     overflow-y: scroll;
+  }
+
+  .panel-create {
+    margin-top: 10%;
   }
 
   .panel-search {

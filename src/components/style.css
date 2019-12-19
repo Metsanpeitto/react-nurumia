@@ -1,3 +1,116 @@
+
+
+
+
+/* Limbo code  ///Fix it
+.container-fluid {
+  width: 95% !important;
+}
+
+/* navbar styles */
+.is-white {
+  background: rgb(255, 255, 255);
+  height: 65px;
+}
+
+.is-dark {
+  background: rgb(19, 25, 36);
+  height: 60px;
+}
+
+/* user image style */
+.img-container > img {
+  width: 40px;
+}
+
+.grid-card {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 1.5rem;
+  height: calc(100%);
+  border: 1px solid rgb(63, 81, 181);
+}
+.user-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  border: 1px solid rgb(63, 81, 181);
+}
+
+.is-card-dark {
+  background: rgb(32, 42, 59) !important;
+}
+
+.logo-adjust {
+  margin-top: -4px;
+}
+
+.col-md-8.border-left {
+  border-left: 1px solid rgba(222, 226, 230, 0.07) !important;
+}
+
+.fab {
+  color: rgb(255, 255, 255);
+  opacity: 0.6;
+}
+
+.conv > span {
+  display: inline-block;
+  min-width: 75px !important;
+}
+
+.chart-container > * {
+  height: 100% !important;
+}
+
+.full-height.border-left,
+.full-height.border-right {
+  border-left: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.custom-dropdown {
+  border-radius: 4px;
+  background: transparent;
+  border: 1px solid rgba(193, 204, 222, 0.2);
+  font-family: "basefont-regular";
+}
+
+.Dropdown-menu {
+  max-height: 300px;
+}
+
+.Dropdown-control {
+  border: none;
+  color: #c1ccde;
+  background: transparent;
+}
+
+.Dropdown-arrow {
+  top: 18px;
+}
+/* Delete upcode*/
+
+
+
+
 /* typography styles */
 .is-dark-text {
   color: rgb(67, 68, 86);
@@ -59,9 +172,15 @@
   }
 
   .container-signin {
-    padding: 4%;
-    margin: 22%;
+    padding: 4%;   
     margin-top: 10%;
+  }
+
+  .signin-canvas{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20rem;
+    width: max-content;
   }
 
   .container-landing {
@@ -149,14 +268,17 @@
   }
 
   .link-project-noau {
-    margin-left: 28%;
+    margin-left: auto;
     margin-top: 0%;
+    font-size: 1.3rem;
     width: fit-content;
   }
 
   .link-noau {
     margin-left: 50%;
+    margin-right: 5% !important;
     margin-top: 0%;
+    font-size: 1.3rem;
     width: fit-content;
   }
 
@@ -191,7 +313,7 @@
   }
 
   .link-landing {
-    margin-top: 5px;
+    margin-top: auto;
     margin-left: 20%;
   }
 
@@ -207,14 +329,17 @@
 
   .signOutButton {
     border: 1px;
-    height: fit-content;
+    width: 13rem;
+    height: 3rem;
+    font-size: 1.2rem;
     margin-top: auto !important;
     margin-bottom: auto !important;
     margin-right: 2% !important;   
   }
 
   .signinLink {
-    margin-left: 22%;
+    margin-left: auto;
+    margin-right: auto;
   }
 
 
@@ -225,11 +350,15 @@
     margin-left: 10.5%;
     margin-right: 15%;
     margin-top: auto;
+    font-size: 1.3rem;
   }
 
   .link-links-noaut{
-    display: contents !important;
-    margin-right: auto; 
+    display: block !important;
+    width: 50% !important;
+    margin-left: auto;
+    /* margin-right: auto; */
+    margin-top: auto; 
   }
 
   .grjlkb {
@@ -254,12 +383,22 @@
 }
 
   .menu-nav-ul-aut {
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
     padding-top: 0% !important;
     padding-left: 10px;
     margin: 0%;
   }
 
   .menu-nav-ul {
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
     padding-top: 2% !important;
     padding-left: 0.5% !important;
     margin: 0%;
@@ -1686,6 +1825,25 @@
 
 
 
+  .link-links-aut{
+    display: contents !important;
+    width: fit-content !important;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+  }
+
+
+  .link-links-noaut{
+    display: contents !important;
+    width: fit-content !important;
+    margin-left: auto;
+    /* margin-right: auto; */
+    margin-top: auto; 
+  }
+
+
+
 .link-logo{
   margin-top:-4.6% !important;
   width: fit-content;
@@ -1704,18 +1862,19 @@
 }
 
 .link-home {
-  margin-top: 5px;
-  margin-left: 234px;
+ margin-left: 15%;
+ margin-top: auto;
 }
 
 .link-account {
-  margin-top: 5px;
-  margin-left: 255px;
+  margin-left: 15%;
+  margin-right: auto !important;
+   margin-top: auto;
 }
 
 .link-landing {
-  margin-top: 5px;
-  margin-left: 253px;
+  margin-left: auto;
+  margin-top: auto;
 }
 
 .signOutButton-canvas {
@@ -1731,50 +1890,34 @@
 
 .signOutButton {
   width: 150px;
-  height: 50px;
+  border: 1px;
+  height: fit-content;
+  margin-top: auto !important;
+  margin-bottom: auto !important;
+  margin-right: 2% !important;
 }
 
 .signinLink {
   margin-left: 22%;
 }
 
-
-
-.link-links-aut{
-  display: block !important;
-  margin-top: -2%;
-  margin-left: 3% !important;
-  width: fit-content;
-}
-
-.link-links-noaut{
-  display: block !important;
-  margin-top: -2.5%;
-  margin-left: 24%;
-  width: fit-content;
-}
-
-.grjlkb {
-  border-bottom: 2px solid #3f52b5;
-  margin: 0%;
-  background-color: white;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  text-align: start;
-  width: 100%;
-  height: 100px;
-  padding-left: 0.5%;
-  padding-top: 0.25%;
-}
-
 .menu-nav-ul-aut {
+  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;      /* TWEENER - IE 10 */
+  display: -webkit-flex;     /* NEW - Chrome */
+  display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
   padding-top: 0% !important;
   padding-left: 10px;
   margin: 0%;
 }
 
 .menu-nav-ul {
+  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;      /* TWEENER - IE 10 */
+  display: -webkit-flex;     /* NEW - Chrome */
+  display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
   padding-top: 0% !important;
   padding-left: 0.5% !important;
   margin: 0%;
@@ -1800,12 +1943,14 @@
   .link-project-noau {
     margin-right: 35%;
     margin-left: 22%;
+    margin-top: auto;
   }
 
   .link-noau {
     margin-left: 0% !important;
-    margin-top: 0% !important;
+    
     width: fit-content !important;
+    margin-top: auto;
   }
 
   .signinLink {
@@ -1827,20 +1972,6 @@
   }
 
 
-  .link-links-aut{
-    margin-top: -2%;
-    margin-left: 10.5%;
-  }
-
-  .link-links-noaut{
-    margin-top: -2%;
-    margin-left: 24%;
-    width: 100% !important;
-  }
-
-
-
-
   .link-noau {
     margin-right: 0%;
   }
@@ -1853,20 +1984,6 @@
     width: "12%" !important;
   }
 
-  .link-home {
-    margin-top: 5px;
-    margin-left: 234px;
-  }
-
-  .link-account {
-    margin-top: 5px;
-    margin-left: 255px;
-  }
-
-  .link-landing {
-    margin-top: 5px;
-    margin-left: 253px;
-  }
 
   .signOutButton-canvas {
     background-color: white;
@@ -3289,116 +3406,6 @@
 
 
 
-/* Limbo code  ///Fix it
-.container-fluid {
-  width: 95% !important;
-}
-
-/* navbar styles */
-.is-white {
-  background: rgb(255, 255, 255);
-  height: 65px;
-}
-
-.is-dark {
-  background: rgb(19, 25, 36);
-  height: 60px;
-}
-
-/* user image style */
-.img-container > img {
-  width: 40px;
-}
-
-.grid-card {
-  display: flex;
-  flex-grow: 1;
-  flex-direction: column;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  padding: 1.5rem;
-  height: calc(100%);
-  border: 1px solid rgb(63, 81, 181);
-}
-.user-card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  word-wrap: break-word;
-  background-color: #fff;
-  background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 0.25rem;
-  border: 1px solid rgb(63, 81, 181);
-}
-
-.is-card-dark {
-  background: rgb(32, 42, 59) !important;
-}
-
-.logo-adjust {
-  margin-top: -4px;
-}
-
-.col-md-8.border-left {
-  border-left: 1px solid rgba(222, 226, 230, 0.07) !important;
-}
-
-.fab {
-  color: rgb(255, 255, 255);
-  opacity: 0.6;
-}
-
-.conv > span {
-  display: inline-block;
-  min-width: 75px !important;
-}
-
-.chart-container > * {
-  height: 100% !important;
-}
-
-.full-height.border-left,
-.full-height.border-right {
-  border-left: 1px solid rgba(255, 255, 255, 0.1) !important;
-  border-right: 1px solid rgba(255, 255, 255, 0.1) !important;
-}
-
-.custom-dropdown {
-  border-radius: 4px;
-  background: transparent;
-  border: 1px solid rgba(193, 204, 222, 0.2);
-  font-family: "basefont-regular";
-}
-
-.Dropdown-menu {
-  max-height: 300px;
-}
-
-.Dropdown-control {
-  border: none;
-  color: #c1ccde;
-  background: transparent;
-}
-
-.Dropdown-arrow {
-  top: 18px;
-}
-/* Delete upcode*/
-
-
-
-
-
 
 
 
@@ -3538,25 +3545,6 @@
 }
 
 
-
-
-
-
-.link-home {
-  margin-top: 5px;
-  margin-left: 234px;
-}
-
-.link-account {
-  margin-top: 5px;
-  margin-left: 255px;
-}
-
-.link-landing {
-  margin-top: 5px;
-  margin-left: 253px;
-}
-
 .signOutButton-canvas {
   background-color: white;
   border: 1;
@@ -3576,22 +3564,6 @@
 
 .signinLink {
   margin-left: 22%;
-}
-
-
-
-.link-links-aut{
-  display: contents !important;
-  margin-top: -2%;
-  margin-left: 3% !important;
-  width: fit-content;
-}
-
-.link-links-noaut{
-  display: block !important;
-  margin-top: -2%;
-  margin-left: 24%;
-  width: fit-content;
 }
 
 .sc-bdVaJa {
@@ -3619,7 +3591,6 @@
 }
 
 .menu-nav-ul {
-  padding-top: 4.5% !important;
   padding-left: 0.5% !important;
   margin: 0%;
 }
@@ -3642,14 +3613,16 @@
 
 
   .link-project-noau {
-    margin-right: 35%;
+    margin-right: 25%;
     margin-left: 19%;
+    margin-top: auto;
   }
 
   .link-noau {
     margin-left: 0% !important;
     margin-top: 0% !important;
     width: fit-content !important;
+    margin-top: auto;
   }
 
   .signinLink {
@@ -3672,22 +3645,24 @@
 
 
   .link-links-aut{
-    margin-top: -2%;
-    margin-left: 10.5%;
+    display: contents !important;
+    width: fit-content !important;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
   }
+
 
   .link-links-noaut{
-    margin-top: -2%;
-    margin-left: 24%;
-    width: 100% !important;
+    display: contents !important;
+    width: fit-content !important;
+    margin-left: auto;
+    /* margin-right: auto; */
+    margin-top: auto; 
   }
 
 
 
-
-  .link-noau {
-    margin-right: 0%;
-  }
 
   .nav-img {
     padding-left: "1%";
@@ -3698,18 +3673,17 @@
   }
 
   .link-home {
-    margin-top: 5px;
     margin-left: 10%;
   }
 
   .link-account {
-    margin-top: 5px;
     margin-left: 10%;
+    margin-right: 5%;
   }
 
   .link-landing {
     margin-top: 1% !important;
-    margin-left: 10%;
+    margin-left: 5%;
   }
 
   .signOutButton-canvas {

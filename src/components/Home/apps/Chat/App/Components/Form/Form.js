@@ -275,7 +275,7 @@ class Form extends Component {
             }
           }}
         </AuthUserContext.Consumer>
-        <Container className="card is-dark-text-light chat-grid-card grid-card is-card-dark">
+        <Container className="card is-dark-text-light chat-grid-card  is-card-dark">
           <div className="chat-title">{group ? group : "No chat"}</div>
 
           <Container className="card-heading">

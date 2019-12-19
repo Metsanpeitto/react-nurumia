@@ -162,8 +162,7 @@ class Panel extends Component {
                     variant="contained"
                     style={{
                       color: clickedSearch ? "white" : "rgb(128, 145, 171)",
-                      backgroundColor: "transparent",
-                      marginTop: "1rem"
+                      backgroundColor: "transparent"
                     }}
                     onClick={this.handleClick}
                   >
