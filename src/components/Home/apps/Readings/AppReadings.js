@@ -106,7 +106,7 @@ class AppReadings extends Component {
             }}
           >
             <Container className="chart-grid-card  is-card-dark is-dark-text-light letter-spacing text-small">
-              <h3 className="chart-title-text-large ">Temperature Readings</h3>
+              <h3 className="chart-title-text-large ">Temperature Reading</h3>
               <div className="chart-canvas">
                 <Chart dataLine={this.state.dataLineTemperature} />
               </div>
