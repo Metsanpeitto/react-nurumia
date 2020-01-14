@@ -77,7 +77,7 @@ const UserList = ({ users }) => (
           </span>
           <hr />
           <span>
-            <strong className="is-dark-text-light">Username:</strong>{" "}
+            <strong className="is-dark-text-light">User:</strong>{" "}
             {user.username}
           </span>
         </li>
