@@ -17,7 +17,7 @@
     url("./assets/fonts/circular/CircularStd-Bold.otf") format("opentype");
 }
 
-/* typography styles */
+/* typography styles   */
 .is-dark-text {
   color: rgb(67, 68, 86);
 }
